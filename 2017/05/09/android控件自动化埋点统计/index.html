@@ -79,8 +79,6 @@
 
 
 
-  
-
 
   <link rel="alternate" href="/atom.xml" title="Shinx'blog" type="application/atom+xml" />
 
@@ -100,7 +98,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/05/09/android控件自动化埋点统计/index.html">
 <meta property="og:site_name" content="Shinx&#39;blog">
 <meta property="og:description" content="想到应用统计，平时我们使用的一般都是第三方的，比如百度统计，友盟统计，这几天公司要做自己的统计，于是乎也找了一些自动化埋点的博文学习使用。最后会给出参考链接，非常感谢。 　　现有的几种埋点技术的实现原理和优劣分析　1.代码埋点：将收集数据的代码直接写在需要的地方，当用户点击某个控件或者打开某个页面时调用到该部分代码完成数据的收集。　    优势：准确性高，收集数据和发送数据都能精确控制，同时能">
-<meta property="og:updated_time" content="2017-05-09T15:21:10.000Z">
+<meta property="og:updated_time" content="2017-05-09T15:46:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="android控件自动化埋点统计">
 <meta name="twitter:description" content="想到应用统计，平时我们使用的一般都是第三方的，比如百度统计，友盟统计，这几天公司要做自己的统计，于是乎也找了一些自动化埋点的博文学习使用。最后会给出参考链接，非常感谢。 　　现有的几种埋点技术的实现原理和优劣分析　1.代码埋点：将收集数据的代码直接写在需要的地方，当用户点击某个控件或者打开某个页面时调用到该部分代码完成数据的收集。　    优势：准确性高，收集数据和发送数据都能精确控制，同时能">
@@ -347,7 +345,12 @@
 <h3 id="埋点技术的选择"><a href="#埋点技术的选择" class="headerlink" title="埋点技术的选择"></a>埋点技术的选择</h3><p>　<strong>1.代码埋点</strong>：既可以自己与后台定义接口，也可以使用第三方，常用的有友盟，百度统计等。<br>　<strong>2.可视化埋点和无埋点</strong>：移动端可以自己实现数据采集。第三方有诸葛IO，GrowingIO 。在知乎上查了关于这两个平台的信息，GrowingIO隐藏收费，官网并没有说到收费，但是使用15天后发邮件通知收费并停止数据采集和分析。诸葛IO免费模式的数据量是每月200万条，还有其他收费模式。<br>　<strong>3.后端埋点</strong>：Sensors Analytics  </p>
 <h3 id="方案采用"><a href="#方案采用" class="headerlink" title="方案采用"></a>方案采用</h3><p>　根据公司的需求以及对app的规模，只需实现控件按钮点击事件的监听，但是对控件的点击事件处都添加代码，工作量是有点大，所以我们采用控件自动化埋点的方法来统计，只需在BaseActvity中重写dispatchTouchEvent，在xml布局中给需要统计点击事件的控件添加tag标签即可,并不需要在每一个OnClickListener的地方加入拦截代码。  </p>
 <h3 id="原理解析"><a href="#原理解析" class="headerlink" title="原理解析"></a>原理解析</h3><p><em>创建BaseActivity基类，实现控件的点击监听，根据UI布局的特性和Android点击事件传递机制实现。让创建的BaseActivity基类重写Activity的dispatchTouchEvent,当touch button时，获取到按下和抬起产生的MotionEvent对象，从而通过getRawX()和getRawY()方法获取到点击位置在界面中的坐标，然后搜索所有子view或者控件的布局区域示范包含点击位置，从而判断那个view或控件被点击了，再通过getTag()获取到我们控件的标签。</em></p>
-<p><strong>  1.首先在onAttachedToWindow()方法，该方法是在onResumed()方法之后，当view和window绑定的时候就会调用该方法，在该方法中我们通过getWindow().getDecorView()方法获取到根节点view的对象。</strong></p>
+<p><strong> 1.首选在我们的application中设置启动自动埋点</strong></p>
+<pre><code>    private void setAutoClickHook() {
+        BehaviorUtil.setAutoCollectEvent(true);
+        BehaviorUtil.setToastAutoCollectEvent(true);
+    }
+</code></pre><p><strong> 2.然后在onAttachedToWindow()方法，该方法是在onResumed()方法之后，当view和window绑定的时候就会调用该方法，在该方法中我们通过getWindow().getDecorView()方法获取到根节点view的对象。</strong></p>
 <pre><code>   @Override
    public void onAttachedToWindow() {
         super.onAttachedToWindow();
@@ -362,7 +365,7 @@
         //前缀名 bigdata_ignore
         bigDataEventPrefix = getString(R.string.collection_event_prefix);
    }
-</code></pre><p><strong> 2.其次我们便重写dispatchTouchEvent()方法,我们判断是否自动埋点，如果为true，我们就处理自动埋点的事件</strong>  </p>
+</code></pre><p><strong> 3.其次我们便重写dispatchTouchEvent()方法,我们判断是否自动埋点，如果为true，我们就处理自动埋点的事件</strong>  </p>
 <pre><code>    @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
         //判断是否自动埋点
@@ -371,13 +374,99 @@
         }
         return super.dispatchTouchEvent(ev);
     }
-</code></pre><p><strong> 3.在处理自动埋点的时候，我们就要判断touch状态，当为down的时候，我们就找到down点击位置的那个控件对象</strong></p>
+</code></pre><p><strong> 3.在处理自动埋点的时候，我们就要判断touch状态，当为down的时候，我们就找到down点击位置的那个控件所在的视图</strong></p>
 <pre><code>    private ClickView findClickView(MotionEvent ev) {
-        Log.w(TAG, &quot;bigdata--&gt;findClickView&quot;);
+        Log.e(TAG, &quot;bigdata--&gt;findClickView&quot;);
         ClickView clickView = new ClickView(rootView, rootViewTree);
         return searchClickView(clickView, ev, 0);
     }
-</code></pre><p><strong> 4.ClickView是一个自定义的内部类，</strong></p>
+</code></pre><p><strong> 4.ClickView是一个自定义的内部类</strong></p>
+<pre><code>    private static class ClickView {
+
+        View   view;              //view
+        String viewTree;          //view在视图树上的路径
+        String specifyTag;
+        int level            = 0;//层级默认为0
+        int filterLevelCount = 3;//需要过滤的层级
+
+        ClickView(View view, String viewTree) {
+            this.view = view;
+            this.viewTree = viewTree;
+        }
+    }
+</code></pre><p><strong> 5.通过点击的视图再去查找点击的view</strong></p>
+<pre><code>    private ClickView searchClickView(ClickView myView, MotionEvent event, int index) {
+        ClickView clickView = null;
+        View view = myView.view;
+        if (isInView(view, event)) {    //遍历根view下的子view以及所有子view上的控件
+            // 当第二层不为LinearLayout时，说明系统进行了改造，多了一层,需要多剔除一层
+            myView.level++;
+            if (myView.level == 2 &amp;&amp; !&quot;LinearLayout&quot;.equals(view.getClass().getSimpleName())) {
+                myView.filterLevelCount++;
+            }
+            if (myView.level &gt; myView.filterLevelCount) {
+                myView.viewTree = myView.viewTree + &quot;.&quot; + view.getClass().getSimpleName() + &quot;[&quot; + index + &quot;]&quot;;
+            }
+            Log.i(TAG, &quot;bigdata--&gt;tag = &quot; + view.getTag());
+            // 如果Layout有设置特定的tag，则直接返回View，主要用于复合组件的点击事件
+            if (view.getTag() != null) {
+                // 主动标记不需要统计时，不进行自动统计
+                String tag = view.getTag().toString();
+
+                if (tag.startsWith(bigDataIngorePrefix)) {
+                    return null;
+                } else if (tag.startsWith(bigDataPrefix)) {
+                    if (tag.startsWith(bigDataEventPrefix)) {
+                        myView.specifyTag = tag.replace(bigDataEventPrefix, &quot;&quot;);
+                    }
+                    return myView;
+                }
+            }
+
+            if (view instanceof ViewGroup) {    //遇到一些Layout之类的ViewGroup，继续遍历它下面的子View
+                if (view instanceof AbsListView) {
+                    Log.i(TAG, &quot;bigdata--&gt;AbsListView &quot;);
+                    return null;
+                }
+
+                ViewGroup group = (ViewGroup) view;
+                int childCount = group.getChildCount();
+
+                if (childCount == 0) {
+                    return myView;
+                }
+                for (int i = childCount - 1; i &gt;= 0; i--) {
+                    myView.view = group.getChildAt(i);
+                    clickView = searchClickView(myView, event, i);
+                    if (clickView != null) {
+                        return clickView;
+                    }
+                }
+            } else {
+                clickView = myView;
+            }
+        }
+        return clickView;
+    }
+</code></pre><p><strong> 6.由于Activty的UI是层层嵌套的，isInView()方法就是通过根view层层遍历其下的子view以及子view上的控件，这些view和控件在屏幕中的坐标和高度我们是可以通过MotionEvent对象获取到的，从而搜索所有子view或者控件的布局区域示范包含“点击位置”，从而来判断那个view或控件被点击。</strong></p>
+<pre><code>    private boolean isInView(View view, MotionEvent event) {
+        //能被点击的view必然是可见的
+        if (view == null || view.getVisibility() != View.VISIBLE) {
+            return false;
+        }
+        int clickX = (int) event.getRawX();
+        int clickY = (int) event.getRawY();
+        //如下的view表示Activity中的子View或者控件
+        int[] location = new int[2];
+        view.getLocationOnScreen(location);
+        int x = location[0];
+        int y = location[1];
+        int width = view.getWidth();
+        int height = view.getHeight();
+        //返回true，则判断这个view被点击了
+        return clickX &gt; x &amp;&amp; clickX &lt; (x + width) &amp;&amp; clickY &gt; y &amp;&amp; clickY &lt; (y + height);
+    }
+</code></pre><p>7.找到被点击的view后，view的视图level++,</p>
 
       
     </div>
@@ -423,6 +512,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/09/hexo博客的更新优化/" rel="prev" title="hexo博客的更新优化 ">
+                hexo博客的更新优化  <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -524,7 +617,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
