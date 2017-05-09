@@ -98,7 +98,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/05/09/android控件自动化埋点统计/index.html">
 <meta property="og:site_name" content="Shinx&#39;blog">
 <meta property="og:description" content="想到应用统计，平时我们使用的一般都是第三方的，比如百度统计，友盟统计，这几天公司要做自己的统计，于是乎也找了一些自动化埋点的博文学习使用。最后会给出参考链接，非常感谢。 现有的几种埋点技术的实现原理和优劣分析　1.代码埋点：将收集数据的代码直接写在需要的地方，当用户点击某个控件或者打开某个页面时调用到该部分代码完成数据的收集。　    优势：准确性高，收集数据和发送数据都能精确控制，同时能方便">
-<meta property="og:updated_time" content="2017-05-09T16:17:55.000Z">
+<meta property="og:updated_time" content="2017-05-09T16:32:33.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="android控件自动化埋点统计">
 <meta name="twitter:description" content="想到应用统计，平时我们使用的一般都是第三方的，比如百度统计，友盟统计，这几天公司要做自己的统计，于是乎也找了一些自动化埋点的博文学习使用。最后会给出参考链接，非常感谢。 现有的几种埋点技术的实现原理和优劣分析　1.代码埋点：将收集数据的代码直接写在需要的地方，当用户点击某个控件或者打开某个页面时调用到该部分代码完成数据的收集。　    优势：准确性高，收集数据和发送数据都能精确控制，同时能方便">
@@ -467,6 +467,7 @@
         return clickX &gt; x &amp;&amp; clickX &lt; (x + width) &amp;&amp; clickY &gt; y &amp;&amp; clickY &lt; (y + height);
     }
 </code></pre><p>7.找到被点击的view后，view的视图level++,</p>
+<h4 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h4><p><a href="http://blog.csdn.net/hhcoco/article/details/52243079" target="_blank" rel="external">Android埋点技术分析调研</a><br><a href="http://blog.csdn.net/fkaking/article/details/50338467" target="_blank" rel="external">Android自动化埋点的实践</a><br><a href="http://blog.csdn.net/gykimo/article/details/24772853" target="_blank" rel="external">Android - 自动化埋点</a><br><a href="http://www.jianshu.com/p/b5ffe845fe2d" target="_blank" rel="external">Android无埋点数据收集SDK关键技术</a></p>
 
       
     </div>
@@ -663,7 +664,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#现有的几种埋点技术的实现原理和优劣分析"><span class="nav-number">1.</span> <span class="nav-text">现有的几种埋点技术的实现原理和优劣分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#埋点技术的选择"><span class="nav-number">2.</span> <span class="nav-text">埋点技术的选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方案采用"><span class="nav-number">3.</span> <span class="nav-text">方案采用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原理解析"><span class="nav-number">4.</span> <span class="nav-text">原理解析</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#现有的几种埋点技术的实现原理和优劣分析"><span class="nav-number">1.</span> <span class="nav-text">现有的几种埋点技术的实现原理和优劣分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#埋点技术的选择"><span class="nav-number">2.</span> <span class="nav-text">埋点技术的选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方案采用"><span class="nav-number">3.</span> <span class="nav-text">方案采用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原理解析"><span class="nav-number">4.</span> <span class="nav-text">原理解析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#参考文章"><span class="nav-number">4.1.</span> <span class="nav-text">参考文章</span></a></li></ol></li></ol></div>
             
 
           </div>
