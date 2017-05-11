@@ -1,0 +1,1025 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="热修复,AndFix," />
+
+
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="Shinx'blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="什么是热修复　　我们知道按照现有的模式，一旦我们上线的app版本有了bug，我们不得不先解决bug，然后测试无误后，重新打包，然后再发布到应用市场上去，这一系列的操作，不仅浪费时间，而且也影响用户的体验，若能像web端一样，更改了代码就能立马生效，那般轻松也正是开发者有朝一日所希望的。现如今Android插件化热更新技术非常火热，也开源了很多的项目如Dexposed,AndFix,ClassLoa">
+<meta name="keywords" content="热修复,AndFix">
+<meta property="og:type" content="article">
+<meta property="og:title" content="android热修复实践">
+<meta property="og:url" content="http://yoursite.com/2017/05/11/android热修复实践/index.html">
+<meta property="og:site_name" content="Shinx&#39;blog">
+<meta property="og:description" content="什么是热修复　　我们知道按照现有的模式，一旦我们上线的app版本有了bug，我们不得不先解决bug，然后测试无误后，重新打包，然后再发布到应用市场上去，这一系列的操作，不仅浪费时间，而且也影响用户的体验，若能像web端一样，更改了代码就能立马生效，那般轻松也正是开发者有朝一日所希望的。现如今Android插件化热更新技术非常火热，也开源了很多的项目如Dexposed,AndFix,ClassLoa">
+<meta property="og:image" content="http://opn79542e.bkt.clouddn.com/AndFix原理.png">
+<meta property="og:image" content="http://opn79542e.bkt.clouddn.com/andFix方法替换过程.png">
+<meta property="og:image" content="http://opn79542e.bkt.clouddn.com/AndFix缺点.jpg">
+<meta property="og:image" content="http://opn79542e.bkt.clouddn.com/AndFixCompare.png">
+<meta property="og:image" content="http://opn79542e.bkt.clouddn.com/AndFix.jpg">
+<meta property="og:updated_time" content="2017-05-11T16:58:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="android热修复实践">
+<meta name="twitter:description" content="什么是热修复　　我们知道按照现有的模式，一旦我们上线的app版本有了bug，我们不得不先解决bug，然后测试无误后，重新打包，然后再发布到应用市场上去，这一系列的操作，不仅浪费时间，而且也影响用户的体验，若能像web端一样，更改了代码就能立马生效，那般轻松也正是开发者有朝一日所希望的。现如今Android插件化热更新技术非常火热，也开源了很多的项目如Dexposed,AndFix,ClassLoa">
+<meta name="twitter:image" content="http://opn79542e.bkt.clouddn.com/AndFix原理.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/05/11/android热修复实践/"/>
+
+
+
+
+
+  <title>android热修复实践 | Shinx'blog</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Shinx'blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">人生如长跑，成长需进阶</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/11/android热修复实践/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="GuangXing Mao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://opn79542e.bkt.clouddn.com/a.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shinx'blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">android热修复实践</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-11T13:36:12+08:00">
+                2017-05-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index">
+                    <span itemprop="name">android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/05/11/android热修复实践/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/05/11/android热修复实践/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/05/11/android热修复实践/" class="leancloud_visitors" data-flag-title="android热修复实践">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="什么是热修复"><a href="#什么是热修复" class="headerlink" title="什么是热修复"></a>什么是热修复</h3><p>　　我们知道按照现有的模式，一旦我们上线的app版本有了bug，我们不得不先解决bug，然后测试无误后，重新打包，然后再发布到应用市场上去，这一系列的操作，不仅浪费时间，而且也影响用户的体验，若能像web端一样，更改了代码就能立马生效，那般轻松也正是开发者有朝一日所希望的。现如今Android插件化热更新技术非常火热，也开源了很多的项目如Dexposed,AndFix,ClassLoader,nuwa等等。说来说去，热修复的作用就是可以动态的修复你的bug，一旦有bug要修复，就可以通过事先的接口从网上下载无bug的代码来替换有bug的代码，这样就省事多了，用户体验也好。</p>
+<h3 id="热修复的原理"><a href="#热修复的原理" class="headerlink" title="热修复的原理"></a>热修复的原理</h3><p>　　Android的类加载机制分为两种，PathClassLoader（用来加载系统类和应用类）和DexClassLoader（用来加载jar，apk，dex文件，加载jar，apk也是最终抽取里面的Dex文件进行加载），并且他们都继承BaseDexClassLoader。<br>1.看下pathClassLoader代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PathClassLoader</span> <span class="keyword">extends</span> <span class="title">BaseDexClassLoader</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">PathClassLoader</span><span class="params">(String dexPath, ClassLoader parent)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(dexPath, <span class="keyword">null</span>, <span class="keyword">null</span>, parent);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">PathClassLoader</span><span class="params">(String dexPath, String libraryPath,</span></span></div><div class="line">            ClassLoader parent) &#123;</div><div class="line">        <span class="keyword">super</span>(dexPath, <span class="keyword">null</span>, libraryPath, parent);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>2.DexClassLoader代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DexClassLoader</span> <span class="keyword">extends</span> <span class="title">BaseDexClassLoader</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">DexClassLoader</span><span class="params">(String dexPath, String optimizedDirectory, String libraryPath, ClassLoader parent)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(dexPath, <span class="keyword">new</span> File(optimizedDirectory), libraryPath, parent);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>　　两个ClassLoader就两三行代码，只是调用了父类的构造函数</p>
+<p>3.BaseDexClassLoader代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BaseDexClassLoader</span> <span class="keyword">extends</span> <span class="title">ClassLoader</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> DexPathList pathList;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">BaseDexClassLoader</span><span class="params">(String dexPath, File optimizedDirectory,</span></span></div><div class="line">            String libraryPath, ClassLoader parent) &#123;</div><div class="line">        <span class="keyword">super</span>(parent);</div><div class="line">        <span class="keyword">this</span>.pathList = <span class="keyword">new</span> DexPathList(<span class="keyword">this</span>, dexPath, libraryPath, optimizedDirectory);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="keyword">protected</span> Class&lt;?&gt; findClass(String name) <span class="keyword">throws</span> ClassNotFoundException &#123;</div><div class="line">        List&lt;Throwable&gt; suppressedExceptions = <span class="keyword">new</span> ArrayList&lt;Throwable&gt;();</div><div class="line">        Class c = pathList.findClass(name, suppressedExceptions);</div><div class="line">        <span class="keyword">if</span> (c == <span class="keyword">null</span>) &#123;</div><div class="line">            ClassNotFoundException cnfe = <span class="keyword">new</span> ClassNotFoundException(<span class="string">"Didn't find class \""</span> + name + <span class="string">"\" on path: "</span> + pathList);</div><div class="line">            <span class="keyword">for</span> (Throwable t : suppressedExceptions) &#123;</div><div class="line">                cnfe.addSuppressed(t);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">throw</span> cnfe;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> c;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>　　在BaseDexClassLoader构造函数中创建一个DexPathList类的实例，这个DexPathList的构造函数会创建一个dexElements数组</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">DexPathList</span><span class="params">(ClassLoader definingContext, String dexPath, String libraryPath, File optimizedDirectory)</span> </span>&#123;</div><div class="line">        ... </div><div class="line">        <span class="keyword">this</span>.definingContext = definingContext;</div><div class="line">        ArrayList&lt;IOException&gt; suppressedExceptions = <span class="keyword">new</span> ArrayList&lt;IOException&gt;();</div><div class="line">        <span class="comment">//创建一个数组</span></div><div class="line">        <span class="keyword">this</span>.dexElements = makeDexElements(splitDexPath(dexPath), optimizedDirectory, suppressedExceptions);</div><div class="line">        ... </div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>　　然后BaseDexClassLoader重写了findClass方法，调用了pathList.findClass，跳到DexPathList类中。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* package */</span><span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">DexPathList</span> </span>&#123;</div><div class="line">    ...</div><div class="line">    <span class="function"><span class="keyword">public</span> Class <span class="title">findClass</span><span class="params">(String name, List&lt;Throwable&gt; suppressed)</span> </span>&#123;</div><div class="line">            <span class="comment">//遍历该数组</span></div><div class="line">        <span class="keyword">for</span> (Element element : dexElements) &#123;</div><div class="line">            <span class="comment">//初始化DexFile</span></div><div class="line">            DexFile dex = element.dexFile;</div><div class="line"></div><div class="line">            <span class="keyword">if</span> (dex != <span class="keyword">null</span>) &#123;</div><div class="line">                <span class="comment">//调用DexFile类的loadClassBinaryName方法返回Class实例</span></div><div class="line">                Class clazz = dex.loadClassBinaryName(name, definingContext, suppressed);</div><div class="line">                <span class="keyword">if</span> (clazz != <span class="keyword">null</span>) &#123;</div><div class="line">                    <span class="keyword">return</span> clazz;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;       </div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    &#125;</div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>　　会遍历这个数组，然后初始化DexFile，如果DexFile不为空那么久调用DexFile类的loadClassBinaryName方法返回Class实例，<strong>总结就是ClassLoader会遍历这个数组，然后加载这个数组中的dex文件，而ClassLoader在加载了正确的类后，就不会去加载有bug的那个类了，我们把这个正确的类放在Dex文件中，让这个Dex文件排在dexElements数组前面即可。</strong></p>
+<h3 id="AndFix实践"><a href="#AndFix实践" class="headerlink" title="AndFix实践"></a>AndFix实践</h3><p>　　最近我刚在公司的一个项目中添加了热修复，使用的是阿里的AndFix.<br>AndFix支持Android2.3到7.0版本，并且支持arm和x86系统架构的设备,完美支持Dalvik和ART的Runtime。</p>
+<h4 id="AndFix原理"><a href="#AndFix原理" class="headerlink" title="AndFix原理"></a>AndFix原理</h4><p><img src="http://opn79542e.bkt.clouddn.com/AndFix原理.png" alt="AndFix原理"><br>　　他的原理如图所示，就是方法替换，把有bug的方法替换成补丁文件中的方法。</p>
+<p>方法替换过程:<img src="http://opn79542e.bkt.clouddn.com/andFix方法替换过程.png" alt="andFix方法替换过程"></p>
+<h4 id="AndFix使用"><a href="#AndFix使用" class="headerlink" title="AndFix使用"></a>AndFix使用</h4><p>1.首先我们要添加AndFix依赖</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line">	compile <span class="string">'com.alipay.euler:andfix:0.5.0@aar'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>2.在Application中初始化PatchMannger</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * init 热修复</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initPatchManager</span><span class="params">()</span> </span>&#123;</div><div class="line">    mPatchManager = <span class="keyword">new</span> PatchManager(<span class="keyword">this</span>);</div><div class="line">    <span class="comment">//注意每次appversion变更都会导致所有补丁被删除,如果appversion没有改变，则会加载已经保存的所有补丁。</span></div><div class="line">    mPatchManager.init(appversion);<span class="comment">//current version</span></div><div class="line">    mPatchManager.loadPatch();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>appVersion获取方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">   * 获取版本号</div><div class="line">   *</div><div class="line">   * <span class="doctag">@return</span> 当前应用的版本号</div><div class="line">   */</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">getVersion</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">      <span class="keyword">try</span> &#123;</div><div class="line">          PackageManager manager = context.getPackageManager();</div><div class="line">          PackageInfo info = manager.getPackageInfo(context.getPackageName(), <span class="number">0</span>);</div><div class="line">          <span class="keyword">return</span> info.versionName;</div><div class="line">      &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">          e.printStackTrace();</div><div class="line">          <span class="keyword">return</span> context.getString(R.string.can_not_find_version_name);</div><div class="line">      &#125;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<p>3.打包一个修复了bug的同版本号的apk</p>
+<p>4.使用官方提供的工具<a href="https://github.com/alibaba/AndFix/blob/master/tools/apkpatch-1.0.3.zip" target="_blank" rel="external">apkpatch</a>生成.apatch补丁文件<br>点击上面的链接下载apkpatch之后解压</p>
+<p>5.将两个apk文件和该app的签名文件放入到该目录中</p>
+<p>6.通过命令行进入到该目录下，然后使用命令行<br>apkpatch.bat -f 新apk -t 旧apk -o 输出目录 -k app签名文件 -p 签名文件密码 -a 签名文件别名 -e 别名密码</p>
+<p>7.在输出目录下就有一个.aptch文件，这个文件就apatch补丁文件，改名为fix.apatch(随意)</p>
+<p>8.在公司的项目中，我使用的是通过推送将该补丁文件推送到用户本地去，然后通过自动下载来更新bug。我们使用的推送是集成个推，个推推送的透传消息，就可以传json键值对，以下就是我的PushBean实体类中的字段。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> String type;        <span class="comment">//类型</span></div><div class="line">   <span class="keyword">private</span> String extra;       <span class="comment">//额外参数</span></div><div class="line">   <span class="keyword">private</span> String content;     <span class="comment">//title内容</span></div><div class="line">   <span class="keyword">private</span> String app_v;    <span class="comment">//应用的版本</span></div><div class="line">   <span class="keyword">private</span> String path_v;   <span class="comment">//补丁的版本</span></div><div class="line">   <span class="keyword">private</span> String url;  <span class="comment">//补丁的下载地址</span></div></pre></td></tr></table></figure>
+<p>9.当收到透传消息，判断type类型，如果type等于apatch，则说明需要热更新修复了</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (pushBean != <span class="keyword">null</span> &amp;&amp; <span class="string">"apatch"</span>.equals(pushBean.getType())) &#123;    <span class="comment">//热修复</span></div><div class="line">             <span class="comment">//判断当前版本是否有补丁需要下载更新</span></div><div class="line">             <span class="keyword">try</span> &#123;</div><div class="line">                 RepairBugUtil.getInstance().comparePath(<span class="keyword">this</span>, pushBean);</div><div class="line">             &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">                 e.printStackTrace();</div><div class="line">             &#125;</div><div class="line">         &#125;</div></pre></td></tr></table></figure>
+<p>10.判断当前的版本是否有补丁需要下载更新，如果服务器端的应用版本和本地的应用版本一样，但是补丁版本（版本自己定，不一样即可）不一样，则需要下载更新</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"> <span class="comment">/**</span></div><div class="line">     * 比较本地版本和补丁版本</div><div class="line">     *</div><div class="line">     * <span class="doctag">@param</span> context</div><div class="line">     * <span class="doctag">@param</span> RemoteBean</div><div class="line">     * <span class="doctag">@throws</span> Exception</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">comparePath</span><span class="params">(Context context, PushBean RemoteBean)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">        String pathInfo = (String) SharedPreferencesUtils.getParam(context, AppConstants.PATH_INFO, <span class="string">""</span>);</div><div class="line">        PushBean localBean = <span class="keyword">new</span> Gson().fromJson(pathInfo, PushBean.class);</div><div class="line">        <span class="comment">//远程的应用版本跟当前应用的版本比较</span></div><div class="line">        <span class="keyword">if</span> (ValidateUtil.getVersion(context).equals(RemoteBean.getApp_v())) &#123;</div><div class="line">            <span class="comment">//远程的应用版本跟本地保存的应用版本一样，但补丁不一样，则需要下载重新</span></div><div class="line">            <span class="comment">/**</span></div><div class="line">             *第一种情况：当本地记录的Bean为空的时候（刚安装的时候可能为空）并且远程的Bean的path_v不为空的时候需要下载补丁。</div><div class="line">             * 第二种情况：当本地记录的path_v和远程Bean的path_v不一样的时候需要下载补丁。</div><div class="line">             */</div><div class="line">            <span class="keyword">if</span> (localBean == <span class="keyword">null</span> &amp;&amp; !TextUtils.isEmpty(RemoteBean.getPath_v())</div><div class="line">                    || localBean.getApp_v().equals(RemoteBean.getApp_v()) &amp;&amp;</div><div class="line">                    !localBean.getPath_v().equals(RemoteBean.getPath_v())) &#123;</div><div class="line">                <span class="keyword">if</span> (!<span class="keyword">new</span> File(AppConstants.APATCH_DIR).exists()) &#123;</div><div class="line">                    <span class="keyword">new</span> File(AppConstants.APATCH_DIR).mkdirs();<span class="comment">// 创建存储目录</span></div><div class="line">                &#125;</div><div class="line">                <span class="comment">//下载补丁文件</span></div><div class="line">                downloadAndLoad(RemoteBean, AppConstants.URL_PREFIX + RemoteBean.getUrl());</div><div class="line">                String json = <span class="keyword">new</span> Gson().toJson(RemoteBean);</div><div class="line">              <span class="comment">//将pushbean对象转成json格式保存，以便下次使用</span></div><div class="line">SharedPreferencesUtils.setParam(context, AppConstants.PATH_INFO, json);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>11.下载补丁文件，在项目中使用的是Nohttp，该网络请求框架非常的方便，并且都实现了对进度的监听，所以如果你的项目中需要下载或上传很多文件，推荐使用Nohttp。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">downloadAndLoad</span><span class="params">(PushBean bean, String downloadUrl)</span> </span>&#123;</div><div class="line"><span class="comment">//创建下载队列</span></div><div class="line">    DownloadQueue downloadQueue = NoHttp.newDownloadQueue();</div><div class="line">    DownloadRequest downloadRequest = NoHttp.createDownloadRequest(downloadUrl, AppConstants.APATCH_DIR, bean.getUrl(), <span class="keyword">true</span>, <span class="keyword">false</span>);</div><div class="line">    <span class="comment">//将下载任务添加进队列中</span></div><div class="line">    downloadQueue.add(<span class="number">0</span>, downloadRequest, downloadListener);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>12.创建DownLoadListener监听，在文件下载完后，就可以<br>调用全局的PatchManager对象通过addPatch方法来加载该文件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> DownloadListener downloadListener = <span class="keyword">new</span> DownloadListener() &#123;</div><div class="line">       <span class="meta">@Override</span></div><div class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onDownloadError</span><span class="params">(<span class="keyword">int</span> what, Exception exception)</span> </span>&#123;</div><div class="line"></div><div class="line">       &#125;</div><div class="line"></div><div class="line">       <span class="meta">@Override</span></div><div class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onStart</span><span class="params">(<span class="keyword">int</span> what, <span class="keyword">boolean</span> resume, <span class="keyword">long</span> preLenght, Headers header, <span class="keyword">long</span> count)</span> </span>&#123;</div><div class="line">           <span class="comment">// 下载开始</span></div><div class="line">       &#125;</div><div class="line"></div><div class="line">       <span class="meta">@Override</span></div><div class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onProgress</span><span class="params">(<span class="keyword">int</span> what, <span class="keyword">int</span> progress, <span class="keyword">long</span> downCount, <span class="keyword">long</span> speed)</span> </span>&#123;</div><div class="line">           <span class="comment">// 更新下载进度和下载网速</span></div><div class="line">           Log.e(TAG, progress + <span class="string">""</span>);</div><div class="line">       &#125;</div><div class="line"></div><div class="line">       <span class="meta">@Override</span></div><div class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onFinish</span><span class="params">(<span class="keyword">int</span> what, String filePath)</span> </span>&#123;</div><div class="line">           <span class="comment">// 下载完成</span></div><div class="line">           <span class="keyword">try</span> &#123;</div><div class="line">               <span class="comment">// .apatch file path</span></div><div class="line">               App.mPatchManager.addPatch(filePath);</div><div class="line">               Log.d(TAG, <span class="string">"apatch:"</span> + filePath + <span class="string">" added."</span>);</div><div class="line">               <span class="comment">//复制且加载补丁成功后，删除下载的补丁</span></div><div class="line">               File f = <span class="keyword">new</span> File(filePath);</div><div class="line">               <span class="keyword">if</span> (f.exists()) &#123;</div><div class="line">                   <span class="keyword">boolean</span> result = <span class="keyword">new</span> File(filePath).delete();</div><div class="line">                   <span class="keyword">if</span> (!result)</div><div class="line">                       Log.e(TAG, filePath + <span class="string">" delete fail"</span>);</div><div class="line">               &#125;</div><div class="line">           &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">               Log.e(TAG, <span class="string">""</span>, e);</div><div class="line">           &#125; <span class="keyword">catch</span> (Throwable throwable) &#123;</div><div class="line"></div><div class="line">           &#125;</div><div class="line">       &#125;</div><div class="line"></div><div class="line">       <span class="meta">@Override</span></div><div class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCancel</span><span class="params">(<span class="keyword">int</span> what)</span> </span>&#123;</div><div class="line">           <span class="comment">// 下载被取消或者暂停</span></div><div class="line">       &#125;</div><div class="line">   &#125;;</div></pre></td></tr></table></figure>
+<p>13.到此，补丁文件被加载后，bug就修复了，就是这么简单,最后附上RepairBugUtil工具类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RepairBugUtil</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String TAG = <span class="string">"AndFix"</span>;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonHolder</span> </span>&#123;</div><div class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> RepairBugUtil INSTANCE = <span class="keyword">new</span> RepairBugUtil();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> RepairBugUtil <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> SingletonHolder.INSTANCE;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">downloadAndLoad</span><span class="params">(PushBean bean, String downloadUrl)</span> </span>&#123;</div><div class="line">        DownloadQueue downloadQueue = NoHttp.newDownloadQueue();</div><div class="line">        DownloadRequest downloadRequest = NoHttp.createDownloadRequest(downloadUrl, AppConstants.APATCH_DIR, bean.getUrl(), <span class="keyword">true</span>, <span class="keyword">false</span>);</div><div class="line">        downloadQueue.add(<span class="number">0</span>, downloadRequest, downloadListener);</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 比较本地版本和补丁版本</div><div class="line">     *</div><div class="line">     * <span class="doctag">@param</span> context</div><div class="line">     * <span class="doctag">@param</span> RemoteBean</div><div class="line">     * <span class="doctag">@throws</span> Exception</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">comparePath</span><span class="params">(Context context, PushBean RemoteBean)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">        String pathInfo = (String) SharedPreferencesUtils.getParam(context, AppConstants.PATH_INFO, <span class="string">""</span>);</div><div class="line">        PushBean localBean = <span class="keyword">new</span> Gson().fromJson(pathInfo, PushBean.class);</div><div class="line">        <span class="comment">//远程的应用版本跟当前应用的版本比较</span></div><div class="line">        <span class="keyword">if</span> (ValidateUtil.getVersion(context).equals(RemoteBean.getApp_v())) &#123;</div><div class="line">            <span class="comment">//远程的应用版本跟本地保存的应用版本一样，但补丁不一样，则需要下载重新</span></div><div class="line">            <span class="comment">/**</span></div><div class="line">             *第一种情况：当本地记录的Bean为空的时候（刚安装的时候可能为空）并且远程的Bean的path_v不为空的时候需要下载补丁。</div><div class="line">             * 第二种情况：当本地记录的path_v和远程Bean的path_v不一样的时候需要下载补丁。</div><div class="line">             */</div><div class="line">            <span class="keyword">if</span> (localBean == <span class="keyword">null</span> &amp;&amp; !TextUtils.isEmpty(RemoteBean.getPath_v())</div><div class="line">                    || localBean.getApp_v().equals(RemoteBean.getApp_v()) &amp;&amp;</div><div class="line">                    !localBean.getPath_v().equals(RemoteBean.getPath_v())) &#123;</div><div class="line">                <span class="keyword">if</span> (!<span class="keyword">new</span> File(AppConstants.APATCH_DIR).exists()) &#123;</div><div class="line">                    <span class="keyword">new</span> File(AppConstants.APATCH_DIR).mkdirs();<span class="comment">// 创建存储目录</span></div><div class="line">                &#125;</div><div class="line">                downloadAndLoad(RemoteBean, AppConstants.URL_PREFIX + RemoteBean.getUrl());</div><div class="line">                String json = <span class="keyword">new</span> Gson().toJson(RemoteBean);</div><div class="line">                SharedPreferencesUtils.setParam(context, AppConstants.PATH_INFO, json);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> DownloadListener downloadListener = <span class="keyword">new</span> DownloadListener() &#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onDownloadError</span><span class="params">(<span class="keyword">int</span> what, Exception exception)</span> </span>&#123;</div><div class="line"></div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onStart</span><span class="params">(<span class="keyword">int</span> what, <span class="keyword">boolean</span> resume, <span class="keyword">long</span> preLenght, Headers header, <span class="keyword">long</span> count)</span> </span>&#123;</div><div class="line">            <span class="comment">// 下载开始</span></div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onProgress</span><span class="params">(<span class="keyword">int</span> what, <span class="keyword">int</span> progress, <span class="keyword">long</span> downCount, <span class="keyword">long</span> speed)</span> </span>&#123;</div><div class="line">            <span class="comment">// 更新下载进度和下载网速</span></div><div class="line">            Log.e(TAG, progress + <span class="string">""</span>);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onFinish</span><span class="params">(<span class="keyword">int</span> what, String filePath)</span> </span>&#123;</div><div class="line">            <span class="comment">// 下载完成</span></div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                <span class="comment">// .apatch file path</span></div><div class="line">                App.mPatchManager.addPatch(filePath);</div><div class="line">                Log.d(TAG, <span class="string">"apatch:"</span> + filePath + <span class="string">" added."</span>);</div><div class="line">                <span class="comment">//复制且加载补丁成功后，删除下载的补丁</span></div><div class="line">                File f = <span class="keyword">new</span> File(filePath);</div><div class="line">                <span class="keyword">if</span> (f.exists()) &#123;</div><div class="line">                    <span class="keyword">boolean</span> result = <span class="keyword">new</span> File(filePath).delete();</div><div class="line">                    <span class="keyword">if</span> (!result)</div><div class="line">                        Log.e(TAG, filePath + <span class="string">" delete fail"</span>);</div><div class="line">                &#125;</div><div class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">                Log.e(TAG, <span class="string">""</span>, e);</div><div class="line">            &#125; <span class="keyword">catch</span> (Throwable throwable) &#123;</div><div class="line"></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCancel</span><span class="params">(<span class="keyword">int</span> what)</span> </span>&#123;</div><div class="line">            <span class="comment">// 下载被取消或者暂停</span></div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="AndFix优缺点"><a href="#AndFix优缺点" class="headerlink" title="AndFix优缺点"></a>AndFix优缺点</h4><p>　　最后由于AndFix采用native hook的方式，这套方案直接使用dalvik_replaceMethod替换class中方法的实现。由于它并没有整体替换class, 而field在class中的相对地址在class加载时已确定，所以AndFix无法支持新增或者删除filed的情况(通过替换init与clinit只可以修改field的数值)。</p>
+<p><img src="http://opn79542e.bkt.clouddn.com/AndFix缺点.jpg" alt="AndFix缺点"><br>　　也正因如此，Andfix可以支持的补丁场景相对有限，仅仅可以使用它来修复特定问题。结合之前的发布流程，我们更希望补丁对开发者是不感知的，即他不需要清楚这个修改是对补丁版本还是正式发布版本(事实上我们也是使用git分支管理+cherry-pick方式)。另一方面，使用native替换将会面临比较复杂的兼容性问题。<br><img src="http://opn79542e.bkt.clouddn.com/AndFixCompare.png" alt="AndFixCompare"><br><img src="http://opn79542e.bkt.clouddn.com/AndFix.jpg" alt="AndFix"></p>
+<p>　　相比其他方案，AndFix的最大优点在于立即生效。事实上，AndFix的实现与Instant Run的热插拔有点类似，但是由于使用场景的限制，微信在最初期已排除使用这一方案。</p>
+<h3 id="感谢"><a href="#感谢" class="headerlink" title="感谢"></a>感谢</h3><p><a href="https://github.com/alibaba/AndFix" target="_blank" rel="external">AndFix</a></p>
+<p><a href="https://github.com/yanzhenjie/NoHttp" target="_blank" rel="external">NoHttp</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/热修复/" rel="tag"># 热修复</a>
+          
+            <a href="/tags/AndFix/" rel="tag"># AndFix</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/10/转-没有效率的勤奋-是傻/" rel="next" title="[转]没有效率的勤奋,是傻">
+                <i class="fa fa-chevron-left"></i> [转]没有效率的勤奋,是傻
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://opn79542e.bkt.clouddn.com/a.jpg"
+               alt="GuangXing Mao" />
+          <p class="site-author-name" itemprop="name">GuangXing Mao</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/guangxingmao" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2785674665" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/mao-guang-xing-63" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-user-circle"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是热修复"><span class="nav-number">1.</span> <span class="nav-text">什么是热修复</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#热修复的原理"><span class="nav-number">2.</span> <span class="nav-text">热修复的原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AndFix实践"><span class="nav-number">3.</span> <span class="nav-text">AndFix实践</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#AndFix原理"><span class="nav-number">3.1.</span> <span class="nav-text">AndFix原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AndFix使用"><span class="nav-number">3.2.</span> <span class="nav-text">AndFix使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AndFix优缺点"><span class="nav-number">3.3.</span> <span class="nav-text">AndFix优缺点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#感谢"><span class="nav-number">4.</span> <span class="nav-text">感谢</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">GuangXing Mao</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://shinx.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2017/05/11/android热修复实践/';
+          this.page.identifier = '2017/05/11/android热修复实践/';
+          this.page.title = 'android热修复实践';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://shinx.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("yA3gKoFRmqAycD7zG2WIshPx-gzGzoHsz", "n0SqRjs3uU2m9BKc4a0g5wX6");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+  <!-- 背景动画 -->
+<script type="text/javascript" src="/js/src/particle.js"></script>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+<script type="text/javascript" src="/js/src/particles.js" count="50" zindex="-2" opacity="1" color="0,104,183"></script>
+
+</body>
+</html>
