@@ -122,7 +122,7 @@
 <meta property="og:image" content="http://opn79542e.bkt.clouddn.com/AndFix缺点.jpg">
 <meta property="og:image" content="http://opn79542e.bkt.clouddn.com/AndFixCompare.png">
 <meta property="og:image" content="http://opn79542e.bkt.clouddn.com/AndFix.jpg">
-<meta property="og:updated_time" content="2017-05-11T17:01:35.000Z">
+<meta property="og:updated_time" content="2017-05-11T17:04:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="android热修复实践">
 <meta name="twitter:description" content="什么是热修复　　我们知道按照现有的模式，一旦我们上线的app版本有了bug，我们不得不先解决bug，然后测试无误后，重新打包，然后再发布到应用市场上去，这一系列的操作，不仅浪费时间，而且也影响用户的体验，若能像web端一样，更改了代码就能立马生效，那般轻松也正是开发者有朝一日所希望的。现如今Android插件化热更新技术非常火热，也开源了很多的项目如Dexposed,AndFix,ClassLoa">
@@ -397,7 +397,9 @@
       
 
       
-        <h3 id="什么是热修复"><a href="#什么是热修复" class="headerlink" title="什么是热修复"></a>什么是热修复</h3><p>　　我们知道按照现有的模式，一旦我们上线的app版本有了bug，我们不得不先解决bug，然后测试无误后，重新打包，然后再发布到应用市场上去，这一系列的操作，不仅浪费时间，而且也影响用户的体验，若能像web端一样，更改了代码就能立马生效，那般轻松也正是开发者有朝一日所希望的。现如今Android插件化热更新技术非常火热，也开源了很多的项目如Dexposed,AndFix,ClassLoader,nuwa等等。说来说去，热修复的作用就是可以动态的修复你的bug，一旦有bug要修复，就可以通过事先的接口从网上下载无bug的代码来替换有bug的代码，这样就省事多了，用户体验也好。<br>　<a id="more"></a></p>
+        <h3 id="什么是热修复"><a href="#什么是热修复" class="headerlink" title="什么是热修复"></a>什么是热修复</h3><p>　　我们知道按照现有的模式，一旦我们上线的app版本有了bug，我们不得不先解决bug，然后测试无误后，重新打包，然后再发布到应用市场上去，这一系列的操作，不仅浪费时间，而且也影响用户的体验，若能像web端一样，更改了代码就能立马生效，那般轻松也正是开发者有朝一日所希望的。现如今Android插件化热更新技术非常火热，也开源了很多的项目如Dexposed,AndFix,ClassLoader,nuwa等等。说来说去，热修复的作用就是可以动态的修复你的bug，一旦有bug要修复，就可以通过事先的接口从网上下载无bug的代码来替换有bug的代码，这样就省事多了，用户体验也好。</p>
+<a id="more"></a>
+<p>　</p>
 <h3 id="热修复的原理"><a href="#热修复的原理" class="headerlink" title="热修复的原理"></a>热修复的原理</h3><p>　　Android的类加载机制分为两种，PathClassLoader（用来加载系统类和应用类）和DexClassLoader（用来加载jar，apk，dex文件，加载jar，apk也是最终抽取里面的Dex文件进行加载），并且他们都继承BaseDexClassLoader。<br>1.看下pathClassLoader代码</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PathClassLoader</span> <span class="keyword">extends</span> <span class="title">BaseDexClassLoader</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">PathClassLoader</span><span class="params">(String dexPath, ClassLoader parent)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(dexPath, <span class="keyword">null</span>, <span class="keyword">null</span>, parent);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">PathClassLoader</span><span class="params">(String dexPath, String libraryPath,</span></span></div><div class="line">            ClassLoader parent) &#123;</div><div class="line">        <span class="keyword">super</span>(dexPath, <span class="keyword">null</span>, libraryPath, parent);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>2.DexClassLoader代码</p>
