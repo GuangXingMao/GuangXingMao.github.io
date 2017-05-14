@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-05-14T16:25:21.000Z</updated>
+  <updated>2017-05-14T16:31:19.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/05/14/fragment%E6%87%92%E5%8A%A0%E8%BD%BD/"/>
     <id>http://yoursite.com/2017/05/14/fragment懒加载/</id>
     <published>2017-05-14T14:59:26.000Z</published>
-    <updated>2017-05-14T16:25:21.000Z</updated>
+    <updated>2017-05-14T16:31:19.000Z</updated>
     
     <content type="html"><![CDATA[<p>　　今天在github上看了一些tablayout的类库，如<a href="https://github.com/H07000223/FlycoTabLayout" target="_blank" rel="external">FlycoTabLayout</a>，<a href="https://github.com/ogaclejapan/SmartTabLayout" target="_blank" rel="external">SmartTabLayout</a>等，都是star比较靠前的类库。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setTabData</span><span class="params">(ArrayList&lt;CustomTabEntity&gt; tabEntitys, FragmentManager fm, <span class="keyword">int</span> containerViewId, ArrayList&lt;Fragment&gt; fragments)</span></span></div></pre></td></tr></table></figure>
@@ -48,13 +48,11 @@
       <category term="android" scheme="http://yoursite.com/categories/android/"/>
     
     
-      <category term="工作学习" scheme="http://yoursite.com/tags/%E5%B7%A5%E4%BD%9C%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="fragment" scheme="http://yoursite.com/tags/fragment/"/>
+      <category term="android" scheme="http://yoursite.com/tags/android/"/>
     
       <category term="懒加载" scheme="http://yoursite.com/tags/%E6%87%92%E5%8A%A0%E8%BD%BD/"/>
     
-      <category term="android" scheme="http://yoursite.com/tags/android/"/>
+      <category term="fragment" scheme="http://yoursite.com/tags/fragment/"/>
     
   </entry>
   
@@ -92,7 +90,7 @@
     <link href="http://yoursite.com/2017/05/11/android%E7%83%AD%E4%BF%AE%E5%A4%8D%E5%AE%9E%E8%B7%B5/"/>
     <id>http://yoursite.com/2017/05/11/android热修复实践/</id>
     <published>2017-05-11T05:36:12.000Z</published>
-    <updated>2017-05-11T17:04:46.000Z</updated>
+    <updated>2017-05-14T16:31:22.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="什么是热修复"><a href="#什么是热修复" class="headerlink" title="什么是热修复"></a>什么是热修复</h3><p>　　我们知道按照现有的模式，一旦我们上线的app版本有了bug，我们不得不先解决bug，然后测试无误后，重新打包，然后再发布到应用市场上去，这一系列的操作，不仅浪费时间，而且也影响用户的体验，若能像web端一样，更改了代码就能立马生效，那般轻松也正是开发者有朝一日所希望的。现如今Android插件化热更新技术非常火热，也开源了很多的项目如Dexposed,AndFix,ClassLoader,nuwa等等。说来说去，热修复的作用就是可以动态的修复你的bug，一旦有bug要修复，就可以通过事先的接口从网上下载无bug的代码来替换有bug的代码，这样就省事多了，用户体验也好。</p>
 <a id="more"></a>
@@ -150,6 +148,8 @@
     
       <category term="android" scheme="http://yoursite.com/categories/android/"/>
     
+    
+      <category term="工作学习" scheme="http://yoursite.com/tags/%E5%B7%A5%E4%BD%9C%E5%AD%A6%E4%B9%A0/"/>
     
       <category term="热修复" scheme="http://yoursite.com/tags/%E7%83%AD%E4%BF%AE%E5%A4%8D/"/>
     
