@@ -61,11 +61,13 @@
     <link href="http://yoursite.com/2017/05/12/github%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%8E%A8%E8%8D%90/"/>
     <id>http://yoursite.com/2017/05/12/github开源项目推荐/</id>
     <published>2017-05-12T01:35:12.000Z</published>
-    <updated>2017-05-12T04:22:29.000Z</updated>
+    <updated>2017-05-14T16:48:50.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="将自己觉得好的开源项目都放这里面了，会一直持续更新"><a href="#将自己觉得好的开源项目都放这里面了，会一直持续更新" class="headerlink" title="将自己觉得好的开源项目都放这里面了，会一直持续更新"></a>将自己觉得好的开源项目都放这里面了，会一直持续更新</h3><a id="more"></a>
 <h4 id="2017-05-12"><a href="#2017-05-12" class="headerlink" title="2017.05.12"></a>2017.05.12</h4><h5 id="AndroidUtilCode"><a href="#AndroidUtilCode" class="headerlink" title="AndroidUtilCode"></a><a href="https://github.com/Blankj/AndroidUtilCode" target="_blank" rel="external">AndroidUtilCode</a></h5><p>一个非常强大的android工具类，里面几乎涵盖了开发中所需的所有工具类。</p>
-<h5 id="RippleEffect"><a href="#RippleEffect" class="headerlink" title="RippleEffect"></a><a href="https://github.com/patrickpissurno/RippleEffect/" target="_blank" rel="external">RippleEffect</a></h5><p>水波纹效果，已向下兼容至API9，基本都通用,看issues反馈说android6.0或7.0以上会崩溃，作者回复说已修复，等使用时测试看看。</p>
+<h5 id="RippleEffect"><a href="#RippleEffect" class="headerlink" title="RippleEffect"></a><a href="https://github.com/patrickpissurno/RippleEffect/" target="_blank" rel="external">RippleEffect</a></h5><p>水波纹效果，已向下兼容至API9，基本都通用,看issues反馈说android6.0或7.0以上会崩溃，作者回复说已修复，已测试6.0无问题。</p>
+<h4 id="2017-05-14"><a href="#2017-05-14" class="headerlink" title="2017.05.14"></a>2017.05.14</h4><h5 id="android-percent-support-extend"><a href="#android-percent-support-extend" class="headerlink" title="android-percent-support-extend"></a><a href="https://github.com/hongyangAndroid/android-percent-support-extend" target="_blank" rel="external">android-percent-support-extend</a></h5><p>鸿洋的百分比布局,越用越觉得实用，不管是高分辨率的机型还是低分辨的机型，一套搞定。</p>
+<h5 id="BaseRecyclerViewAdapterHelper"><a href="#BaseRecyclerViewAdapterHelper" class="headerlink" title="BaseRecyclerViewAdapterHelper"></a><a href="https://github.com/CymChad/BaseRecyclerViewAdapterHelper" target="_blank" rel="external">BaseRecyclerViewAdapterHelper</a></h5><p>Recyclerview的BaseAdapter,高度封装，和原始的adpter相比，减少70%的代码量，能实现的功能基本都实现，可扩展，还有源码分析可学习。</p>
 ]]></content>
     
     <summary type="html">
@@ -149,11 +151,11 @@
       <category term="android" scheme="http://yoursite.com/categories/android/"/>
     
     
-      <category term="工作学习" scheme="http://yoursite.com/tags/%E5%B7%A5%E4%BD%9C%E5%AD%A6%E4%B9%A0/"/>
-    
       <category term="热修复" scheme="http://yoursite.com/tags/%E7%83%AD%E4%BF%AE%E5%A4%8D/"/>
     
       <category term="AndFix" scheme="http://yoursite.com/tags/AndFix/"/>
+    
+      <category term="工作学习" scheme="http://yoursite.com/tags/%E5%B7%A5%E4%BD%9C%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
@@ -276,9 +278,9 @@
       <category term="android" scheme="http://yoursite.com/categories/android/"/>
     
     
-      <category term="自动化埋点" scheme="http://yoursite.com/tags/%E8%87%AA%E5%8A%A8%E5%8C%96%E5%9F%8B%E7%82%B9/"/>
-    
       <category term="工作学习" scheme="http://yoursite.com/tags/%E5%B7%A5%E4%BD%9C%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="自动化埋点" scheme="http://yoursite.com/tags/%E8%87%AA%E5%8A%A8%E5%8C%96%E5%9F%8B%E7%82%B9/"/>
     
   </entry>
   
@@ -287,16 +289,16 @@
     <link href="http://yoursite.com/2017/05/08/5%E6%9C%88%E4%BB%BD%E7%9B%AE%E6%A0%87/"/>
     <id>http://yoursite.com/2017/05/08/5月份目标/</id>
     <published>2017-05-08T15:19:38.000Z</published>
-    <updated>2017-05-11T02:25:27.000Z</updated>
+    <updated>2017-05-14T16:33:23.000Z</updated>
     
-    <content type="html"><![CDATA[<h4 id="1-hexo博客的更新优化-附上转载链接"><a href="#1-hexo博客的更新优化-附上转载链接" class="headerlink" title="1.hexo博客的更新优化(附上转载链接)"></a>1.hexo博客的更新优化(附上转载链接)</h4><h4 id="2-oc基本语法的学习-学习笔记记录"><a href="#2-oc基本语法的学习-学习笔记记录" class="headerlink" title="2.oc基本语法的学习(学习笔记记录)"></a>2.oc基本语法的学习(学习笔记记录)</h4><h4 id="3-android插件化与组件化的学习-附上demo"><a href="#3-android插件化与组件化的学习-附上demo" class="headerlink" title="3.android插件化与组件化的学习(附上demo)"></a>3.android插件化与组件化的学习(附上demo)</h4><h4 id="4-android无埋点数据收集-思路及实现"><a href="#4-android无埋点数据收集-思路及实现" class="headerlink" title="4.android无埋点数据收集(思路及实现)"></a>4.android无埋点数据收集(思路及实现)</h4><a id="more"></a>
+    <content type="html"><![CDATA[<h4 id="1-hexo博客的更新优化-附上转载链接"><a href="#1-hexo博客的更新优化-附上转载链接" class="headerlink" title="1.hexo博客的更新优化(附上转载链接)"></a>1.hexo博客的更新优化(附上转载链接)</h4><h4 id="2-oc基本语法的学习-学习笔记记录"><a href="#2-oc基本语法的学习-学习笔记记录" class="headerlink" title="2.oc基本语法的学习(学习笔记记录)"></a>2.oc基本语法的学习(学习笔记记录)</h4><h4 id="3-android插件化与组件化的学习-附上demo"><a href="#3-android插件化与组件化的学习-附上demo" class="headerlink" title="3.android插件化与组件化的学习(附上demo)"></a>3.android插件化与组件化的学习(附上demo)</h4><h4 id="4-android自动化埋点数据收集-思路及实现"><a href="#4-android自动化埋点数据收集-思路及实现" class="headerlink" title="4.android自动化埋点数据收集(思路及实现)"></a>4.android自动化埋点数据收集(思路及实现)</h4><a id="more"></a>
 <p>　　2017年过去近半了，感觉前几个月浑浑噩噩的过去了，收获的并不是很多，之前也在CSDN写过一些博客，但是  最后并没有坚持下来，一旦懒癌犯了，太可怕了。其实可以写的东西可以有很多，在公司做的项目经验，平时收藏的文章，摸爬滚打学习的新知识等等，今天用hexo和github搭了一个个人的网站，虽然还是很简陋，但是基本的功能已经实现了，之后还是会不断优化更新的，可以说真的很方便。这里推荐一篇教你如何搭建个人博客的文章（基于mac的），很详细，一步步来就能搭建成功了。<a href="http://www.jianshu.com/p/13e64c9e2295" target="_blank" rel="external">点我跳转</a><br>　　其实写博客的目的对我来说也很简单，就是监督自己，知道自己最近学了什么，做了什么，最近的状态如何，及时的调整找回状态。<br>　　公司的V3.0App在5月中旬就要项目启动了，到时候肯定会很忙，但是在忙的同时，肯定也会有所收获，将这些收获一并记录下来，（想想以前的一些东西，都忘记了），作为经验总结。</p>
 <h3 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h3><p>　　markdown用的还不是很熟练。。还要看一下md语法怎么改格式，弄的漂亮一点。</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h4 id=&quot;1-hexo博客的更新优化-附上转载链接&quot;&gt;&lt;a href=&quot;#1-hexo博客的更新优化-附上转载链接&quot; class=&quot;headerlink&quot; title=&quot;1.hexo博客的更新优化(附上转载链接)&quot;&gt;&lt;/a&gt;1.hexo博客的更新优化(附上转载链接)&lt;/h4&gt;&lt;h4 id=&quot;2-oc基本语法的学习-学习笔记记录&quot;&gt;&lt;a href=&quot;#2-oc基本语法的学习-学习笔记记录&quot; class=&quot;headerlink&quot; title=&quot;2.oc基本语法的学习(学习笔记记录)&quot;&gt;&lt;/a&gt;2.oc基本语法的学习(学习笔记记录)&lt;/h4&gt;&lt;h4 id=&quot;3-android插件化与组件化的学习-附上demo&quot;&gt;&lt;a href=&quot;#3-android插件化与组件化的学习-附上demo&quot; class=&quot;headerlink&quot; title=&quot;3.android插件化与组件化的学习(附上demo)&quot;&gt;&lt;/a&gt;3.android插件化与组件化的学习(附上demo)&lt;/h4&gt;&lt;h4 id=&quot;4-android无埋点数据收集-思路及实现&quot;&gt;&lt;a href=&quot;#4-android无埋点数据收集-思路及实现&quot; class=&quot;headerlink&quot; title=&quot;4.android无埋点数据收集(思路及实现)&quot;&gt;&lt;/a&gt;4.android无埋点数据收集(思路及实现)&lt;/h4&gt;
+      &lt;h4 id=&quot;1-hexo博客的更新优化-附上转载链接&quot;&gt;&lt;a href=&quot;#1-hexo博客的更新优化-附上转载链接&quot; class=&quot;headerlink&quot; title=&quot;1.hexo博客的更新优化(附上转载链接)&quot;&gt;&lt;/a&gt;1.hexo博客的更新优化(附上转载链接)&lt;/h4&gt;&lt;h4 id=&quot;2-oc基本语法的学习-学习笔记记录&quot;&gt;&lt;a href=&quot;#2-oc基本语法的学习-学习笔记记录&quot; class=&quot;headerlink&quot; title=&quot;2.oc基本语法的学习(学习笔记记录)&quot;&gt;&lt;/a&gt;2.oc基本语法的学习(学习笔记记录)&lt;/h4&gt;&lt;h4 id=&quot;3-android插件化与组件化的学习-附上demo&quot;&gt;&lt;a href=&quot;#3-android插件化与组件化的学习-附上demo&quot; class=&quot;headerlink&quot; title=&quot;3.android插件化与组件化的学习(附上demo)&quot;&gt;&lt;/a&gt;3.android插件化与组件化的学习(附上demo)&lt;/h4&gt;&lt;h4 id=&quot;4-android自动化埋点数据收集-思路及实现&quot;&gt;&lt;a href=&quot;#4-android自动化埋点数据收集-思路及实现&quot; class=&quot;headerlink&quot; title=&quot;4.android自动化埋点数据收集(思路及实现)&quot;&gt;&lt;/a&gt;4.android自动化埋点数据收集(思路及实现)&lt;/h4&gt;
     
     </summary>
     
