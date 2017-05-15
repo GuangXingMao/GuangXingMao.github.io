@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-05-15T16:21:16.000Z</updated>
+  <updated>2017-05-15T16:27:22.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,19 +16,19 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>oc语法学习</title>
+    <title>oc语法学习(java对比)</title>
     <link href="http://yoursite.com/2017/05/15/oc%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0(java%E5%AF%B9%E6%AF%94)/"/>
     <id>http://yoursite.com/2017/05/15/oc语法学习(java对比)/</id>
     <published>2017-05-15T13:14:13.000Z</published>
-    <updated>2017-05-15T16:21:16.000Z</updated>
+    <updated>2017-05-15T16:27:22.000Z</updated>
     
-    <content type="html"><![CDATA[<h4 id="一个OC语言程序基本上由以下几个部分组成"><a href="#一个OC语言程序基本上由以下几个部分组成" class="headerlink" title="一个OC语言程序基本上由以下几个部分组成:"></a>一个OC语言程序基本上由以下几个部分组成:</h4><h5 id="1-预处理命令（类似java的导入类库）"><a href="#1-预处理命令（类似java的导入类库）" class="headerlink" title="1.预处理命令（类似java的导入类库）"></a>1.预处理命令（类似java的导入类库）</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;是一个预处理命令，它告诉Objective-C语言编译器去实际编译之前包含Foundation.h文件。</div></pre></td></tr></table></figure>
+    <content type="html"><![CDATA[<h4 id="OC程序结构"><a href="#OC程序结构" class="headerlink" title="OC程序结构"></a>OC程序结构</h4><h5 id="1-预处理命令（类似java的导入类库）"><a href="#1-预处理命令（类似java的导入类库）" class="headerlink" title="1.预处理命令（类似java的导入类库）"></a>1.预处理命令（类似java的导入类库）</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;是一个预处理命令，它告诉Objective-C语言编译器去实际编译之前包含Foundation.h文件。</div></pre></td></tr></table></figure>
 <h5 id="2-接口（类似java的接口）"><a href="#2-接口（类似java的接口）" class="headerlink" title="2.接口（类似java的接口）"></a>2.接口（类似java的接口）</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">1. @interface SampleClass:NSObject 显示了如何创建一个接口。它继承NSObject，这是所有对象的基类。</div><div class="line"></div><div class="line">2.(void)sampleMethod; shows how to declare a method.</div><div class="line"></div><div class="line">3. @end 标志着接口的结束。</div><div class="line"></div><div class="line">4. @implementation SampleClass</div><div class="line"></div><div class="line">- (void)sampleMethod&#123;</div><div class="line">   NSLog(@&quot;Hello, World! </div><div class="line">&quot;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
 <p><strong>差异:<br>1.java中使用interface来定义接口,接口是抽象的，并且里面的方法没有方法体，oc使用@interface来定义接口，但是oc的接口结尾要添加@end来结束<br>2.java中的继承使用extend，而oc中使用::表示继承<br>3.java中使用implement去实现接口，而oc中使用@implementation实现接口
 </strong></p>
 <h5 id="4-方法"><a href="#4-方法" class="headerlink" title="4.方法"></a>4.方法</h5><h5 id="5-语句和表达式"><a href="#5-语句和表达式" class="headerlink" title="5.语句和表达式"></a>5.语句和表达式</h5><h5 id="6-注释"><a href="#6-注释" class="headerlink" title="6.注释"></a>6.注释</h5><h4 id="OC基本语法"><a href="#OC基本语法" class="headerlink" title="OC基本语法"></a>OC基本语法</h4><h5 id="1-标识符"><a href="#1-标识符" class="headerlink" title="1.标识符"></a>1.标识符</h5><p>都是由字母，数字，下划线，组成，不允许@，%标点符号，但是java能用$,而oc不能。都以字母或下划线开头。</p>
 <h5 id="2-关键字"><a href="#2-关键字" class="headerlink" title="2.关键字"></a>2.关键字</h5><p>oc和java一样都不能作为常量或变量，或任何其他标识符名称。</p>
-<h4 id="OC数据类型"><a href="#OC数据类型" class="headerlink" title="OC数据类型"></a>OC数据类型</h4><p>1.基本类型（整数类型，浮点型）<br>2.枚举类型（定义变量只能被分配在整个程序中的若干离散的整数值）<br>3.void类型（类型说明符void表示没有可用的值）<br>4.派生类型（包括指针类型，数组类型，结构类型，联合类型及函数类型）<br>差异：oc和java的数据类型差异还是蛮大的，java基本数据类型分为8种（int,float,double,char,short,long,byte,boolean）,其余的是引用数据类型（类，接口，数组）</p>
+<h4 id="OC数据类型"><a href="#OC数据类型" class="headerlink" title="OC数据类型"></a>OC数据类型</h4><p>1.基本类型（整数类型，浮点型）<br>2.枚举类型（定义变量只能被分配在整个程序中的若干离散的整数值）<br>3.void类型（类型说明符void表示没有可用的值）<br>4.派生类型（包括指针类型，数组类型，结构类型，联合类型及函数类型）<br><strong>差异：oc和java的数据类型差异还是蛮大的，java基本数据类型分为8种（int,float,double,char,short,long,byte,boolean）,其余的是引用数据类型（类，接口，数组）</strong></p>
 <h4 id="OC变量"><a href="#OC变量" class="headerlink" title="OC变量"></a>OC变量</h4><p>oc中使用extern关键字来申明一个变量，java中申明变量只需要加数据类型就好</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">oc: extern int a;</div><div class="line">java: int a;</div></pre></td></tr></table></figure>
 <h4 id="OC常量"><a href="#OC常量" class="headerlink" title="OC常量"></a>OC常量</h4><p>在oc中有两种简单的方法来定义常量<br>1.使用#define预处理<br>2.使用const关键字</p>
@@ -38,8 +38,7 @@
 <p>来定义一个常量</p>
 <h4 id="OC运算符"><a href="#OC运算符" class="headerlink" title="OC运算符"></a>OC运算符</h4><p>1.算术运算符（+，-，*，/，%，++，–）<br>2.关系运算符（==,!=,&gt;,&lt;,&gt;=,&lt;=）<br>3.逻辑运算符（&amp;&amp;,||,!）<br>4.位运算符（&amp;,|,^,~）<br>5.赋值运算符（=,+=,-=,…）<br>6.其他运算符<br>类似，没什么好说的</p>
 <h4 id="OC循环"><a href="#OC循环" class="headerlink" title="OC循环"></a>OC循环</h4><p>1.while循环<br>2.for循环<br>3.do…while循环<br>4.内嵌循环<br>5.break<br>6.continue<br>7.if,if…else,switch<br>类似，没什么好说的</p>
-<h4 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h4><p>1.定义一个方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">- (return_type) method_name:( argumentType1 )argumentName1 </div><div class="line">joiningArgument2:( argumentType2 )argumentName2 ... </div><div class="line">joiningArgumentn:( argumentTypen )argumentNamen </div><div class="line">&#123;</div><div class="line">   body of the function</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h4><h5 id="1-定义一个方法"><a href="#1-定义一个方法" class="headerlink" title="1.定义一个方法"></a>1.定义一个方法</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">- (return_type) method_name:( argumentType1 )argumentName1 </div><div class="line">joiningArgument2:( argumentType2 )argumentName2 ... </div><div class="line">joiningArgumentn:( argumentTypen )argumentNamen </div><div class="line">&#123;</div><div class="line">   body of the function</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p><strong>·返回类型：</strong>方法可以返回一个值。 return_type是函数返回值的数据类型。有些方法执行所需的操作，不返回值。在这种情况下，return_type关键字是void。<br>返回类型: 方法可以返回一个值。 return_type是函数返回值的数据类型。有些方法执行所需的操作，不返回值。在这种情况下，return_type关键字是void。</p>
 <p><strong>·方法名称:</strong> 这是实际的方法名。方法名和参数表共同构成的方法签名。</p>
 <p><strong>·参数:</strong> 一个参数像一个占位符。当函数被调用时，你传递一个值的参数。这个值被称为实际参数或参数。参数列表是指的类型，顺序和数量的参数的方法。参数是可选的，方法可能不包含任何参数。</p>
@@ -47,18 +46,18 @@
 <p><strong>·方法体:</strong> 该方法的主体包含语句定义的方法用于做什么的集合。</p>
 <p>在java中定义一个方法，例</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">max</span><span class="params">(<span class="keyword">int</span> num1,<span class="keyword">int</span> num2)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> num1&gt;num2;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>2.按值传递参数（例：两数交换）<br>3.按引用方法调用参数传递（例，指针类型交换）</p>
-<h4 id="OC-块"><a href="#OC-块" class="headerlink" title="OC 块"></a>OC 块</h4><p>1.简单声明块语法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">returntype (^blockName)(argumentType);</div><div class="line">```    </div><div class="line">例</div><div class="line"> </div><div class="line">```java</div><div class="line">void (^simpleBlock)(void) = ^&#123;</div><div class="line">    NSLog(@&quot;This is a block&quot;);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h5 id="2-按值传递参数（例：两数交换）"><a href="#2-按值传递参数（例：两数交换）" class="headerlink" title="2.按值传递参数（例：两数交换）"></a>2.按值传递参数（例：两数交换）</h5><h5 id="3-按引用方法调用参数传递（例，指针类型交换）"><a href="#3-按引用方法调用参数传递（例，指针类型交换）" class="headerlink" title="3.按引用方法调用参数传递（例，指针类型交换）"></a>3.按引用方法调用参数传递（例，指针类型交换）</h5><h4 id="OC-块"><a href="#OC-块" class="headerlink" title="OC 块"></a>OC 块</h4><h5 id="1-简单声明块语法"><a href="#1-简单声明块语法" class="headerlink" title="1.简单声明块语法"></a>1.简单声明块语法</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">returntype (^blockName)(argumentType);</div><div class="line">```    </div><div class="line">例</div><div class="line"> </div><div class="line">```java</div><div class="line">void (^simpleBlock)(void) = ^&#123;</div><div class="line">    NSLog(@&quot;This is a block&quot;);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
 <p>调用块</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">simpleBlock();</div></pre></td></tr></table></figure>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h4 id=&quot;一个OC语言程序基本上由以下几个部分组成&quot;&gt;&lt;a href=&quot;#一个OC语言程序基本上由以下几个部分组成&quot; class=&quot;headerlink&quot; title=&quot;一个OC语言程序基本上由以下几个部分组成:&quot;&gt;&lt;/a&gt;一个OC语言程序基本上由以下几个部分组成:&lt;/h4
+      &lt;h4 id=&quot;OC程序结构&quot;&gt;&lt;a href=&quot;#OC程序结构&quot; class=&quot;headerlink&quot; title=&quot;OC程序结构&quot;&gt;&lt;/a&gt;OC程序结构&lt;/h4&gt;&lt;h5 id=&quot;1-预处理命令（类似java的导入类库）&quot;&gt;&lt;a href=&quot;#1-预处理命令（类似java的导入
     
     </summary>
+    
+      <category term="ios" scheme="http://yoursite.com/categories/ios/"/>
     
     
       <category term="工作学习" scheme="http://yoursite.com/tags/%E5%B7%A5%E4%BD%9C%E5%AD%A6%E4%B9%A0/"/>
