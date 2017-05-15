@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-05-15T16:27:22.000Z</updated>
+  <updated>2017-05-15T16:32:45.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,12 +20,12 @@
     <link href="http://yoursite.com/2017/05/15/oc%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0(java%E5%AF%B9%E6%AF%94)/"/>
     <id>http://yoursite.com/2017/05/15/oc语法学习(java对比)/</id>
     <published>2017-05-15T13:14:13.000Z</published>
-    <updated>2017-05-15T16:27:22.000Z</updated>
+    <updated>2017-05-15T16:32:45.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="OC程序结构"><a href="#OC程序结构" class="headerlink" title="OC程序结构"></a>OC程序结构</h4><h5 id="1-预处理命令（类似java的导入类库）"><a href="#1-预处理命令（类似java的导入类库）" class="headerlink" title="1.预处理命令（类似java的导入类库）"></a>1.预处理命令（类似java的导入类库）</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;是一个预处理命令，它告诉Objective-C语言编译器去实际编译之前包含Foundation.h文件。</div></pre></td></tr></table></figure>
 <h5 id="2-接口（类似java的接口）"><a href="#2-接口（类似java的接口）" class="headerlink" title="2.接口（类似java的接口）"></a>2.接口（类似java的接口）</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">1. @interface SampleClass:NSObject 显示了如何创建一个接口。它继承NSObject，这是所有对象的基类。</div><div class="line"></div><div class="line">2.(void)sampleMethod; shows how to declare a method.</div><div class="line"></div><div class="line">3. @end 标志着接口的结束。</div><div class="line"></div><div class="line">4. @implementation SampleClass</div><div class="line"></div><div class="line">- (void)sampleMethod&#123;</div><div class="line">   NSLog(@&quot;Hello, World! </div><div class="line">&quot;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
-<p><strong>差异:<br>1.java中使用interface来定义接口,接口是抽象的，并且里面的方法没有方法体，oc使用@interface来定义接口，但是oc的接口结尾要添加@end来结束<br>2.java中的继承使用extend，而oc中使用::表示继承<br>3.java中使用implement去实现接口，而oc中使用@implementation实现接口
-</strong></p>
+<p><strong>差异:<br>1.java中使用interface来定义接口,接口是抽象的，并且里面的方法没有方法体，oc使用@interface来定义接口，但是oc的接口结尾要添加@end来结束<br>2.java中的继承使用extend，而oc中使用:表示继承(特定下)<br>3.java中使用implement去实现接口，而oc中使用@implementation实现接口
+</strong><br><a id="more"></a></p>
 <h5 id="4-方法"><a href="#4-方法" class="headerlink" title="4.方法"></a>4.方法</h5><h5 id="5-语句和表达式"><a href="#5-语句和表达式" class="headerlink" title="5.语句和表达式"></a>5.语句和表达式</h5><h5 id="6-注释"><a href="#6-注释" class="headerlink" title="6.注释"></a>6.注释</h5><h4 id="OC基本语法"><a href="#OC基本语法" class="headerlink" title="OC基本语法"></a>OC基本语法</h4><h5 id="1-标识符"><a href="#1-标识符" class="headerlink" title="1.标识符"></a>1.标识符</h5><p>都是由字母，数字，下划线，组成，不允许@，%标点符号，但是java能用$,而oc不能。都以字母或下划线开头。</p>
 <h5 id="2-关键字"><a href="#2-关键字" class="headerlink" title="2.关键字"></a>2.关键字</h5><p>oc和java一样都不能作为常量或变量，或任何其他标识符名称。</p>
 <h4 id="OC数据类型"><a href="#OC数据类型" class="headerlink" title="OC数据类型"></a>OC数据类型</h4><p>1.基本类型（整数类型，浮点型）<br>2.枚举类型（定义变量只能被分配在整个程序中的若干离散的整数值）<br>3.void类型（类型说明符void表示没有可用的值）<br>4.派生类型（包括指针类型，数组类型，结构类型，联合类型及函数类型）<br><strong>差异：oc和java的数据类型差异还是蛮大的，java基本数据类型分为8种（int,float,double,char,short,long,byte,boolean）,其余的是引用数据类型（类，接口，数组）</strong></p>
@@ -53,7 +53,10 @@
     
     <summary type="html">
     
-      &lt;h4 id=&quot;OC程序结构&quot;&gt;&lt;a href=&quot;#OC程序结构&quot; class=&quot;headerlink&quot; title=&quot;OC程序结构&quot;&gt;&lt;/a&gt;OC程序结构&lt;/h4&gt;&lt;h5 id=&quot;1-预处理命令（类似java的导入类库）&quot;&gt;&lt;a href=&quot;#1-预处理命令（类似java的导入
+      &lt;h4 id=&quot;OC程序结构&quot;&gt;&lt;a href=&quot;#OC程序结构&quot; class=&quot;headerlink&quot; title=&quot;OC程序结构&quot;&gt;&lt;/a&gt;OC程序结构&lt;/h4&gt;&lt;h5 id=&quot;1-预处理命令（类似java的导入类库）&quot;&gt;&lt;a href=&quot;#1-预处理命令（类似java的导入类库）&quot; class=&quot;headerlink&quot; title=&quot;1.预处理命令（类似java的导入类库）&quot;&gt;&lt;/a&gt;1.预处理命令（类似java的导入类库）&lt;/h5&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;#import &amp;lt;Foundation/Foundation.h&amp;gt;是一个预处理命令，它告诉Objective-C语言编译器去实际编译之前包含Foundation.h文件。&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h5 id=&quot;2-接口（类似java的接口）&quot;&gt;&lt;a href=&quot;#2-接口（类似java的接口）&quot; class=&quot;headerlink&quot; title=&quot;2.接口（类似java的接口）&quot;&gt;&lt;/a&gt;2.接口（类似java的接口）&lt;/h5&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1. @interface SampleClass:NSObject 显示了如何创建一个接口。它继承NSObject，这是所有对象的基类。&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2.(void)sampleMethod; shows how to declare a method.&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3. @end 标志着接口的结束。&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4. @implementation SampleClass&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;- (void)sampleMethod&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   NSLog(@&amp;quot;Hello, World! &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;quot;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;@end&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;strong&gt;差异:&lt;br&gt;1.java中使用interface来定义接口,接口是抽象的，并且里面的方法没有方法体，oc使用@interface来定义接口，但是oc的接口结尾要添加@end来结束&lt;br&gt;2.java中的继承使用extend，而oc中使用:表示继承(特定下)&lt;br&gt;3.java中使用implement去实现接口，而oc中使用@implementation实现接口
+&lt;/strong&gt;&lt;br&gt;
     
     </summary>
     
