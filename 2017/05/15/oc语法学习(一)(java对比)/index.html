@@ -1,0 +1,1028 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="工作学习,oc,语法," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Shinx'blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="OC程序结构1.预处理命令（类似java的导入类库）1#import &amp;lt;Foundation/Foundation.h&amp;gt;是一个预处理命令，它告诉Objective-C语言编译器去实际编译之前包含Foundation.h文件。 2.接口（类似java的接口）12345678910111213141. @interface SampleClass:NSObject 显示了如何创建一个接口。">
+<meta name="keywords" content="工作学习,oc,语法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="oc语法学习(一)(java对比)">
+<meta property="og:url" content="http://yoursite.com/2017/05/15/oc语法学习(一)(java对比)/index.html">
+<meta property="og:site_name" content="Shinx&#39;blog">
+<meta property="og:description" content="OC程序结构1.预处理命令（类似java的导入类库）1#import &amp;lt;Foundation/Foundation.h&amp;gt;是一个预处理命令，它告诉Objective-C语言编译器去实际编译之前包含Foundation.h文件。 2.接口（类似java的接口）12345678910111213141. @interface SampleClass:NSObject 显示了如何创建一个接口。">
+<meta property="og:updated_time" content="2017-05-16T15:02:40.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="oc语法学习(一)(java对比)">
+<meta name="twitter:description" content="OC程序结构1.预处理命令（类似java的导入类库）1#import &amp;lt;Foundation/Foundation.h&amp;gt;是一个预处理命令，它告诉Objective-C语言编译器去实际编译之前包含Foundation.h文件。 2.接口（类似java的接口）12345678910111213141. @interface SampleClass:NSObject 显示了如何创建一个接口。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/05/15/oc语法学习(一)(java对比)/"/>
+
+
+
+
+
+  <title>oc语法学习(一)(java对比) | Shinx'blog</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Shinx'blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">人生如长跑，成长需进阶</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/15/oc语法学习(一)(java对比)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="GuangXing Mao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://opn79542e.bkt.clouddn.com/a.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shinx'blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">oc语法学习(一)(java对比)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-15T21:14:13+08:00">
+                2017-05-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ios/" itemprop="url" rel="index">
+                    <span itemprop="name">ios</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/05/15/oc语法学习(一)(java对比)/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/05/15/oc语法学习(一)(java对比)/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/05/15/oc语法学习(一)(java对比)/" class="leancloud_visitors" data-flag-title="oc语法学习(一)(java对比)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="OC程序结构"><a href="#OC程序结构" class="headerlink" title="OC程序结构"></a>OC程序结构</h4><h5 id="1-预处理命令（类似java的导入类库）"><a href="#1-预处理命令（类似java的导入类库）" class="headerlink" title="1.预处理命令（类似java的导入类库）"></a>1.预处理命令（类似java的导入类库）</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;是一个预处理命令，它告诉Objective-C语言编译器去实际编译之前包含Foundation.h文件。</div></pre></td></tr></table></figure>
+<h5 id="2-接口（类似java的接口）"><a href="#2-接口（类似java的接口）" class="headerlink" title="2.接口（类似java的接口）"></a>2.接口（类似java的接口）</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">1. @interface SampleClass:NSObject 显示了如何创建一个接口。它继承NSObject，这是所有对象的基类。</div><div class="line"></div><div class="line">2.(void)sampleMethod; shows how to declare a method.</div><div class="line"></div><div class="line">3. @end 标志着接口的结束。</div><div class="line"></div><div class="line">4. @implementation SampleClass</div><div class="line"></div><div class="line">- (void)sampleMethod&#123;</div><div class="line">   NSLog(@&quot;Hello, World! </div><div class="line">&quot;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
+<p><strong>差异:<br>1.java中使用interface来定义接口,接口是抽象的，并且里面的方法没有方法体，oc使用@interface来定义接口，但是oc的接口结尾要添加@end来结束<br>2.java中的继承使用extend，而oc中使用:表示继承(特定下)<br>3.java中使用implement去实现接口，而oc中使用@implementation实现接口
+</strong><br><a id="more"></a></p>
+<h5 id="4-方法"><a href="#4-方法" class="headerlink" title="4.方法"></a>4.方法</h5><h5 id="5-语句和表达式"><a href="#5-语句和表达式" class="headerlink" title="5.语句和表达式"></a>5.语句和表达式</h5><h5 id="6-注释"><a href="#6-注释" class="headerlink" title="6.注释"></a>6.注释</h5><h4 id="OC基本语法"><a href="#OC基本语法" class="headerlink" title="OC基本语法"></a>OC基本语法</h4><h5 id="1-标识符"><a href="#1-标识符" class="headerlink" title="1.标识符"></a>1.标识符</h5><p>都是由字母，数字，下划线，组成，不允许@，%标点符号，但是java能用$,而oc不能。都以字母或下划线开头。</p>
+<h5 id="2-关键字"><a href="#2-关键字" class="headerlink" title="2.关键字"></a>2.关键字</h5><p>oc和java一样都不能作为常量或变量，或任何其他标识符名称。</p>
+<h4 id="OC数据类型"><a href="#OC数据类型" class="headerlink" title="OC数据类型"></a>OC数据类型</h4><p>1.基本类型（整数类型，浮点型）<br>2.枚举类型（定义变量只能被分配在整个程序中的若干离散的整数值）<br>3.void类型（类型说明符void表示没有可用的值）<br>4.派生类型（包括指针类型，数组类型，结构类型，联合类型及函数类型）<br><strong>差异：oc和java的数据类型差异还是蛮大的，java基本数据类型分为8种（int,float,double,char,short,long,byte,boolean）,其余的是引用数据类型（类，接口，数组）</strong></p>
+<h4 id="OC变量"><a href="#OC变量" class="headerlink" title="OC变量"></a>OC变量</h4><p>oc中使用extern关键字来申明一个变量，java中申明变量只需要加数据类型就好</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">oc: extern int a;</div><div class="line">java: int a;</div></pre></td></tr></table></figure>
+<h4 id="OC常量"><a href="#OC常量" class="headerlink" title="OC常量"></a>OC常量</h4><p>在oc中有两种简单的方法来定义常量<br>1.使用#define预处理<br>2.使用const关键字</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">1.#define identifier value</div><div class="line">2.const type variable = value;</div></pre></td></tr></table></figure>
+<p>在java中一般使用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String VALUE = <span class="string">"java"</span>;</div></pre></td></tr></table></figure>
+<p>来定义一个常量</p>
+<h4 id="OC运算符"><a href="#OC运算符" class="headerlink" title="OC运算符"></a>OC运算符</h4><p>1.算术运算符（+，-，*，/，%，++，–）<br>2.关系运算符（==,!=,&gt;,&lt;,&gt;=,&lt;=）<br>3.逻辑运算符（&amp;&amp;,||,!）<br>4.位运算符（&amp;,|,^,~）<br>5.赋值运算符（=,+=,-=,…）<br>6.其他运算符<br>类似，没什么好说的</p>
+<h4 id="OC循环"><a href="#OC循环" class="headerlink" title="OC循环"></a>OC循环</h4><p>1.while循环<br>2.for循环<br>3.do…while循环<br>4.内嵌循环<br>5.break<br>6.continue<br>7.if,if…else,switch<br>类似，没什么好说的</p>
+<h4 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h4><h5 id="1-定义一个方法"><a href="#1-定义一个方法" class="headerlink" title="1.定义一个方法"></a>1.定义一个方法</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">- (return_type) method_name:( argumentType1 )argumentName1 </div><div class="line">joiningArgument2:( argumentType2 )argumentName2 ... </div><div class="line">joiningArgumentn:( argumentTypen )argumentNamen </div><div class="line">&#123;</div><div class="line">   body of the function</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>·返回类型：</strong>方法可以返回一个值。 return_type是函数返回值的数据类型。有些方法执行所需的操作，不返回值。在这种情况下，return_type关键字是void。<br>返回类型: 方法可以返回一个值。 return_type是函数返回值的数据类型。有些方法执行所需的操作，不返回值。在这种情况下，return_type关键字是void。</p>
+<p><strong>·方法名称:</strong> 这是实际的方法名。方法名和参数表共同构成的方法签名。</p>
+<p><strong>·参数:</strong> 一个参数像一个占位符。当函数被调用时，你传递一个值的参数。这个值被称为实际参数或参数。参数列表是指的类型，顺序和数量的参数的方法。参数是可选的，方法可能不包含任何参数。</p>
+<p><strong>·连接参数:</strong> 连接的参数，使其更易于阅读和同时调用明确。</p>
+<p><strong>·方法体:</strong> 该方法的主体包含语句定义的方法用于做什么的集合。</p>
+<p>在java中定义一个方法，例</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">max</span><span class="params">(<span class="keyword">int</span> num1,<span class="keyword">int</span> num2)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> num1&gt;num2;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="2-按值传递参数（例：两数交换）"><a href="#2-按值传递参数（例：两数交换）" class="headerlink" title="2.按值传递参数（例：两数交换）"></a>2.按值传递参数（例：两数交换）</h5><h5 id="3-按引用方法调用参数传递（例，指针类型交换）"><a href="#3-按引用方法调用参数传递（例，指针类型交换）" class="headerlink" title="3.按引用方法调用参数传递（例，指针类型交换）"></a>3.按引用方法调用参数传递（例，指针类型交换）</h5><h4 id="OC-块"><a href="#OC-块" class="headerlink" title="OC 块"></a>OC 块</h4><h5 id="1-简单声明块语法"><a href="#1-简单声明块语法" class="headerlink" title="1.简单声明块语法"></a>1.简单声明块语法</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">returntype (^blockName)(argumentType);</div><div class="line">```    </div><div class="line">例</div><div class="line"> </div><div class="line">```java</div><div class="line">void (^simpleBlock)(void) = ^&#123;</div><div class="line">    NSLog(@&quot;This is a block&quot;);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>调用块</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">simpleBlock();</div></pre></td></tr></table></figure>
+<h4 id="OC-Numbers-数字"><a href="#OC-Numbers-数字" class="headerlink" title="OC Numbers/数字"></a>OC Numbers/数字</h4><h5 id="1-NSNumber-numberWithBool-Bool-value-将bool转成NSNumber"><a href="#1-NSNumber-numberWithBool-Bool-value-将bool转成NSNumber" class="headerlink" title="1.(NSNumber *)numberWithBool:(Bool)value(将bool转成NSNumber)"></a>1.(NSNumber *)numberWithBool:(Bool)value(将bool转成NSNumber)</h5><h5 id="2-NSNumber-numberWithChar-char-value-将char转NSNumber"><a href="#2-NSNumber-numberWithChar-char-value-将char转NSNumber" class="headerlink" title="2.(NSNumber *)numberWithChar:(char)value(将char转NSNumber)"></a>2.(NSNumber *)numberWithChar:(char)value(将char转NSNumber)</h5><h5 id="3-NSNumber-numberWithDouble-double-value-将double转NSNumber"><a href="#3-NSNumber-numberWithDouble-double-value-将double转NSNumber" class="headerlink" title="3.(NSNumber *)numberWithDouble:(double)value(将double转NSNumber)"></a>3.(NSNumber *)numberWithDouble:(double)value(将double转NSNumber)</h5><h5 id="4-NSNumber-numberWithFloat-float-value-将float转NSNumber"><a href="#4-NSNumber-numberWithFloat-float-value-将float转NSNumber" class="headerlink" title="4.(NSNumber *)numberWithFloat:(float)value(将float转NSNumber)"></a>4.(NSNumber *)numberWithFloat:(float)value(将float转NSNumber)</h5><h5 id="5-NSNumber-numberWithInt-int-value（将int转NSNumber）"><a href="#5-NSNumber-numberWithInt-int-value（将int转NSNumber）" class="headerlink" title="5. (NSNumber *)numberWithInt:(int)value（将int转NSNumber）"></a>5. (NSNumber *)numberWithInt:(int)value（将int转NSNumber）</h5><h5 id="6-NSNumber-numberWithInteger-NSInteger-value-将NSInteger转NSNumber"><a href="#6-NSNumber-numberWithInteger-NSInteger-value-将NSInteger转NSNumber" class="headerlink" title="6. (NSNumber *)numberWithInteger:(NSInteger)value(将NSInteger转NSNumber)"></a>6. (NSNumber *)numberWithInteger:(NSInteger)value(将NSInteger转NSNumber)</h5><h5 id="7-BOOL-boolValue-将NSNumber转bool"><a href="#7-BOOL-boolValue-将NSNumber转bool" class="headerlink" title="7.  (BOOL)boolValue(将NSNumber转bool)"></a>7.  (BOOL)boolValue(将NSNumber转bool)</h5><h5 id="8-char-charValue-将NSNumber转char"><a href="#8-char-charValue-将NSNumber转char" class="headerlink" title="8. (char)charValue(将NSNumber转char)"></a>8. (char)charValue(将NSNumber转char)</h5><h5 id="9-double-doubleValue-将NSNumber转double"><a href="#9-double-doubleValue-将NSNumber转double" class="headerlink" title="9. (double)doubleValue(将NSNumber转double)"></a>9. (double)doubleValue(将NSNumber转double)</h5><h5 id="10-float-floatValue（将NSNumber转float）"><a href="#10-float-floatValue（将NSNumber转float）" class="headerlink" title="10. (float)floatValue（将NSNumber转float）"></a>10. (float)floatValue（将NSNumber转float）</h5><h5 id="11-NSInteger-integerValue（将NSNumber转NSInteger）"><a href="#11-NSInteger-integerValue（将NSNumber转NSInteger）" class="headerlink" title="11. (NSInteger)integerValue（将NSNumber转NSInteger）"></a>11. (NSInteger)integerValue（将NSNumber转NSInteger）</h5><h5 id="12-int-intValue-将NSNumber转int"><a href="#12-int-intValue-将NSNumber转int" class="headerlink" title="12. (int)intValue(将NSNumber转int)"></a>12. (int)intValue(将NSNumber转int)</h5><h5 id="13-NSString-stringValue-将NSNumber转NSString"><a href="#13-NSString-stringValue-将NSNumber转NSString" class="headerlink" title="13. (NSString *)stringValue(将NSNumber转NSString)"></a>13. (NSString *)stringValue(将NSNumber转NSString)</h5><h5 id="14-而在java中也是类似"><a href="#14-而在java中也是类似" class="headerlink" title="14. 而在java中也是类似"></a>14. 而在java中也是类似</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">String.valueOf(<span class="keyword">int</span>);将<span class="keyword">int</span>转成String</div><div class="line">Integer.parseInt(String)将String转<span class="keyword">int</span></div></pre></td></tr></table></figure>
+<p>例</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line"></div><div class="line">//定义一个接口</div><div class="line">@interface SampleClass:NSObject</div><div class="line">//声明一个方法，返回NSNumber类型，传入连个NSNumber类型参数</div><div class="line">- (NSNumber *)multiplyA:(NSNumber *)a withB:(NSNumber *)b;</div><div class="line"></div><div class="line">@end</div><div class="line"></div><div class="line">//接口的实现类</div><div class="line">@implementation SampleClass</div><div class="line">//抽象方法的具体实现</div><div class="line">- (NSNumber *)multiplyA:(NSNumber *)a withB:(NSNumber *)b</div><div class="line">&#123;</div><div class="line">//将NUNString转成float</div><div class="line">   float number1 = [a floatValue];</div><div class="line">   float number2 = [b floatValue];</div><div class="line">   float product = number1 * number2;</div><div class="line">   //将float转成NSNumber输出</div><div class="line">   NSNumber *result = [NSNumber numberWithFloat:product];</div><div class="line">   return result;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@end</div><div class="line"></div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">   NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];</div><div class="line">    //创建SampleClass对象</div><div class="line">   SampleClass *sampleClass = [[SampleClass alloc]init];</div><div class="line">   //将float转NSNumber</div><div class="line">   NSNumber *a = [NSNumber numberWithFloat:10.5];</div><div class="line">   NSNumber *b = [NSNumber numberWithFloat:10.0];  </div><div class="line">   //输出相乘结果 </div><div class="line">   NSNumber *result = [sampleClass multiplyA:a withB:b];</div><div class="line">   //将结果转成NSString输出</div><div class="line">   NSString *resultString = [result stringValue];</div><div class="line">   NSLog(@"The product is %@",resultString);</div><div class="line"></div><div class="line">   [pool drain];</div><div class="line">   return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="OC-Arrays-数组"><a href="#OC-Arrays-数组" class="headerlink" title="OC Arrays/数组"></a>OC Arrays/数组</h4><h5 id="1-申明数组"><a href="#1-申明数组" class="headerlink" title="1.申明数组"></a>1.申明数组</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">type arrayName[arraySize];</div></pre></td></tr></table></figure>
+<h5 id="2-初始化数组"><a href="#2-初始化数组" class="headerlink" title="2.初始化数组"></a>2.初始化数组</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">double balance[5] = &#123;12,13,43,45,65&#125;;</div></pre></td></tr></table></figure>
+<p>如上java类似,但是写法还是有点不同</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//初始化</span></div><div class="line">String[] stringArray = <span class="keyword">new</span> String[];</div><div class="line"><span class="comment">//或</span></div><div class="line">String[] stringArray = &#123;<span class="string">"23"</span>,<span class="string">"12"</span>,<span class="string">"43"</span>,<span class="string">"54"</span>&#125;</div></pre></td></tr></table></figure>
+<h5 id="3-多维数组"><a href="#3-多维数组" class="headerlink" title="3.多维数组"></a>3.多维数组</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">二维数组，同理</div><div class="line">type arrayName[x][y]</div></pre></td></tr></table></figure>
+<h5 id="4-从函数返回数组"><a href="#4-从函数返回数组" class="headerlink" title="4.从函数返回数组"></a>4.从函数返回数组</h5><p>注:在OC中不提倡地址返回一个局部变量在函数之外，所以必须将局部变量定义为静态变量，这和java很不同，java是允许直接将局部变量返回的。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">@implementation SampleClass</div><div class="line"></div><div class="line">/* function to generate and return random numbers */</div><div class="line">- (int *) getRandom</div><div class="line">&#123;</div><div class="line">  static int  r[10];</div><div class="line">  int i;</div><div class="line"></div><div class="line">  /* set the seed */</div><div class="line">  srand( (unsigned)time( NULL ) );</div><div class="line">  for ( i = 0; i &lt; 10; ++i)</div><div class="line">  &#123;</div><div class="line">     r[i] = rand();</div><div class="line">     NSLog( @"r[%d] = %d</div><div class="line">", i, r[i]);</div><div class="line"></div><div class="line">  &#125;</div><div class="line"></div><div class="line">  return r;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
+<h5 id="5-指针的数组"><a href="#5-指针的数组" class="headerlink" title="5.指针的数组"></a>5.指针的数组</h5><p>数组名是一个常量指针数组的第一个元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">double *p;</div><div class="line">double balance[10];</div><div class="line"></div><div class="line">p = balance;</div><div class="line">p所指向的就是balance[0]的地址</div></pre></td></tr></table></figure>
+<p>使用数组名作为常量指针，使用*（balance+4）是一种合法的方式访问数据balance[4]。</p>
+<h4 id="OC指针"><a href="#OC指针" class="headerlink" title="OC指针"></a>OC指针</h4><p>指针是一个变量，其值是另一个变量，即直接地址的内存位置的地址。<br>使用时：<br>1.定义一个指针变量<br>int    *ip;<br>2.分配一个指针变量的地址<br>ip = &var;<br>3.访问提供的地址指针变量的值<br>例:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line"></div><div class="line">int main ()</div><div class="line">&#123;</div><div class="line">//定义一个变量</div><div class="line">   int  var = 20;   /* actual variable declaration */</div><div class="line">   //申明一个指针</div><div class="line">   int  *ip;        /* yiibaier variable declaration */</div><div class="line">//将变量的地址值赋给指针</div><div class="line">   ip = &amp;var;  /* store address of var in yiibaier variable*/</div><div class="line"></div><div class="line">   NSLog(@"Address of var variable: %x</div><div class="line">", &amp;var  );</div><div class="line"></div><div class="line">   /* address stored in yiibaier variable */</div><div class="line">   NSLog(@"Address stored in ip variable: %x</div><div class="line">", ip );</div><div class="line"></div><div class="line">   /* access the value using the yiibaier */</div><div class="line">   NSLog(@"Value of *ip variable: %d</div><div class="line">", *ip );</div><div class="line"></div><div class="line">   return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>栗子中ip指向的是var的地址值，所以它们值相等都是地址值，而*ip则指向的var的值，所以它们值相等是20</p>
+<h4 id="指针运算"><a href="#指针运算" class="headerlink" title="指针运算"></a>指针运算</h4><p>OC的指针是一个地址，它也是一个数值，因此可以在数值上的指针执行算术运算。（++，-，+，–）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ptr++//指的是地址值的递增</div><div class="line">ptr &lt;= &amp;var[Max -1] //地址值大小的比较</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">const int MAX = 3;</div><div class="line"></div><div class="line">int main ()</div><div class="line">&#123;</div><div class="line">//定义一个数组</div><div class="line">   int  var[] = &#123;10, 100, 200&#125;;</div><div class="line">//定义一个指针和局部变量</div><div class="line">   int  i, *ptr;</div><div class="line"></div><div class="line">   /* let us have address of the first element in yiibaier */</div><div class="line">   //指针指向数值的var[0]</div><div class="line">   ptr = var;</div><div class="line">   i = 0;</div><div class="line">   //如果地址值小于数值最后一个数的地址值</div><div class="line">   while ( ptr &lt;= &amp;var[MAX - 1] )</div><div class="line">   &#123;</div><div class="line"></div><div class="line">      NSLog(@"Address of var[%d] = %x</div><div class="line">", i, ptr );</div><div class="line">      NSLog(@"Value of var[%d] = %d</div><div class="line">", i, *ptr );</div><div class="line"></div><div class="line">      /* yiibai to the previous location */</div><div class="line">      //地址值++</div><div class="line">      ptr++;</div><div class="line">      i++;</div><div class="line">   &#125;</div><div class="line">   return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="数组的指针"><a href="#数组的指针" class="headerlink" title="数组的指针"></a>数组的指针</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line"> </div><div class="line">const int MAX = 3;</div><div class="line"> </div><div class="line">int main ()</div><div class="line">&#123;</div><div class="line">//定义一个数组</div><div class="line">   int  var[] = &#123;10, 100, 200&#125;;</div><div class="line">//定义一个数组指针</div><div class="line">   int i, *ptr[MAX];</div><div class="line"> </div><div class="line">   for ( i = 0; i &lt; MAX; i++)</div><div class="line">   &#123;</div><div class="line">   //遍历，将数组的地址值赋给数组指针</div><div class="line">      ptr[i] = &amp;var[i]; /* assign the address of integer. */</div><div class="line">   &#125;</div><div class="line">   for ( i = 0; i &lt; MAX; i++)</div><div class="line">   &#123;</div><div class="line">   //遍历打印出数组指针每个地址对应的数值</div><div class="line">      NSLog(@&quot;Value of var[%d] = %d</div><div class="line">&quot;, i, *ptr[i] );</div><div class="line">   &#125;</div><div class="line">   return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="指向指针的指针"><a href="#指向指针的指针" class="headerlink" title="指向指针的指针"></a>指向指针的指针</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line"> </div><div class="line">int main ()</div><div class="line">&#123;</div><div class="line">//定义一个变量</div><div class="line">   int  var;</div><div class="line">//定义一个指针</div><div class="line">   int  *ptr;</div><div class="line">//定义一个指向int类型指针的指针</div><div class="line">   int  **pptr;</div><div class="line">//赋值</div><div class="line">   var = 3000;</div><div class="line">//赋地址值</div><div class="line">   /* take the address of var */</div><div class="line">   ptr = &amp;var;</div><div class="line"></div><div class="line">   /* take the address of ptr using address of operator &amp; */</div><div class="line">//将int指针的地址值赋给pptr</div><div class="line">   pptr = &amp;ptr;</div><div class="line"></div><div class="line">   /* take the value using pptr */</div><div class="line">   NSLog(@&quot;Value of var = %d</div><div class="line">&quot;, var );</div><div class="line">   NSLog(@&quot;Value available at *ptr = %d</div><div class="line">&quot;, *ptr );</div><div class="line">   NSLog(@&quot;Value available at **pptr = %d</div><div class="line">&quot;, **pptr);</div><div class="line"></div><div class="line">   return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>C语音的指针还是很强大的，虽然之前学过，但是感觉忘的都差不多了，再次重温，收获颇多。</strong></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/工作学习/" rel="tag"># 工作学习</a>
+          
+            <a href="/tags/oc/" rel="tag"># oc</a>
+          
+            <a href="/tags/语法/" rel="tag"># 语法</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/14/fragment懒加载/" rel="next" title="fragment懒加载">
+                <i class="fa fa-chevron-left"></i> fragment懒加载
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/16/oc语法学习(二)(java对比)/" rel="prev" title="oc语法学习(二)(java对比)">
+                oc语法学习(二)(java对比) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://opn79542e.bkt.clouddn.com/a.jpg"
+               alt="GuangXing Mao" />
+          <p class="site-author-name" itemprop="name">GuangXing Mao</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/guangxingmao" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2785674665" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/mao-guang-xing-63" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-user-circle"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#OC程序结构"><span class="nav-number">1.</span> <span class="nav-text">OC程序结构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-预处理命令（类似java的导入类库）"><span class="nav-number">1.1.</span> <span class="nav-text">1.预处理命令（类似java的导入类库）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-接口（类似java的接口）"><span class="nav-number">1.2.</span> <span class="nav-text">2.接口（类似java的接口）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-方法"><span class="nav-number">1.3.</span> <span class="nav-text">4.方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-语句和表达式"><span class="nav-number">1.4.</span> <span class="nav-text">5.语句和表达式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-注释"><span class="nav-number">1.5.</span> <span class="nav-text">6.注释</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#OC基本语法"><span class="nav-number">2.</span> <span class="nav-text">OC基本语法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-标识符"><span class="nav-number">2.1.</span> <span class="nav-text">1.标识符</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-关键字"><span class="nav-number">2.2.</span> <span class="nav-text">2.关键字</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#OC数据类型"><span class="nav-number">3.</span> <span class="nav-text">OC数据类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#OC变量"><span class="nav-number">4.</span> <span class="nav-text">OC变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#OC常量"><span class="nav-number">5.</span> <span class="nav-text">OC常量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#OC运算符"><span class="nav-number">6.</span> <span class="nav-text">OC运算符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#OC循环"><span class="nav-number">7.</span> <span class="nav-text">OC循环</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数"><span class="nav-number">8.</span> <span class="nav-text">函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-定义一个方法"><span class="nav-number">8.1.</span> <span class="nav-text">1.定义一个方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-按值传递参数（例：两数交换）"><span class="nav-number">8.2.</span> <span class="nav-text">2.按值传递参数（例：两数交换）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-按引用方法调用参数传递（例，指针类型交换）"><span class="nav-number">8.3.</span> <span class="nav-text">3.按引用方法调用参数传递（例，指针类型交换）</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#OC-块"><span class="nav-number">9.</span> <span class="nav-text">OC 块</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-简单声明块语法"><span class="nav-number">9.1.</span> <span class="nav-text">1.简单声明块语法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#OC-Numbers-数字"><span class="nav-number">10.</span> <span class="nav-text">OC Numbers/数字</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-NSNumber-numberWithBool-Bool-value-将bool转成NSNumber"><span class="nav-number">10.1.</span> <span class="nav-text">1.(NSNumber *)numberWithBool:(Bool)value(将bool转成NSNumber)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-NSNumber-numberWithChar-char-value-将char转NSNumber"><span class="nav-number">10.2.</span> <span class="nav-text">2.(NSNumber *)numberWithChar:(char)value(将char转NSNumber)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-NSNumber-numberWithDouble-double-value-将double转NSNumber"><span class="nav-number">10.3.</span> <span class="nav-text">3.(NSNumber *)numberWithDouble:(double)value(将double转NSNumber)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-NSNumber-numberWithFloat-float-value-将float转NSNumber"><span class="nav-number">10.4.</span> <span class="nav-text">4.(NSNumber *)numberWithFloat:(float)value(将float转NSNumber)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-NSNumber-numberWithInt-int-value（将int转NSNumber）"><span class="nav-number">10.5.</span> <span class="nav-text">5. (NSNumber *)numberWithInt:(int)value（将int转NSNumber）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-NSNumber-numberWithInteger-NSInteger-value-将NSInteger转NSNumber"><span class="nav-number">10.6.</span> <span class="nav-text">6. (NSNumber *)numberWithInteger:(NSInteger)value(将NSInteger转NSNumber)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-BOOL-boolValue-将NSNumber转bool"><span class="nav-number">10.7.</span> <span class="nav-text">7.  (BOOL)boolValue(将NSNumber转bool)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8-char-charValue-将NSNumber转char"><span class="nav-number">10.8.</span> <span class="nav-text">8. (char)charValue(将NSNumber转char)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9-double-doubleValue-将NSNumber转double"><span class="nav-number">10.9.</span> <span class="nav-text">9. (double)doubleValue(将NSNumber转double)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#10-float-floatValue（将NSNumber转float）"><span class="nav-number">10.10.</span> <span class="nav-text">10. (float)floatValue（将NSNumber转float）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#11-NSInteger-integerValue（将NSNumber转NSInteger）"><span class="nav-number">10.11.</span> <span class="nav-text">11. (NSInteger)integerValue（将NSNumber转NSInteger）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#12-int-intValue-将NSNumber转int"><span class="nav-number">10.12.</span> <span class="nav-text">12. (int)intValue(将NSNumber转int)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#13-NSString-stringValue-将NSNumber转NSString"><span class="nav-number">10.13.</span> <span class="nav-text">13. (NSString *)stringValue(将NSNumber转NSString)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#14-而在java中也是类似"><span class="nav-number">10.14.</span> <span class="nav-text">14. 而在java中也是类似</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#OC-Arrays-数组"><span class="nav-number">11.</span> <span class="nav-text">OC Arrays/数组</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-申明数组"><span class="nav-number">11.1.</span> <span class="nav-text">1.申明数组</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-初始化数组"><span class="nav-number">11.2.</span> <span class="nav-text">2.初始化数组</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-多维数组"><span class="nav-number">11.3.</span> <span class="nav-text">3.多维数组</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-从函数返回数组"><span class="nav-number">11.4.</span> <span class="nav-text">4.从函数返回数组</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-指针的数组"><span class="nav-number">11.5.</span> <span class="nav-text">5.指针的数组</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#OC指针"><span class="nav-number">12.</span> <span class="nav-text">OC指针</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指针运算"><span class="nav-number">13.</span> <span class="nav-text">指针运算</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数组的指针"><span class="nav-number">14.</span> <span class="nav-text">数组的指针</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指向指针的指针"><span class="nav-number">15.</span> <span class="nav-text">指向指针的指针</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">GuangXing Mao</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://shinx.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2017/05/15/oc语法学习(一)(java对比)/';
+          this.page.identifier = '2017/05/15/oc语法学习(一)(java对比)/';
+          this.page.title = 'oc语法学习(一)(java对比)';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://shinx.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("yA3gKoFRmqAycD7zG2WIshPx-gzGzoHsz", "n0SqRjs3uU2m9BKc4a0g5wX6");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+  <!-- 背景动画 -->
+<script type="text/javascript" src="/js/src/particle.js"></script>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+<script type="text/javascript" src="/js/src/particles.js" count="50" zindex="-2" opacity="1" color="0,104,183"></script>
+
+</body>
+</html>

@@ -1,0 +1,1006 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="工作学习,oc,语法," />
+
+
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="Shinx'blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="OC NSString/字符串1.创建NSString对象1234//最简单的创建字符串对象的方法，使用@NSString *greeting = @&amp;quot;Hello&amp;quot;;//在java中更简单String greeting = &amp;quot;hello&amp;quot;; 2.调用字符串的方法(NSString )capitalizedString; (unichar)characterA">
+<meta name="keywords" content="工作学习,oc,语法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="oc语法学习(二)(java对比)">
+<meta property="og:url" content="http://yoursite.com/2017/05/16/oc语法学习(二)(java对比)/index.html">
+<meta property="og:site_name" content="Shinx&#39;blog">
+<meta property="og:description" content="OC NSString/字符串1.创建NSString对象1234//最简单的创建字符串对象的方法，使用@NSString *greeting = @&amp;quot;Hello&amp;quot;;//在java中更简单String greeting = &amp;quot;hello&amp;quot;; 2.调用字符串的方法(NSString )capitalizedString; (unichar)characterA">
+<meta property="og:updated_time" content="2017-05-21T16:50:34.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="oc语法学习(二)(java对比)">
+<meta name="twitter:description" content="OC NSString/字符串1.创建NSString对象1234//最简单的创建字符串对象的方法，使用@NSString *greeting = @&amp;quot;Hello&amp;quot;;//在java中更简单String greeting = &amp;quot;hello&amp;quot;; 2.调用字符串的方法(NSString )capitalizedString; (unichar)characterA">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/05/16/oc语法学习(二)(java对比)/"/>
+
+
+
+
+
+  <title>oc语法学习(二)(java对比) | Shinx'blog</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Shinx'blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">人生如长跑，成长需进阶</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/16/oc语法学习(二)(java对比)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="GuangXing Mao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://opn79542e.bkt.clouddn.com/a.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shinx'blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">oc语法学习(二)(java对比)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-16T23:03:40+08:00">
+                2017-05-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ios/" itemprop="url" rel="index">
+                    <span itemprop="name">ios</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/05/16/oc语法学习(二)(java对比)/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/05/16/oc语法学习(二)(java对比)/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/05/16/oc语法学习(二)(java对比)/" class="leancloud_visitors" data-flag-title="oc语法学习(二)(java对比)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="OC-NSString-字符串"><a href="#OC-NSString-字符串" class="headerlink" title="OC NSString/字符串"></a>OC NSString/字符串</h4><p>1.创建NSString对象<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//最简单的创建字符串对象的方法，使用@</div><div class="line">NSString *greeting = @&quot;Hello&quot;;</div><div class="line">//在java中更简单</div><div class="line">String greeting = &quot;hello&quot;;</div></pre></td></tr></table></figure></p>
+<p>2.调用字符串的方法<br>(NSString <em>)capitalizedString;<br> (unichar)characterAtIndex:(NSUInteger)index;<br> (double)doubleValue;<br> (float)floatValue;<br> (BOOL)hasPrefix:(NSString </em>)aString;<br>  (BOOL)hasSuffix:(NSString <em>)aString;<br>(id)initWithFormat:(NSString </em>)format …;<br>(NSInteger)integerValue;<br>(BOOL)isEqualToString:(NSString <em>)aString;<br>(NSUInteger)length;<br>(NSString </em>)lowercaseString;<br>(NSRange)rangeOfString:(NSString <em>)aString;<br>(NSString </em>)stringByAppendingFormat:(NSString <em>)format …;<br> (NSString </em>)stringByTrimmingCharactersInSet:(NSCharacterSet <em>)set;<br>  (NSString </em>)substringFromIndex:(NSUInteger)anIndex ;<br>  差异：java中对象调方法，一般是</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">str.method()</div></pre></td></tr></table></figure>
+<p>  而在oc中对象调方法，一般是</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[str method]</div></pre></td></tr></table></figure>
+<p>  例</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">  #import &lt;Foundation/Foundation.h&gt;</div><div class="line"></div><div class="line">int main ()</div><div class="line">&#123;</div><div class="line">//定义两个字符串对象</div><div class="line">   NSString *str1 = @&quot;Hello&quot;;</div><div class="line">   NSString *str2 = @&quot;World&quot;;</div><div class="line">//申明一个字符串对象</div><div class="line">   NSString *str3;</div><div class="line">   int  len ;</div><div class="line"></div><div class="line">   NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];</div><div class="line">//将str3的值转成大写</div><div class="line">   /* uppercase string */</div><div class="line">   str3 = [str2 uppercaseString];</div><div class="line">   NSLog(@&quot;Uppercase String :  %@</div><div class="line">&quot;, str3 );</div><div class="line"></div><div class="line">   /* concatenates str1 and str2 */</div><div class="line">//将str1的值拼接上&quot;world&quot;,并赋值给str3</div><div class="line">   str3 = [str1 stringByAppendingFormat:@&quot;World&quot;];</div><div class="line">   NSLog(@&quot;Concatenated string:   %@</div><div class="line">&quot;, str3 );</div><div class="line"></div><div class="line">   /* total length of str3 after concatenation */</div><div class="line">//打印出str3的长度</div><div class="line">   len = [str3 length];</div><div class="line">   NSLog(@&quot;Length of Str3 :  %d</div><div class="line">&quot;, len );</div><div class="line">    </div><div class="line">   /* InitWithFormat */</div><div class="line">//将str3通过%@ %@ 格式输出，并将str1和str2替换%@</div><div class="line">    str3 = [[NSString alloc] initWithFormat:@&quot;%@ %@&quot;,str1,str2];	</div><div class="line">    NSLog(@&quot;Using initWithFormat:   %@</div><div class="line">&quot;, str3 );</div><div class="line">    [pool drain];</div><div class="line"></div><div class="line">   return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="OC-struct-结构"><a href="#OC-struct-结构" class="headerlink" title="OC struct/结构"></a>OC struct/结构</h4><p>1.定义一个结构</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">struct [structure tag]</div><div class="line">&#123;</div><div class="line">   member definition;</div><div class="line">   member definition;</div><div class="line">   ...</div><div class="line">   member definition;</div><div class="line">&#125; [one or more structure variables]; </div><div class="line">例</div><div class="line">struct Books</div><div class="line">&#123;</div><div class="line">   NSString *title;</div><div class="line">   NSString *author;</div><div class="line">   NSString *subject;</div><div class="line">   int   book_id;</div><div class="line">&#125; book;</div></pre></td></tr></table></figure>
+<p>差异：oc的结果很像java中的bean类，通常会这样写</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">类中添加很多字段，然后可以通过book.title调用其属性（事先该属性为public）</div><div class="line">class book &#123;</div><div class="line">   public String title;</div><div class="line">   public String author;</div><div class="line">   public String subject;</div><div class="line">   public int book_id;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="2-作为函数参数的结构"><a href="#2-作为函数参数的结构" class="headerlink" title="2.作为函数参数的结构"></a>2.作为函数参数的结构</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line">//定义一个结构</div><div class="line">struct Books</div><div class="line">&#123;</div><div class="line">   NSString *title;</div><div class="line">   NSString *author;</div><div class="line">   NSString *subject;</div><div class="line">   int   book_id;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">//定义一个接口</div><div class="line">@interface SampleClass:NSObject</div><div class="line"></div><div class="line">/* function declaration */</div><div class="line">- (void) printBook:( struct Books) book ;</div><div class="line"></div><div class="line">@end</div><div class="line">//接口的实现类</div><div class="line">@implementation SampleClass </div><div class="line">//实现的方法，形参为Book结构的对象</div><div class="line">- (void) printBook:( struct Books) book</div><div class="line">&#123;</div><div class="line">   NSLog(@&quot;Book title : %@</div><div class="line">&quot;, book.title);</div><div class="line">   NSLog(@&quot;Book author : %@</div><div class="line">&quot;, book.author);</div><div class="line">   NSLog(@&quot;Book subject : %@</div><div class="line">&quot;, book.subject);</div><div class="line">   NSLog(@&quot;Book book_id : %d</div><div class="line">&quot;, book.book_id);</div><div class="line">&#125;</div><div class="line">@end</div><div class="line"></div><div class="line">int main( )</div><div class="line">&#123;</div><div class="line">   struct Books Book1;        /* Declare Book1 of type Book */</div><div class="line">   struct Books Book2;        /* Declare Book2 of type Book */</div><div class="line"> //给结构里的字段赋值</div><div class="line">   /* book 1 specification */</div><div class="line">   Book1.title = @&quot;Objective-C Programming&quot;;</div><div class="line">   Book1.author = @&quot;Nuha Ali&quot;; </div><div class="line">   Book1.subject = @&quot;Objective-C Programming Tutorial&quot;;</div><div class="line">   Book1.book_id = 6495407;</div><div class="line"></div><div class="line">   /* book 2 specification */</div><div class="line">   Book2.title = @&quot;Telecom Billing&quot;;</div><div class="line">   Book2.author = @&quot;Zara Ali&quot;;</div><div class="line">   Book2.subject = @&quot;Telecom Billing Tutorial&quot;;</div><div class="line">   Book2.book_id = 6495700;</div><div class="line"> </div><div class="line">   SampleClass *sampleClass = [[SampleClass alloc]init];</div><div class="line">   /* print Book1 info */</div><div class="line">   [sampleClass printBook: Book1];</div><div class="line">//调用printBook方法打印结构中的值</div><div class="line">   /* Print Book2 info */</div><div class="line">   [sampleClass printBook: Book2];</div><div class="line"></div><div class="line">   return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="3-指向结构的指针"><a href="#3-指向结构的指针" class="headerlink" title="3.指向结构的指针"></a>3.指向结构的指针</h5><p>·定义结构体指针</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">struct Books *struct_yiibaier;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//存储结构体变量的地址</div><div class="line">struct_yiibaier = &amp;Book1;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//访问成员的结构，使用该结构的一个指针，必须使用-&gt;运算符</div><div class="line">struct_yiibaier-&gt;title;</div></pre></td></tr></table></figure>
+<p>例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line">//定义一个结构</div><div class="line">struct Books</div><div class="line">&#123;</div><div class="line">   NSString *title;</div><div class="line">   NSString *author;</div><div class="line">   NSString *subject;</div><div class="line">   int   book_id;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">//定义一个接口，</div><div class="line">@interface SampleClass:NSObject</div><div class="line"></div><div class="line">/* function declaration */</div><div class="line">- (void) printBook:( struct Books *) book ;</div><div class="line"></div><div class="line">@end</div><div class="line"></div><div class="line">//接口的实现类</div><div class="line">@implementation SampleClass </div><div class="line">//方法打印出结构的字段</div><div class="line">- (void) printBook:( struct Books *) book</div><div class="line">&#123;</div><div class="line">//参数为指向结构的指针,所以要使用-&gt;获取变量</div><div class="line">   NSLog(@&quot;Book title : %@</div><div class="line">&quot;, book-&gt;title);</div><div class="line">   NSLog(@&quot;Book author : %@</div><div class="line">&quot;, book-&gt;author);</div><div class="line">   NSLog(@&quot;Book subject : %@</div><div class="line">&quot;, book-&gt;subject);</div><div class="line">   NSLog(@&quot;Book book_id : %d</div><div class="line">&quot;, book-&gt;book_id);</div><div class="line">&#125;</div><div class="line">@end</div><div class="line"></div><div class="line">int main( )</div><div class="line">&#123;</div><div class="line">   struct Books Book1;        /* Declare Book1 of type Book */</div><div class="line">   struct Books Book2;        /* Declare Book2 of type Book */</div><div class="line"> </div><div class="line">   /* book 1 specification */</div><div class="line">   Book1.title = @&quot;Objective-C Programming&quot;;</div><div class="line">   Book1.author = @&quot;Nuha Ali&quot;; </div><div class="line">   Book1.subject = @&quot;Objective-C Programming Tutorial&quot;;</div><div class="line">   Book1.book_id = 6495407;</div><div class="line"></div><div class="line">   /* book 2 specification */</div><div class="line">   Book2.title = @&quot;Telecom Billing&quot;;</div><div class="line">   Book2.author = @&quot;Zara Ali&quot;;</div><div class="line">   Book2.subject = @&quot;Telecom Billing Tutorial&quot;;</div><div class="line">   Book2.book_id = 6495700;</div><div class="line"> </div><div class="line">   SampleClass *sampleClass = [[SampleClass alloc]init];</div><div class="line">   /* print Book1 info by passing address of Book1 */</div><div class="line">   [sampleClass printBook:&amp;Book1];</div><div class="line"></div><div class="line">   /* print Book2 info by passing address of Book2 */</div><div class="line">   [sampleClass printBook:&amp;Book2];</div><div class="line"></div><div class="line">   return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="位域"><a href="#位域" class="headerlink" title="位域"></a>位域</h4><p>位域允许在一个结构中的数据的包装。<br>也就是添加该字段所占的长度</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">struct packed_struct &#123;</div><div class="line">  unsigned int f1:1;</div><div class="line">  unsigned int f2:1;</div><div class="line">  unsigned int f3:1;</div><div class="line">  unsigned int f4:1;</div><div class="line">  unsigned int type:4;</div><div class="line">  unsigned int my_int:9;</div><div class="line">&#125; pack;</div></pre></td></tr></table></figure>
+<h4 id="预处理器"><a href="#预处理器" class="headerlink" title="预处理器"></a>预处理器</h4><p>oc的井号（＃）开头的所有预处理命令，和java的其实很像，如#import就类似于java的import类库，还有#if,#else,等等，</p>
+<h5 id="预定义宏"><a href="#预定义宏" class="headerlink" title="预定义宏"></a>预定义宏</h5><p>预定义宏不应该直接被修改，就是系统提供的特定方法，或者说是特定变量，如<em>DATE</em>, <em>TIME</em>等，这些方法就像java的getDate()，System.currentTimeMillis()等，都是系统提供的方法。</p>
+<h5 id="预处理运算符"><a href="#预处理运算符" class="headerlink" title="预处理运算符"></a>预处理运算符</h5><p>1.宏延续()<br>    宏通常必须在一个单一的行，宏延续运算符用于继续宏的一行<br>2.Stringize(#)<br>    在宏定义内使用时，一个宏参数转换成一个字符串常量<br>3.标记粘贴(##)<br>    标记粘贴运算符在宏定义内结合两个参数，<br>4.defined()运算符</p>
+<pre><code>#defined定义一个标识符，如果指定的标识符被定义，该值是真，如果符号没有定义，这个值是false
+</code></pre><p>5.参数化宏</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">int square(int x) &#123;</div><div class="line">    return x * x;</div><div class="line">&#125;</div><div class="line">//重写</div><div class="line">#define square(x) ((x) * (x))</div></pre></td></tr></table></figure>
+<p>带参数的宏，必须使用才可以使用#define指令定义。</p>
+<h4 id="typedef"><a href="#typedef" class="headerlink" title="typedef"></a>typedef</h4><p>type关键字，可以用一个新的名字给一个类型，如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//unsigned char类型，使用BYTE给该类型取一个新的名字</div><div class="line">typedef unsigned char BYTE;</div><div class="line">//使用标识符BYTE的作为unsinged char类型的缩写来定义这连个变量</div><div class="line">BYTE  b1, b2;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/工作学习/" rel="tag"># 工作学习</a>
+          
+            <a href="/tags/oc/" rel="tag"># oc</a>
+          
+            <a href="/tags/语法/" rel="tag"># 语法</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/15/oc语法学习(一)(java对比)/" rel="next" title="oc语法学习(一)(java对比)">
+                <i class="fa fa-chevron-left"></i> oc语法学习(一)(java对比)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://opn79542e.bkt.clouddn.com/a.jpg"
+               alt="GuangXing Mao" />
+          <p class="site-author-name" itemprop="name">GuangXing Mao</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/guangxingmao" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2785674665" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/mao-guang-xing-63" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-user-circle"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#OC-NSString-字符串"><span class="nav-number">1.</span> <span class="nav-text">OC NSString/字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#OC-struct-结构"><span class="nav-number">2.</span> <span class="nav-text">OC struct/结构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-作为函数参数的结构"><span class="nav-number">2.1.</span> <span class="nav-text">2.作为函数参数的结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-指向结构的指针"><span class="nav-number">2.2.</span> <span class="nav-text">3.指向结构的指针</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#位域"><span class="nav-number">3.</span> <span class="nav-text">位域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#预处理器"><span class="nav-number">4.</span> <span class="nav-text">预处理器</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#预定义宏"><span class="nav-number">4.1.</span> <span class="nav-text">预定义宏</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#预处理运算符"><span class="nav-number">4.2.</span> <span class="nav-text">预处理运算符</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#typedef"><span class="nav-number">5.</span> <span class="nav-text">typedef</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">GuangXing Mao</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://shinx.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2017/05/16/oc语法学习(二)(java对比)/';
+          this.page.identifier = '2017/05/16/oc语法学习(二)(java对比)/';
+          this.page.title = 'oc语法学习(二)(java对比)';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://shinx.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("yA3gKoFRmqAycD7zG2WIshPx-gzGzoHsz", "n0SqRjs3uU2m9BKc4a0g5wX6");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+  <!-- 背景动画 -->
+<script type="text/javascript" src="/js/src/particle.js"></script>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+<script type="text/javascript" src="/js/src/particles.js" count="50" zindex="-2" opacity="1" color="0,104,183"></script>
+
+</body>
+</html>
