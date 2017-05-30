@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-05-30T14:09:53.000Z</updated>
+  <updated>2017-05-30T14:14:55.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>6月学习目标</title>
+    <link href="http://yoursite.com/2017/05/30/6%E6%9C%88%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87/"/>
+    <id>http://yoursite.com/2017/05/30/6月学习目标/</id>
+    <published>2017-05-30T14:12:47.000Z</published>
+    <updated>2017-05-30T14:14:55.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>1.学习使用约束布局<br>2.学习kotlin语法<br>3.学习使用xCode开发小应用</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;1.学习使用约束布局&lt;br&gt;2.学习kotlin语法&lt;br&gt;3.学习使用xCode开发小应用&lt;/p&gt;
+
+    
+    </summary>
+    
+      <category term="小目标" scheme="http://yoursite.com/categories/%E5%B0%8F%E7%9B%AE%E6%A0%87/"/>
+    
+    
+      <category term="再不奋斗就老啦" scheme="http://yoursite.com/tags/%E5%86%8D%E4%B8%8D%E5%A5%8B%E6%96%97%E5%B0%B1%E8%80%81%E5%95%A6/"/>
+    
+  </entry>
   
   <entry>
     <title>oc语法学习(三)(与java对比)</title>
