@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-06-01T14:13:34.000Z</updated>
+  <updated>2017-06-01T17:09:23.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ios开发-MGXNews</title>
+    <link href="http://yoursite.com/2017/06/02/ios%E5%BC%80%E5%8F%91-MGXNews/"/>
+    <id>http://yoursite.com/2017/06/02/ios开发-MGXNews/</id>
+    <published>2017-06-01T16:42:44.000Z</published>
+    <updated>2017-06-01T17:09:23.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="一、导入第三方库-AFNetworking-网络请求框架"><a href="#一、导入第三方库-AFNetworking-网络请求框架" class="headerlink" title="一、导入第三方库-AFNetworking(网络请求框架)"></a>一、导入第三方库-AFNetworking(网络请求框架)</h3><h4 id="1-在项目根目录创建Podfile文件，并执行Pod-install命令"><a href="#1-在项目根目录创建Podfile文件，并执行Pod-install命令" class="headerlink" title="1.在项目根目录创建Podfile文件，并执行Pod install命令"></a>1.在项目根目录创建Podfile文件，并执行Pod install命令</h4><h4 id="2-添加类库Security-framework、MobileCoreServices-framework、SystemConfiguration-framework"><a href="#2-添加类库Security-framework、MobileCoreServices-framework、SystemConfiguration-framework" class="headerlink" title="2.添加类库Security.framework、MobileCoreServices.framework、SystemConfiguration.framework"></a>2.添加类库Security.framework、MobileCoreServices.framework、SystemConfiguration.framework</h4><h4 id=""><a href="#" class="headerlink" title=""></a><img src="http://opn79542e.bkt.clouddn.com/framework.png" alt="如何添加framework框架"></h4><h4 id="3-在使用的地方-import-“AFNetworking-h”-主要用于网络请求方法"><a href="#3-在使用的地方-import-“AFNetworking-h”-主要用于网络请求方法" class="headerlink" title="3.在使用的地方#import “AFNetworking.h”//主要用于网络请求方法"></a>3.在使用的地方#import “AFNetworking.h”//主要用于网络请求方法</h4><h4 id="和-import-“UIKit-AFNetworking-h”-里面有异步加载图片的方法"><a href="#和-import-“UIKit-AFNetworking-h”-里面有异步加载图片的方法" class="headerlink" title="和#import “UIKit+AFNetworking.h”//里面有异步加载图片的方法"></a>和#import “UIKit+AFNetworking.h”//里面有异步加载图片的方法</h4><h4 id="如果没有报文件找不到的错误，就导入成功了。"><a href="#如果没有报文件找不到的错误，就导入成功了。" class="headerlink" title="如果没有报文件找不到的错误，就导入成功了。"></a>如果没有报文件找不到的错误，就导入成功了。</h4><p><strong>注:在测试URL请求时,会报“App Transport Security has blocked a cleartext HTTP (http://) resource load since it is insecure. Temporary exceptions can be configured via your app’s Info.plist file.”错误，这是因为ios9以后，新特性要求App内访问网络请求，要采用HTTPS协议，但是我获取的资源是HTTP协议，所以需要做以下处理。</strong></p>
+<p>在Info.plist中添加 App Transport Security Settings 类型 Dictionary ;<br>在 App Transport Security Settings 下添加 Allow Arbitrary Loads 类型Boolean ,值设为 YES;</p>
+<p><img src="http://opn79542e.bkt.clouddn.com/info.plist.png" alt="info.plist"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;一、导入第三方库-AFNetworking-网络请求框架&quot;&gt;&lt;a href=&quot;#一、导入第三方库-AFNetworking-网络请求框架&quot; class=&quot;headerlink&quot; title=&quot;一、导入第三方库-AFNetworking(网络请求框架)&quot;&gt;&lt;/a&gt;一
+    
+    </summary>
+    
+      <category term="ios" scheme="http://yoursite.com/categories/ios/"/>
+    
+    
+      <category term="工作学习" scheme="http://yoursite.com/tags/%E5%B7%A5%E4%BD%9C%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="ios" scheme="http://yoursite.com/tags/ios/"/>
+    
+  </entry>
   
   <entry>
     <title>cocoapods安装使用及遇到的坑</title>
