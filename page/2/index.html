@@ -280,6 +280,167 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/09/android控件自动化埋点统计/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="GuangXing Mao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://opn79542e.bkt.clouddn.com/a.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shinx'blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/05/09/android控件自动化埋点统计/" itemprop="url">android控件自动化埋点统计</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-09T13:24:19+08:00">
+                2017-05-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index">
+                    <span itemprop="name">android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/05/09/android控件自动化埋点统计/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/05/09/android控件自动化埋点统计/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/05/09/android控件自动化埋点统计/" class="leancloud_visitors" data-flag-title="android控件自动化埋点统计">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>　　想到应用统计，平时我们使用的一般都是第三方的，比如百度统计，友盟统计，这几天公司要做自己的统计，于是乎也找了一些自动化埋点的博文学习使用。最后会给出参考链接，非常感谢。</p>
+<h3 id="现有的几种埋点技术的实现原理和优劣分析"><a href="#现有的几种埋点技术的实现原理和优劣分析" class="headerlink" title="现有的几种埋点技术的实现原理和优劣分析"></a>现有的几种埋点技术的实现原理和优劣分析</h3><p>　<strong>1.代码埋点</strong>：将收集数据的代码直接写在需要的地方，当用户点击某个控件或者打开某个页面时调用到该部分代码完成数据的收集。<br>　    优势：准确性高，收集数据和发送数据都能精确控制，同时能方便的设置自定义属性，自定义控件，自定义View等。<br>　    劣势：埋点工作量大，更新代价大。<br>　<strong>2.可视化埋点</strong>：根据配置文件收集用户行为，从而获取数据进行分析。<br>　  优势：无须手动埋点，配置文件可动态更新。<br>　  劣势：配置文件的配置比较耗时，弹出框，隐藏控件等行为不能收集。收集的数据比较简单，只能收集用户行为，不能收集到与行为相关的具体数据。<br>　<strong>3.无埋点</strong>：与可视化埋点基本一致。不同点在于可视化埋点是根据配置文件收集数据，无埋点是预先收集所有的用户行为，然后根据　配置文件来提取数据。无埋点可以通过修改配置文件追溯之前的用户行为数据。<br>　<strong>4.后端埋点</strong>：Sensors Analytics 这个平台有解决方案，优点是能收集到详细的与行为相关的数据，适用于电商等大平台。比如用户选择了一件商品，点击了加入购物车，那么可以收集到用户信息，商品信息，商品价格，商品库存，卖家等诸多信息。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/09/android控件自动化埋点统计/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/08/5月份目标/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -480,7 +641,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -502,7 +663,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
