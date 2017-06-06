@@ -92,7 +92,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="cocoapods,ios,依赖管理工具," />
+  <meta name="keywords" content="android,ios,php,swift,js,html,css" />
 
 
 
@@ -110,21 +110,13 @@
 
 
 
-<meta name="description" content="一、什么是CocoaPodsCocoaPoads类似于java的Maven，是ios开发的一个依赖管理工具，经过多年的发展，现在已经成为ios开发事实上的依赖管理标准工具。CocoaPods的出现使我们可以节约设置和更新第三方开源库的时间。 二、为什么要使用CocoaPods在使用CocoaPods之前，开发项目需要用到第三方开源库的时候，我们需要 1.把开源库的源代码复制到项目中 2.添加一些依">
-<meta name="keywords" content="cocoapods,ios,依赖管理工具">
 <meta property="og:type" content="article">
-<meta property="og:title" content="cocoapods安装使用及遇到的坑">
-<meta property="og:url" content="http://yoursite.com/2017/06/01/cocoapods安装使用及遇到的坑/index.html">
+<meta property="og:title" content="自定义控件(二)">
+<meta property="og:url" content="http://yoursite.com/2017/06/07/自定义控件-二/index.html">
 <meta property="og:site_name" content="Shinx&#39;blog">
-<meta property="og:description" content="一、什么是CocoaPodsCocoaPoads类似于java的Maven，是ios开发的一个依赖管理工具，经过多年的发展，现在已经成为ios开发事实上的依赖管理标准工具。CocoaPods的出现使我们可以节约设置和更新第三方开源库的时间。 二、为什么要使用CocoaPods在使用CocoaPods之前，开发项目需要用到第三方开源库的时候，我们需要 1.把开源库的源代码复制到项目中 2.添加一些依">
-<meta property="og:image" content="http://opn79542e.bkt.clouddn.com/屏幕快照%202017-06-01%2021.52.30.png">
-<meta property="og:image" content="http://opn79542e.bkt.clouddn.com/屏幕快照%202017-06-01%2021.58.29.png">
-<meta property="og:image" content="http://opn79542e.bkt.clouddn.com/屏幕快照%202017-06-01%2022.03.02.png">
-<meta property="og:updated_time" content="2017-06-01T14:13:34.000Z">
+<meta property="og:updated_time" content="2017-06-06T16:23:37.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="cocoapods安装使用及遇到的坑">
-<meta name="twitter:description" content="一、什么是CocoaPodsCocoaPoads类似于java的Maven，是ios开发的一个依赖管理工具，经过多年的发展，现在已经成为ios开发事实上的依赖管理标准工具。CocoaPods的出现使我们可以节约设置和更新第三方开源库的时间。 二、为什么要使用CocoaPods在使用CocoaPods之前，开发项目需要用到第三方开源库的时候，我们需要 1.把开源库的源代码复制到项目中 2.添加一些依">
-<meta name="twitter:image" content="http://opn79542e.bkt.clouddn.com/屏幕快照%202017-06-01%2021.52.30.png">
+<meta name="twitter:title" content="自定义控件(二)">
 
 
 
@@ -152,13 +144,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/06/01/cocoapods安装使用及遇到的坑/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/06/07/自定义控件-二/"/>
 
 
 
 
 
-  <title>cocoapods安装使用及遇到的坑 | Shinx'blog</title>
+  <title>自定义控件(二) | Shinx'blog</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -287,7 +279,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/01/cocoapods安装使用及遇到的坑/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/07/自定义控件-二/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="GuangXing Mao">
@@ -304,7 +296,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">cocoapods安装使用及遇到的坑</h1>
+          <h1 class="post-title" itemprop="name headline">自定义控件(二)</h1>
         
 
         <div class="post-meta">
@@ -316,8 +308,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-01T21:25:45+08:00">
-                2017-06-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-07T00:23:37+08:00">
+                2017-06-07
               </time>
             
 
@@ -327,28 +319,6 @@
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ios/" itemprop="url" rel="index">
-                    <span itemprop="name">ios</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -357,9 +327,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/06/01/cocoapods安装使用及遇到的坑/#comments" itemprop="discussionUrl">
+                <a href="/2017/06/07/自定义控件-二/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/06/01/cocoapods安装使用及遇到的坑/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/06/07/自定义控件-二/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -367,7 +337,7 @@
 
           
           
-             <span id="/2017/06/01/cocoapods安装使用及遇到的坑/" class="leancloud_visitors" data-flag-title="cocoapods安装使用及遇到的坑">
+             <span id="/2017/06/07/自定义控件-二/" class="leancloud_visitors" data-flag-title="自定义控件(二)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -395,57 +365,7 @@
       
 
       
-        <h4 id="一、什么是CocoaPods"><a href="#一、什么是CocoaPods" class="headerlink" title="一、什么是CocoaPods"></a>一、什么是CocoaPods</h4><p>CocoaPoads类似于java的Maven，是ios开发的一个依赖管理工具，经过多年的发展，现在已经成为ios开发事实上的依赖管理标准工具。CocoaPods的出现使我们可以节约设置和更新第三方开源库的时间。</p>
-<h4 id="二、为什么要使用CocoaPods"><a href="#二、为什么要使用CocoaPods" class="headerlink" title="二、为什么要使用CocoaPods"></a>二、为什么要使用CocoaPods</h4><p>在使用CocoaPods之前，开发项目需要用到第三方开源库的时候，我们需要</p>
-<p>1.把开源库的源代码复制到项目中</p>
-<p>2.添加一些依赖框架和动态库</p>
-<p>3.设置-ObjC，-fno-objc-arc等参数</p>
-<p>4.管理他们的更新</p>
-<p>在使用CocoaPods后，我们只需要把用到的开源库放到一个名为<strong>Podfile</strong>的文件中，然后执行<strong>pod install</strong>就可以了，Cocoapods就会自动将这些第三方开源库的源码下载下来，并且为我们的工程设置好响应的系统依赖和编译参数。</p>
-<a id="more"></a>
-<h4 id="三、CocoaPods的原理"><a href="#三、CocoaPods的原理" class="headerlink" title="三、CocoaPods的原理"></a>三、CocoaPods的原理</h4><p>CocoaPods的原理是<strong>将所有的依赖库都放到另一个名为Pods的项目中，然后让主项目依赖Pods项目</strong>，这样，源码管理工作都从主项目移到了Pods项目中。Pods项目最终会编译成一个名为libPods.a的文件，主项目只需要依赖这个.a文件即可。</p>
-<h4 id="四、CocoaPods的安装（重点！！！）"><a href="#四、CocoaPods的安装（重点！！！）" class="headerlink" title="四、CocoaPods的安装（重点！！！）"></a>四、CocoaPods的安装（重点！！！）</h4><p>打开Terminal(Mac电脑自带的终端)，然后按照以下提示操作即可：</p>
-<h5 id="1-设置ruby的软件源"><a href="#1-设置ruby的软件源" class="headerlink" title="1.设置ruby的软件源"></a>1.设置ruby的软件源</h5><p>这是因为ruby的软件源rubygems.org因为使用亚马逊的云服务，被我天朝屏蔽了，需要更新一下ruby的源，过程如下：<br>gem sources -l #(查看当前ruby的源)</p>
-<p>gem sources –remove <a href="https://rubygems.org/" target="_blank" rel="external">https://rubygems.org/</a> #(移除当前ruby的源)</p>
-<p><strong>之前我使用的是淘宝的源<a href="https://ruby.taobao.org/但是现在该源已经不维护了，所以要使用下面的源https://gems.ruby-china.org/" target="_blank" rel="external">https://ruby.taobao.org/但是现在该源已经不维护了，所以要使用下面的源https://gems.ruby-china.org/</a></strong></p>
-<p>gem sources -a <a href="https://gems.ruby-china.org/" target="_blank" rel="external">https://gems.ruby-china.org/</a> #(设置当前ruby的源为我天朝的)</p>
-<p>gem sources -l #(再次查看当前ruby的源)</p>
-<p>如果Terminal输出：</p>
-<p><strong><em> CURRENT SOURCES </em></strong></p>
-<p><a href="https://ruby.taobao.org/" target="_blank" rel="external">https://ruby.taobao.org/</a></p>
-<p>就证明ruby的软件源已经设置OK了。</p>
-<h5 id="2-设置gem为最新版本"><a href="#2-设置gem为最新版本" class="headerlink" title="2.设置gem为最新版本"></a>2.设置gem为最新版本</h5><p>如果gem太老，可以尝试用如下命令升级gem：</p>
-<p>在Terminal输入以下命令：</p>
-<p>sudo gem update –system</p>
-<p>升级成功后会提示: Latest version currently installed. Aborting.</p>
-<h5 id="3-执行安装CocoaPods命令（非常重要，前面一般都能一次性完成）"><a href="#3-执行安装CocoaPods命令（非常重要，前面一般都能一次性完成）" class="headerlink" title="3.执行安装CocoaPods命令（非常重要，前面一般都能一次性完成）"></a>3.执行安装CocoaPods命令（非常重要，前面一般都能一次性完成）</h5><p>注意：OS X 10.11 升级，虽然官方声称只是一个小的升级，但对于开发者而言，cocoapods需要重新安装，但按照以前的安装方式，在Terminal输入以下命令：</p>
-<p>sudo gem install  cocoapods<br>如果报以下错误：</p>
-<p>ERROR:  While executing gem … (Errno::EPERM)</p>
-<p>Operation not permitted - /usr/bin/xcodeproj</p>
-<p>解决方案1：（不推荐，使用无效果）</p>
-<p>执行下面的命令并重启</p>
-<p>sudo nvram boot-args=”rootless=0”</p>
-<p>sudo reboot</p>
-<p>重启之后, 执行这个命令检查</p>
-<p>sudo gem install cocoapods -V</p>
-<p>如果依旧有错误，使用第二个方案</p>
-<p>解决方案2：</p>
-<p>sudo gem install -n /usr/local/bin cocoapods</p>
-<p>pod setup</p>
-<p>如果我们一开始的源使用的是淘宝的，那么使用第二种方法也是会执行失败的，所以不能使用淘宝的源了。还有一点需要注意，pod setup在执行时，会输出Setting up CocoaPods master repo，但是会等待比较久的时间。这步其实是 Cocoapods 在将它的信息下载到 ~/.cocoapods目录下，如果你等太久，可以试着 cd 到那个目录，用du -sh *来查看下载进度。</p>
-<p>安装成功后,你会看到:Setup completed</p>
-<h5 id="五、Cocoapods的使用（最最重要！！！）"><a href="#五、Cocoapods的使用（最最重要！！！）" class="headerlink" title="五、Cocoapods的使用（最最重要！！！）"></a>五、Cocoapods的使用（最最重要！！！）</h5><p>随便以一种方式新建一个名为Podfile的文件放到你的工程根目录下（不能写成别的名字，也可以自己在工程根目录里面直接新建）<br>然后Podfile文件内容的格式如下</p>
-<p>platform :ios, ‘8.0’#(注明你的开发平台以及版本，’8.0’忽略不写即为最新版本)</p>
-<p>target ‘ios’ do<br>    pod ‘AFNetworking’, ‘~&gt; 2.5.3’#(‘~&gt; 2.5.3’为版本号，忽略不写即为最新版本)<br>end<br><img src="http://opn79542e.bkt.clouddn.com/屏幕快照%202017-06-01%2021.52.30.png" alt="podfile文件内容"><br>target后面跟的是你的工程名 target和end非常重要，如果不写会报<br><strong>CocoaPods报错：The dependency <code>AFNetworking</code> is not used in any concrete target </strong>  这个错误</p>
-<p>然后在Terminal进入工程所在的根目录（工程根目录）中执行 ：</p>
-<p>pod install</p>
-<p>当我执行了该命令后，还是报错<br><img src="http://opn79542e.bkt.clouddn.com/屏幕快照%202017-06-01%2021.58.29.png" alt="pod install 报错"><br>查了网上的资料，说是gem和cocoapods版本不匹配，但是我都升级到最新版本了，尝试了多遍后还是失败，最后看到一个人的解决办法</p>
-<p>自定义GEM_HOME<br>$ mkdir -p $HOME/Software/ruby<br>$ export GEM_HOME=$HOME/Software/ruby<br>$ gem install cocoapods<br>[…]<br>1 gem installed<br>$ export PATH=$PATH:$HOME/Sofware/ruby/bin<br>$ pod –version<br>0.37.2<br>使用自定义的GEM_HOME作为环境变量，最后我试了一下，居然真的成功了<br><img src="http://opn79542e.bkt.clouddn.com/屏幕快照%202017-06-01%2022.03.02.png" alt="自定义GEM_HOME"><br>以上如果成功了，我们就可以调用pod install命令了，这样，AFNetworking就已经下载完成并且设置好了编译参数和依赖，以后使用的时候切记如下两点：</p>
-<p>1.从此以后需要使用Cocoapods生成的 .xcworkspace文件来打开工程，而不是使用以前的.xcodeproj文件</p>
-<p>2.每次更改了Podfile文件，都需要重新执行一次pod update命令</p>
-<p><strong>关于 Podfile.lock</strong><br>当你执行pod install之后，除了 Podfile 外，CocoaPods 还会生成一个名为Podfile.lock的文件，Podfile.lock 应该加入到版本控制里面，不应该把这个文件加入到.gitignore中。因为Podfile.lock会锁定当前各依赖库的版本，之后如果多次执行pod install 不会更改版本，要pod update才会改Podfile.lock了。这样多人协作的时候，可以防止第三方库升级时造成大家各自的第三方库版本不一致</p>
-<p>搞了好久，终于弄好了，非常坑！</p>
-
+        
       
     </div>
 
@@ -472,16 +392,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/cocoapods/" rel="tag"># cocoapods</a>
-          
-            <a href="/tags/ios/" rel="tag"># ios</a>
-          
-            <a href="/tags/依赖管理工具/" rel="tag"># 依赖管理工具</a>
-          
-        </div>
-      
 
       
         
@@ -491,8 +401,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/30/6月学习目标/" rel="next" title="6月学习目标">
-                <i class="fa fa-chevron-left"></i> 6月学习目标
+              <a href="/2017/06/03/自定义控件-一/" rel="next" title="自定义控件(一)">
+                <i class="fa fa-chevron-left"></i> 自定义控件(一)
               </a>
             
           </div>
@@ -500,10 +410,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/06/02/ios开发-MGXNews/" rel="prev" title="ios开发-MGXNews">
-                ios开发-MGXNews <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -580,17 +486,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://opn79542e.bkt.clouddn.com/a.jpg"
@@ -688,22 +585,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、什么是CocoaPods"><span class="nav-number">1.</span> <span class="nav-text">一、什么是CocoaPods</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、为什么要使用CocoaPods"><span class="nav-number">2.</span> <span class="nav-text">二、为什么要使用CocoaPods</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、CocoaPods的原理"><span class="nav-number">3.</span> <span class="nav-text">三、CocoaPods的原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四、CocoaPods的安装（重点！！！）"><span class="nav-number">4.</span> <span class="nav-text">四、CocoaPods的安装（重点！！！）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-设置ruby的软件源"><span class="nav-number">4.1.</span> <span class="nav-text">1.设置ruby的软件源</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-设置gem为最新版本"><span class="nav-number">4.2.</span> <span class="nav-text">2.设置gem为最新版本</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-执行安装CocoaPods命令（非常重要，前面一般都能一次性完成）"><span class="nav-number">4.3.</span> <span class="nav-text">3.执行安装CocoaPods命令（非常重要，前面一般都能一次性完成）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#五、Cocoapods的使用（最最重要！！！）"><span class="nav-number">4.4.</span> <span class="nav-text">五、Cocoapods的使用（最最重要！！！）</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -841,9 +722,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2017/06/01/cocoapods安装使用及遇到的坑/';
-          this.page.identifier = '2017/06/01/cocoapods安装使用及遇到的坑/';
-          this.page.title = 'cocoapods安装使用及遇到的坑';
+          this.page.url = 'http://yoursite.com/2017/06/07/自定义控件-二/';
+          this.page.identifier = '2017/06/07/自定义控件-二/';
+          this.page.title = '自定义控件(二)';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://shinx.disqus.com/embed.js';
