@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-06-06T16:45:37.000Z</updated>
+  <updated>2017-07-11T16:44:27.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,69 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>android事件分发机制</title>
+    <link href="http://yoursite.com/2017/07/11/android%E4%BA%8B%E4%BB%B6%E5%88%86%E5%8F%91%E6%9C%BA%E5%88%B6/"/>
+    <id>http://yoursite.com/2017/07/11/android事件分发机制/</id>
+    <published>2017-07-11T14:58:16.000Z</published>
+    <updated>2017-07-11T16:44:27.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://opn79542e.bkt.clouddn.com/966283-b9cb65aceea9219b.png" alt="事件分发机制"><br>一张图很明了的分析了android事件分发机制</p>
+<p>图分为3层，从上往下依次是Activity、ViewGroup、View,事件从左上角那个白色箭头开始，由Activity的dispatchTouchEvent做分发</p>
+<p><strong>1.如果事件不被中断，整个事件流向是一个类U型图，由activity向下分发然后从view向上传递，直到被消费掉为止。</strong></p>
+<p><strong>2.dispatchTouchEvent 和 onTouchEvent 一旦return true,事件就停止传递了（到达终点）（没有谁能再收到这个事件）。看下图中只要return true事件就没再继续传下去了，对于return true我们经常说事件被消费了，消费了的意思就是事件走到这里就是终点，不会往下传，没有谁能再收到这个事件了。</strong></p>
+<p><strong>3.dispatchTouchEvent 和 onTouchEvent return false的时候事件都回传给父控件的onTouchEvent处理。</strong></p>
+<p><strong>4.onInterceptTouchEvent默认是不会去拦截的，因为子View也需要这个事件，所以onInterceptTouchEvent拦截器return super.onInterceptTouchEvent()和return false是一样的，是不会拦截的，事件会继续往子View的dispatchTouchEvent传递。只有return true时，才会拦截事件，并传递到自己的onTouchEvent()方法去</strong></p>
+<p><strong>总结:<br>对于 dispatchTouchEvent，onTouchEvent，return true是终结事件传递。return false 是回溯到父View的onTouchEvent方法。<br>ViewGroup 想把自己分发给自己的onTouchEvent，需要拦截器onInterceptTouchEvent方法return true 把事件拦截下来。<br>ViewGroup 的拦截器onInterceptTouchEvent 默认是不拦截的，所以return super.onInterceptTouchEvent()=return false；<br>View 没有拦截器，为了让View可以把事件分发给自己的onTouchEvent，View的dispatchTouchEvent默认实现（super）就是把事件分发给自己的onTouchEvent。</strong></p>
+<p><strong>对于ACTION_MOVE,ACTION_UP总结:<br>在哪个View的onTouchEvent 返回true，那么ACTION_MOVE和ACTION_UP的事件从上往下传到这个View后就不再往下传递了，而直接传给自己的onTouchEvent 并结束本次事件传递过程。ACTION_DOWN事件在哪个控件消费了（return true）， 那么ACTION_MOVE和ACTION_UP就会从上往下（通过dispatchTouchEvent）做事件分发往下传，就只会传到这个控件，不会继续往下传，如果ACTION_DOWN事件是在dispatchTouchEvent消费，那么事件到此为止停止传递，如果ACTION_DOWN事件是在onTouchEvent消费的，那么会把ACTION_MOVE或ACTION_UP事件传给该控件的onTouchEvent处理并结束传递。</strong></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://opn79542e.bkt.clouddn.com/966283-b9cb65aceea9219b.png&quot; alt=&quot;事件分发机制&quot;&gt;&lt;br&gt;一张图很明了的分析了android事件分发机制&lt;/p&gt;
+&lt;p&gt;图分为3层，从上往下依次是Acti
+    
+    </summary>
+    
+      <category term="android" scheme="http://yoursite.com/categories/android/"/>
+    
+    
+      <category term="事件分发" scheme="http://yoursite.com/tags/%E4%BA%8B%E4%BB%B6%E5%88%86%E5%8F%91/"/>
+    
+      <category term="工作学习" scheme="http://yoursite.com/tags/%E5%B7%A5%E4%BD%9C%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Kotlin学习</title>
+    <link href="http://yoursite.com/2017/06/13/Kotlin%E5%AD%A6%E4%B9%A0/"/>
+    <id>http://yoursite.com/2017/06/13/Kotlin学习/</id>
+    <published>2017-06-12T16:28:58.000Z</published>
+    <updated>2017-06-13T14:04:24.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>因为想在月底和部门的同事们简单的分享一下Kotlin，并且自己也想学习一下这么被谷歌认可的新的语言。本文是基于<br><a href="https://github.com/wangjiegulu/kotlin-for-android-developers-zh/blob/master/shi_yao_shi_kotlin.md" target="_blank" rel="external">kotlin-for-android-developers-zh</a>通过开发一个kotlin的应用来学习这门语言，而并不是像传统的基础教学一样。</p>
+<h1 id="一、什么是kotlin"><a href="#一、什么是kotlin" class="headerlink" title="一、什么是kotlin"></a>一、什么是kotlin</h1><p>1.kotlin是<strong>JetBrains开发的基于JVM的语言</strong>。Android Studio能够非常完美地理解、编译运行Kotlin代码。</p>
+<p>2.相比java7的优势<br><strong>1. 更易表现</strong>（可以编写少的多的代码）</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">在java中我们要写很多的数据类，并要重写<span class="keyword">get</span>,<span class="keyword">set</span>方法，但是使用kotlin,只需要写以下几行代码就行了，这个数据类，它会自动生成所有属性和他们的访问器，及一些有用的方法，如toString()</div><div class="line"><span class="keyword">data</span> <span class="class"><span class="keyword">class</span> <span class="title">Artist</span></span>(</div><div class="line">    <span class="keyword">var</span> id: <span class="built_in">Long</span>,</div><div class="line">    <span class="keyword">var</span> name: String,</div><div class="line">    <span class="keyword">var</span> url: String,</div><div class="line">    <span class="keyword">var</span> mbid: String)</div></pre></td></tr></table></figure>
+<p><strong>2. 更安全</strong>（kotlin是空安全，在编译器就处理了各种null情况，避免执行时的异常。）<br><strong>3. 函数式</strong>（使用了函数式编程的概念）<br><strong>4. 可以扩展函数</strong>（可以扩展类的更多特性）<br><strong>5. 高度互操作性</strong>（和java的互操作性完美，可混合编程）</p>
+<h1 id="二、准备工作"><a href="#二、准备工作" class="headerlink" title="二、准备工作"></a>二、准备工作</h1><p>Android Studio3.0版本支持kotlin,但是如果是之前的版本就要自己去下载kotlin的插件，</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;因为想在月底和部门的同事们简单的分享一下Kotlin，并且自己也想学习一下这么被谷歌认可的新的语言。本文是基于&lt;br&gt;&lt;a href=&quot;https://github.com/wangjiegulu/kotlin-for-android-developers-zh/blob/
+    
+    </summary>
+    
+      <category term="android" scheme="http://yoursite.com/categories/android/"/>
+    
+    
+      <category term="工作学习" scheme="http://yoursite.com/tags/%E5%B7%A5%E4%BD%9C%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="Kotlin" scheme="http://yoursite.com/tags/Kotlin/"/>
+    
+  </entry>
   
   <entry>
     <title>自定义控件(二)</title>
@@ -681,9 +744,9 @@
       <category term="android" scheme="http://yoursite.com/categories/android/"/>
     
     
-      <category term="自动化埋点" scheme="http://yoursite.com/tags/%E8%87%AA%E5%8A%A8%E5%8C%96%E5%9F%8B%E7%82%B9/"/>
-    
       <category term="工作学习" scheme="http://yoursite.com/tags/%E5%B7%A5%E4%BD%9C%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="自动化埋点" scheme="http://yoursite.com/tags/%E8%87%AA%E5%8A%A8%E5%8C%96%E5%9F%8B%E7%82%B9/"/>
     
   </entry>
   
