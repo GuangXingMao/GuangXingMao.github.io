@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-07-24T15:48:23.000Z</updated>
+  <updated>2017-07-24T16:15:05.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,40 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>webview无法弹出select选择框</title>
+    <link href="http://yoursite.com/2017/07/24/webview%E6%97%A0%E6%B3%95%E5%BC%B9%E5%87%BAselect%E9%80%89%E6%8B%A9%E6%A1%86/"/>
+    <id>http://yoursite.com/2017/07/24/webview无法弹出select选择框/</id>
+    <published>2017-07-24T15:51:01.000Z</published>
+    <updated>2017-07-24T16:15:05.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近项目要接入一个H5页面,其中一个页面出现选择省市区的选择框，我怎么点怎么弹不出这个选择框。。后来在PC端浏览器中打开了该页面，并检查元素发现这是一个select标签，于是。。。</p>
+<a id="more"></a>
+<p>如果H5页面有一个select标签，android中的webview点击时会默认拉起一个原生的选择框，当我在6.0以上的机型点击时，会直接崩溃，查看了错误日志</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">android.view.WindowManager$BadTokenException: Unable to add window -- token android.os.BinderProxy@<span class="number">427</span>b7270 is not valid; is your activity running?  </div><div class="line">    at android.view.ViewRootImpl.setView(ViewRootImpl.java:<span class="number">653</span>)  </div><div class="line">    at android.view.WindowManagerImpl.addView(WindowManagerImpl.java:<span class="number">326</span>)  </div><div class="line">    at android.view.WindowManagerImpl.addView(WindowManagerImpl.java:<span class="number">224</span>)  </div><div class="line">    at android.view.WindowManagerImpl$CompatModeWrapper.addView(WindowManagerImpl.java:<span class="number">149</span>)  </div><div class="line">    at android.view.Window$LocalWindowManager.addView(Window.java:<span class="number">558</span>)  </div><div class="line">    at android.app.Dialog.show(Dialog.java:<span class="number">316</span>)</div></pre></td></tr></table></figure>
+<p>错误的原因是Dialog在show的时候必须要有一个activity作为窗口载体，上面的日志的意思是承载Dialog的activity已经被销毁了，所以会直接崩溃。</p>
+<h4 id="其实解决的办法也是很简单的"><a href="#其实解决的办法也是很简单的" class="headerlink" title="其实解决的办法也是很简单的"></a>其实解决的办法也是很简单的</h4><h6 id="1-权限问题"><a href="#1-权限问题" class="headerlink" title="1.权限问题"></a>1.权限问题</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;uses-permission android:name=&quot;android.permission.SYSTEM_ALERT_WINDOW&quot; /&gt;  </div><div class="line">    &lt;uses-permission android:name=&quot;android.permission.SYSTEM_OVERLAY_WINDOW&quot; /&gt;</div></pre></td></tr></table></figure>
+<p>上面这两个权限是必须的，上面两个权限不需要动态申请。</p>
+<h6 id="2-检查webview初始化的时候，是用哪个context上下文初始化的。（-）"><a href="#2-检查webview初始化的时候，是用哪个context上下文初始化的。（-）" class="headerlink" title="2.检查webview初始化的时候，是用哪个context上下文初始化的。（!!!!）"></a>2.检查webview初始化的时候，是用哪个context上下文初始化的。（!!!!）</h6><p>这点非常重要，因为需要的activity作为载体，所以必须要使用当前activity的context,而不能使用Application的context,之前我用的就是Application的context发现还是弹不出选择框，再仔细检查改正后才解决问题。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近项目要接入一个H5页面,其中一个页面出现选择省市区的选择框，我怎么点怎么弹不出这个选择框。。后来在PC端浏览器中打开了该页面，并检查元素发现这是一个select标签，于是。。。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="android" scheme="http://yoursite.com/categories/android/"/>
+    
+    
+      <category term="工作学习" scheme="http://yoursite.com/tags/%E5%B7%A5%E4%BD%9C%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="android" scheme="http://yoursite.com/tags/android/"/>
+    
+      <category term="webview" scheme="http://yoursite.com/tags/webview/"/>
+    
+  </entry>
   
   <entry>
     <title>cardview向下兼容API21以下</title>
@@ -83,9 +117,9 @@
       <category term="android" scheme="http://yoursite.com/categories/android/"/>
     
     
-      <category term="工作学习" scheme="http://yoursite.com/tags/%E5%B7%A5%E4%BD%9C%E5%AD%A6%E4%B9%A0/"/>
-    
       <category term="事件分发" scheme="http://yoursite.com/tags/%E4%BA%8B%E4%BB%B6%E5%88%86%E5%8F%91/"/>
+    
+      <category term="工作学习" scheme="http://yoursite.com/tags/%E5%B7%A5%E4%BD%9C%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
@@ -113,9 +147,9 @@
       <category term="android" scheme="http://yoursite.com/categories/android/"/>
     
     
-      <category term="Kotlin" scheme="http://yoursite.com/tags/Kotlin/"/>
-    
       <category term="工作学习" scheme="http://yoursite.com/tags/%E5%B7%A5%E4%BD%9C%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="Kotlin" scheme="http://yoursite.com/tags/Kotlin/"/>
     
   </entry>
   
