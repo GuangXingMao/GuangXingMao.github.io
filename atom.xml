@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-07-11T16:44:27.000Z</updated>
+  <updated>2017-07-24T09:24:33.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/07/11/android%E4%BA%8B%E4%BB%B6%E5%88%86%E5%8F%91%E6%9C%BA%E5%88%B6/"/>
     <id>http://yoursite.com/2017/07/11/android事件分发机制/</id>
     <published>2017-07-11T14:58:16.000Z</published>
-    <updated>2017-07-11T16:44:27.000Z</updated>
+    <updated>2017-07-24T09:24:33.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://opn79542e.bkt.clouddn.com/966283-b9cb65aceea9219b.png" alt="事件分发机制"><br>一张图很明了的分析了android事件分发机制</p>
 <p>图分为3层，从上往下依次是Activity、ViewGroup、View,事件从左上角那个白色箭头开始，由Activity的dispatchTouchEvent做分发</p>
@@ -30,6 +30,7 @@
 <p><strong>4.onInterceptTouchEvent默认是不会去拦截的，因为子View也需要这个事件，所以onInterceptTouchEvent拦截器return super.onInterceptTouchEvent()和return false是一样的，是不会拦截的，事件会继续往子View的dispatchTouchEvent传递。只有return true时，才会拦截事件，并传递到自己的onTouchEvent()方法去</strong></p>
 <p><strong>总结:<br>对于 dispatchTouchEvent，onTouchEvent，return true是终结事件传递。return false 是回溯到父View的onTouchEvent方法。<br>ViewGroup 想把自己分发给自己的onTouchEvent，需要拦截器onInterceptTouchEvent方法return true 把事件拦截下来。<br>ViewGroup 的拦截器onInterceptTouchEvent 默认是不拦截的，所以return super.onInterceptTouchEvent()=return false；<br>View 没有拦截器，为了让View可以把事件分发给自己的onTouchEvent，View的dispatchTouchEvent默认实现（super）就是把事件分发给自己的onTouchEvent。</strong></p>
 <p><strong>对于ACTION_MOVE,ACTION_UP总结:<br>在哪个View的onTouchEvent 返回true，那么ACTION_MOVE和ACTION_UP的事件从上往下传到这个View后就不再往下传递了，而直接传给自己的onTouchEvent 并结束本次事件传递过程。ACTION_DOWN事件在哪个控件消费了（return true）， 那么ACTION_MOVE和ACTION_UP就会从上往下（通过dispatchTouchEvent）做事件分发往下传，就只会传到这个控件，不会继续往下传，如果ACTION_DOWN事件是在dispatchTouchEvent消费，那么事件到此为止停止传递，如果ACTION_DOWN事件是在onTouchEvent消费的，那么会把ACTION_MOVE或ACTION_UP事件传给该控件的onTouchEvent处理并结束传递。</strong></p>
+<p><strong>对于OnClick,OnTouchEvent总结<br>在触发onClick事件的同时，也触发了onTouchEvent事件，所以有时我们就要解决onClick事件和onTouchEvent事件的冲突，比如在拖动一个view的时候，不想让它触发点击事件，那么只需要在ACTION_MOVE的时候判断为isClick = false ,然后在ACTION_UP的时候判断如果isClick == false 则说明当时是滑动事件，return true 就代表当前的onTouchEvent事件消费了，所以就不会向下传递到onClick事件了，反之，如果isClick == true,则说明要触发onClick事件，则return super.onTouchEvent(event)，直接返回super的就可以了，切记，千万不能返回false,返回false则表示该view不消费，则会直接返回到上层父view的onTouchEvent事件中去了。</strong></p>
 ]]></content>
     
     <summary type="html">
