@@ -110,18 +110,18 @@
 
 
 
-<meta name="description" content="一张图很明了的分析了android事件分发机制 图分为3层，从上往下依次是Activity、ViewGroup、View,事件从左上角那个白色箭头开始，由Activity的dispatchTouchEvent做分发 1.如果事件不被中断，整个事件流向是一个类U型图，由activity向下分发然后从view向上传递，直到被消费掉为止。 2.dispatchTouchEvent 和 onTouchEv">
+<meta name="description" content="一张图很明了的分析了android事件分发机制 图分为3层，从上往下依次是Activity、ViewGroup、View,事件从左上角那个白色箭头开始，由Activity的dispatchTouchEvent做分发">
 <meta name="keywords" content="事件分发,工作学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="android事件分发机制">
 <meta property="og:url" content="http://yoursite.com/2017/07/11/android事件分发机制/index.html">
 <meta property="og:site_name" content="Shinx&#39;blog">
-<meta property="og:description" content="一张图很明了的分析了android事件分发机制 图分为3层，从上往下依次是Activity、ViewGroup、View,事件从左上角那个白色箭头开始，由Activity的dispatchTouchEvent做分发 1.如果事件不被中断，整个事件流向是一个类U型图，由activity向下分发然后从view向上传递，直到被消费掉为止。 2.dispatchTouchEvent 和 onTouchEv">
+<meta property="og:description" content="一张图很明了的分析了android事件分发机制 图分为3层，从上往下依次是Activity、ViewGroup、View,事件从左上角那个白色箭头开始，由Activity的dispatchTouchEvent做分发">
 <meta property="og:image" content="http://opn79542e.bkt.clouddn.com/966283-b9cb65aceea9219b.png">
-<meta property="og:updated_time" content="2017-07-24T09:24:33.000Z">
+<meta property="og:updated_time" content="2017-07-24T09:29:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="android事件分发机制">
-<meta name="twitter:description" content="一张图很明了的分析了android事件分发机制 图分为3层，从上往下依次是Activity、ViewGroup、View,事件从左上角那个白色箭头开始，由Activity的dispatchTouchEvent做分发 1.如果事件不被中断，整个事件流向是一个类U型图，由activity向下分发然后从view向上传递，直到被消费掉为止。 2.dispatchTouchEvent 和 onTouchEv">
+<meta name="twitter:description" content="一张图很明了的分析了android事件分发机制 图分为3层，从上往下依次是Activity、ViewGroup、View,事件从左上角那个白色箭头开始，由Activity的dispatchTouchEvent做分发">
 <meta name="twitter:image" content="http://opn79542e.bkt.clouddn.com/966283-b9cb65aceea9219b.png">
 
 
@@ -395,6 +395,7 @@
       
         <p><img src="http://opn79542e.bkt.clouddn.com/966283-b9cb65aceea9219b.png" alt="事件分发机制"><br>一张图很明了的分析了android事件分发机制</p>
 <p>图分为3层，从上往下依次是Activity、ViewGroup、View,事件从左上角那个白色箭头开始，由Activity的dispatchTouchEvent做分发</p>
+<a id="more"></a>
 <p><strong>1.如果事件不被中断，整个事件流向是一个类U型图，由activity向下分发然后从view向上传递，直到被消费掉为止。</strong></p>
 <p><strong>2.dispatchTouchEvent 和 onTouchEvent 一旦return true,事件就停止传递了（到达终点）（没有谁能再收到这个事件）。看下图中只要return true事件就没再继续传下去了，对于return true我们经常说事件被消费了，消费了的意思就是事件走到这里就是终点，不会往下传，没有谁能再收到这个事件了。</strong></p>
 <p><strong>3.dispatchTouchEvent 和 onTouchEvent return false的时候事件都回传给父控件的onTouchEvent处理。</strong></p>
