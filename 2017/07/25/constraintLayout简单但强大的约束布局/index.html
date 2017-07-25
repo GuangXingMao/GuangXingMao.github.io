@@ -92,7 +92,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="工作学习,oc,语法," />
+  <meta name="keywords" content="工作学习,constraintLayout,界面,可视化," />
 
 
 
@@ -110,17 +110,17 @@
 
 
 
-<meta name="description" content="学到这里，基本上对oc的语法已经知道一二了，确实通过与java的对比学习，也加深了印象，基本上能读懂oc的代码了，之后就是要练习加实践了，之后会通过first-blood系列来记录我的每一次实践，以此巩固，积累。">
-<meta name="keywords" content="工作学习,oc,语法">
+<meta name="description" content="###前言哇，习惯了使用LinearLayout，RelateLayout，FrameLayout,很早就听说constraintLayout约束布局出来了，但是一直没使用过，今天试了一下，确实非常强大，绝对是RelateLayout的加强升级版，对于复杂的界面，绝对能减少布局的层级嵌套，大大提高app性能，但使用起来还是非常简单的。">
+<meta name="keywords" content="工作学习,constraintLayout,界面,可视化">
 <meta property="og:type" content="article">
-<meta property="og:title" content="oc语法学习(三)(与java对比)">
-<meta property="og:url" content="http://yoursite.com/2017/05/25/oc语法学习(三)(与java对比)/index.html">
+<meta property="og:title" content="constraintLayout简单但强大的约束布局">
+<meta property="og:url" content="http://yoursite.com/2017/07/25/constraintLayout简单但强大的约束布局/index.html">
 <meta property="og:site_name" content="Shinx&#39;blog">
-<meta property="og:description" content="学到这里，基本上对oc的语法已经知道一二了，确实通过与java的对比学习，也加深了印象，基本上能读懂oc的代码了，之后就是要练习加实践了，之后会通过first-blood系列来记录我的每一次实践，以此巩固，积累。">
-<meta property="og:updated_time" content="2017-05-30T14:09:53.000Z">
+<meta property="og:description" content="###前言哇，习惯了使用LinearLayout，RelateLayout，FrameLayout,很早就听说constraintLayout约束布局出来了，但是一直没使用过，今天试了一下，确实非常强大，绝对是RelateLayout的加强升级版，对于复杂的界面，绝对能减少布局的层级嵌套，大大提高app性能，但使用起来还是非常简单的。">
+<meta property="og:updated_time" content="2017-07-25T08:07:27.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="oc语法学习(三)(与java对比)">
-<meta name="twitter:description" content="学到这里，基本上对oc的语法已经知道一二了，确实通过与java的对比学习，也加深了印象，基本上能读懂oc的代码了，之后就是要练习加实践了，之后会通过first-blood系列来记录我的每一次实践，以此巩固，积累。">
+<meta name="twitter:title" content="constraintLayout简单但强大的约束布局">
+<meta name="twitter:description" content="###前言哇，习惯了使用LinearLayout，RelateLayout，FrameLayout,很早就听说constraintLayout约束布局出来了，但是一直没使用过，今天试了一下，确实非常强大，绝对是RelateLayout的加强升级版，对于复杂的界面，绝对能减少布局的层级嵌套，大大提高app性能，但使用起来还是非常简单的。">
 
 
 
@@ -148,13 +148,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/05/25/oc语法学习(三)(与java对比)/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/07/25/constraintLayout简单但强大的约束布局/"/>
 
 
 
 
 
-  <title>oc语法学习(三)(与java对比) | Shinx'blog</title>
+  <title>constraintLayout简单但强大的约束布局 | Shinx'blog</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -283,7 +283,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/25/oc语法学习(三)(与java对比)/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/25/constraintLayout简单但强大的约束布局/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="GuangXing Mao">
@@ -300,7 +300,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">oc语法学习(三)(与java对比)</h1>
+          <h1 class="post-title" itemprop="name headline">constraintLayout简单但强大的约束布局</h1>
         
 
         <div class="post-meta">
@@ -312,8 +312,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-25T00:53:28+08:00">
-                2017-05-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-25T11:38:13+08:00">
+                2017-07-25
               </time>
             
 
@@ -335,8 +335,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ios/" itemprop="url" rel="index">
-                    <span itemprop="name">ios</span>
+                  <a href="/categories/android/" itemprop="url" rel="index">
+                    <span itemprop="name">android</span>
                   </a>
                 </span>
 
@@ -353,9 +353,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/05/25/oc语法学习(三)(与java对比)/#comments" itemprop="discussionUrl">
+                <a href="/2017/07/25/constraintLayout简单但强大的约束布局/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/05/25/oc语法学习(三)(与java对比)/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/07/25/constraintLayout简单但强大的约束布局/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -363,7 +363,7 @@
 
           
           
-             <span id="/2017/05/25/oc语法学习(三)(与java对比)/" class="leancloud_visitors" data-flag-title="oc语法学习(三)(与java对比)">
+             <span id="/2017/07/25/constraintLayout简单但强大的约束布局/" class="leancloud_visitors" data-flag-title="constraintLayout简单但强大的约束布局">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -391,24 +391,35 @@
       
 
       
-        <p>学到这里，基本上对oc的语法已经知道一二了，确实通过与java的对比学习，也加深了印象，基本上能读懂oc的代码了，之后就是要练习加实践了，之后会通过first-blood系列来记录我的每一次实践，以此巩固，积累。</p>
+        <p>###前言<br>哇，习惯了使用LinearLayout，RelateLayout，FrameLayout,很早就听说constraintLayout约束布局出来了，但是一直没使用过，今天试了一下，确实非常强大，绝对是RelateLayout的加强升级版，对于复杂的界面，绝对能减少布局的层级嵌套，大大提高app性能，但使用起来还是非常简单的。</p>
 <a id="more"></a>
-<h4 id="Categories类别"><a href="#Categories类别" class="headerlink" title="Categories类别"></a>Categories类别</h4><p>oc中还是给现有的类分类别。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">@interface ClassName (CategoryName)</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
-<h5 id="类别的特性"><a href="#类别的特性" class="headerlink" title="类别的特性"></a>类别的特性</h5><p>1.一个类别可声明任何类，即使不具备原来的实现源代码<br>2.任何一个人类别中申明的方法将所有的原始类的实例，以及任何原始类的子类<br>3.在运行时，一个类别添加方法没有任何区别，一个是通过原来的类。<br>4.类别中只能添加方法，不可添加新的变量</p>
-<h4 id="Posing-冒充"><a href="#Posing-冒充" class="headerlink" title="Posing/冒充"></a>Posing/冒充</h4><p>冒充在Mac OS x10.5宣布弃用，此后都不再使用了。</p>
-<h4 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">@interface ClassName ()</div><div class="line"></div><div class="line">@end</div><div class="line">```    </div><div class="line">扩展特性</div><div class="line">1.扩展可以不声明任何类别，只为类的源代码，我们有原来的执行。</div><div class="line">2.私有方法和私有变量，只有特定的类添加一个扩展。</div><div class="line">3.扩展内申明的任何方法或变量，不能访问，即使继承类。</div><div class="line">#### 协议</div><div class="line">##### 1.协议定义</div></pre></td></tr></table></figure>
-<p>@protocol 协议名   //定义协议<br>    方法定义；<br>@end<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">##### 2.采用协议</div></pre></td></tr></table></figure></p>
-<p>@interface 类名：父类名&lt;协议名1，协议名2，协议名3…&gt;<br>```</p>
-<h5 id="3-协议修饰指令"><a href="#3-协议修饰指令" class="headerlink" title="3.协议修饰指令"></a>3.协议修饰指令</h5><p>@required 必须的<br>@optional可选的</p>
-<h4 id="Foundation-基础框架"><a href="#Foundation-基础框架" class="headerlink" title="Foundation/基础框架"></a>Foundation/基础框架</h4><p>该框架提供一小部分基本实用工具类，几乎是一个必须使用基础框架。</p>
-<h5 id="1-数据存储"><a href="#1-数据存储" class="headerlink" title="1.数据存储"></a>1.数据存储</h5><h6 id="NSArray-amp-NSMutableArray"><a href="#NSArray-amp-NSMutableArray" class="headerlink" title="NSArray &amp; NSMutableArray"></a>NSArray &amp; NSMutableArray</h6><p>NSArray用来装不可变的对象数组，NSMutableArray用来容纳一个可变数组对象。<br>对于数据存储，java也是有集合array,并且长度也是可变的，</p>
-<h6 id="NSDictionary-amp-NSMutableDictionary"><a href="#NSDictionary-amp-NSMutableDictionary" class="headerlink" title="NSDictionary &amp; NSMutableDictionary"></a>NSDictionary &amp; NSMutableDictionary</h6><p>一个用于容纳一个不可变的对象，一个用于容纳一个可变的对象字典。<br>NSSet &amp; NSMutableSet<br>一个用来保持一个不变集的不同对象，一个用于容纳一个可变设置的不同对象。</p>
-<h5 id="2-文本和字符串"><a href="#2-文本和字符串" class="headerlink" title="2.文本和字符串"></a>2.文本和字符串</h5><p>NSCharacterSet表示各种分组NSString和NSScanner类所使用的字符。</p>
-<h5 id="3-日期和时间"><a href="#3-日期和时间" class="headerlink" title="3.日期和时间"></a>3.日期和时间</h5><p>NSDate 和NSDateFormatter类提供的日期和时间的功能。<br>和java很相似，进行时间和日期格式的转换。</p>
-<h5 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h5><p>使用NSException类作为基类<br>@try @catch @finally</p>
-<h5 id="文件处理"><a href="#文件处理" class="headerlink" title="文件处理"></a>文件处理</h5><p>NSFileManager类实现大多数文件操作功能。</p>
-<h5 id="访问网络的URL加载"><a href="#访问网络的URL加载" class="headerlink" title="访问网络的URL加载"></a>访问网络的URL加载</h5><h5 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h5><p>1.手动保留释放或MRR<br>2.自动引用计数或ARC</p>
+<p>###基本属性</p>
+<p>#####app:layout_constraintLeft_toLeftOf<br>表示此控件的左边框与指定控件的左边框对齐<br>app:layout_constraintLeft_toLeftOf = “parent”表示贴在布局的左边框，其实就是与左边框产生约束，类似于layout_alignParentLeft=”true”</p>
+<p>#####app:layout_constraintLeft_toRightOf<br>表示此控件的左边框在指定控件的右边(整体在右)</p>
+<p>#####app:layout_constraintRight_toLeftOf<br>表示此控件的右边框在指定控件的左边（整体在左）</p>
+<p>#####app:layout_constraintRight_toRightOf<br>表示此控件的右边框与指定控件的右边框对齐<br>app:layout_constraintRight_toRightOf = “parent”表示贴在布局的右边框，其实就是与右边框产生约束，类似于layout_alignParentRight=”true”</p>
+<p>#####app:layout_constraintTop_toTopOf<br>表示此控件的上边框和指定控件的上边框对齐<br>app:layout_constraintTop_toTopOf = “parent”表示贴在布局的上边框，其实就是与上边框产生约束，类似于layout_alignParentTop=”true”</p>
+<p>#####app:layout_constraintTop_toBottomOf<br>表示此控件的上边框在指定控件的下边（整体在下）</p>
+<p>#####app:layout_constraintBottom_toBottomOf<br>表示此控件的下边框和指定控件的下边框对齐<br>app:layout_constraintBottom_toBottomOf = “parent”表示贴在布局的下边框，其实就是与下边框产生约束，类似于layout_alignParentBottom=”true”</p>
+<p>#####app:layout_constraintBottom_toTopOf<br>表示此控件的下边框在指定控件的上边（整体在上）</p>
+<p>#####app:layout_constraintBaseline_toBaselineOf<br>表示此控件与指定控件水平对齐<br>实现:点击该button按钮，下方会出现 x,ab两个图标，x表示去掉所有约束，ab表示切换显示横条还是四个点，点击ab在button中间会出现一根横条，然后把该控件和指定控件的横条相连就行了。</p>
+<h5 id="tools-layout-editor-absoluteX"><a href="#tools-layout-editor-absoluteX" class="headerlink" title="tools:layout_editor_absoluteX"></a>tools:layout_editor_absoluteX</h5><p>表示此控件在布局中X轴的绝对坐标点</p>
+<p>#####tools:layout_editor_absoluteY<br>表示此控件在布局中Y轴的绝对坐标点</p>
+<p>#####app:layout_constraintGuide_begin<br>表示布局中引导线距离左边框的距离（dp）<br>实现：先通过Add Vertical Guideline 或者 Add Horizontal Guideline添加一条竖直方向的或者水平方向的引导线，然后移动这根线，默认就是设置其距左边框的距离，点击这条引导线，上面有一个小圆，点击小圆有三种类型（&lt;,&gt;,%）左箭头对应的就是这个属性</p>
+<p>#####app:layout_constraintGuide_end<br>表示布局中引导线距离右边框的距离（dp）<br>实现：点击这条引导线，上面有一个小圆，点击小圆有三种类型（&lt;,&gt;,%）右箭头对应的就是这个属性</p>
+<p>#####app:layout_constraintGuide_percent<br>表示在整个布局中引导线距离左边框的百分百（如：app:layout_constraintGuide_percent=”0.5”表示距离左边框50%的位置）<br>实现：点击这条引导线，上面有一个小圆，点击小圆有三种类型（&lt;,&gt;,%）%对应的就是这个属性</p>
+<p>#####app:layout_constraintStart_toEndOf（不怎么用）<br>表示此控件的左边界在某个控件右边界的右边，及表示此控件在某个控件的右边,这个和app:layout_constraintLeft_toRightOf类似啊，所以感觉用不到</p>
+<p>#####app:layout_constraintStart_toStartOf（不怎么用）<br>表示此控件的左边界与某个控件的左边界在同一垂直线上，这个和app:layout_constraintLeft_toLeftOf类似啊，所以感觉用不到</p>
+<p>#####app:layout_constraintEnd_toStartOf（不怎么用）<br>同理</p>
+<p>#####app:layout_constraintEnd_toEndOf（不怎么用）<br>同理</p>
+<p>#####app:layout_constraintHorizontal_bias<br>当该控件的左右边都设置了约束，才能使用该属性，表示此控件在布局中的水平方向上的偏移百分量</p>
+<p>#####app:layout_constraintVertical_bias<br>当该控件的左右边都设置了约束，才能使用该属性，表示此控件在布局中的竖直方向上的偏移百分量</p>
+<p>#####app:layout_constraintDimensionRatio<br>表示两个控件的纵横比，而使用则需要把宽（layout_width）或者高（layout_height）设置为0dp，根据另一个属性和比例, 计算当前属性, 如        app:layout_constraintDimensionRatio=”6:3” 表示宽比高为6：3</p>
+<p>#####goneMargin属性<br>一共支持的属性如下：<br>layout_goneMarginStart<br>layout_goneMarginEnd<br>layout_goneMarginLeft<br>layout_goneMarginTop<br>layout_goneMarginRight<br>layout_goneMarginBottom</p>
+<p>比如A,B两个view,B在A的右边，这时候如果A消失了，但是你想让B在父布局的右边多少距离，就可以使用这个属性，很神奇。</p>
+<p>#####creator迷之属性<br>app:layout_constraintBaseline_creator=”12”<br>app:layout_constraintTop_creator=”12”<br>app:layout_constraintBottom_creator=”12”<br>app:layout_constraintLeft_creator=”12”<br>app:layout_constraintRight_creator=”12”<br>这几个属性在当前版本并没有任何作用</p>
+<p>#####自动添加约束<br>自动添加约束的方式主要有两种，一种叫Autoconnect，一种叫Inference，其实就是两个按钮<br>Autoconnect默认关闭，需要手动打开<br>Inference系统会帮你将布局的view都添加约束，但是并不一定是你想要的。</p>
+<p>差不多这样，基本这些属性就够用了，也试着拖拽着使用了一下，大致都了解了，想要使用这个布局，光看是不行的，还是要写个Demo自己用用这些属性，用了就知道，什么效果了。</p>
 
       
     </div>
@@ -440,9 +451,11 @@
           
             <a href="/tags/工作学习/" rel="tag"># 工作学习</a>
           
-            <a href="/tags/oc/" rel="tag"># oc</a>
+            <a href="/tags/constraintLayout/" rel="tag"># constraintLayout</a>
           
-            <a href="/tags/语法/" rel="tag"># 语法</a>
+            <a href="/tags/界面/" rel="tag"># 界面</a>
+          
+            <a href="/tags/可视化/" rel="tag"># 可视化</a>
           
         </div>
       
@@ -455,8 +468,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/16/oc语法学习(二)(java对比)/" rel="next" title="oc语法学习(二)(java对比)">
-                <i class="fa fa-chevron-left"></i> oc语法学习(二)(java对比)
+              <a href="/2017/07/24/webview无法弹出select选择框/" rel="next" title="webview无法弹出select选择框">
+                <i class="fa fa-chevron-left"></i> webview无法弹出select选择框
               </a>
             
           </div>
@@ -464,10 +477,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/30/6月学习目标/" rel="prev" title="6月学习目标">
-                6月学习目标 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -662,7 +671,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Categories类别"><span class="nav-number">1.</span> <span class="nav-text">Categories类别</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#类别的特性"><span class="nav-number">1.1.</span> <span class="nav-text">类别的特性</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Posing-冒充"><span class="nav-number">2.</span> <span class="nav-text">Posing/冒充</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#扩展"><span class="nav-number">3.</span> <span class="nav-text">扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#3-协议修饰指令"><span class="nav-number">3.1.</span> <span class="nav-text">3.协议修饰指令</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Foundation-基础框架"><span class="nav-number">4.</span> <span class="nav-text">Foundation/基础框架</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-数据存储"><span class="nav-number">4.1.</span> <span class="nav-text">1.数据存储</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#NSArray-amp-NSMutableArray"><span class="nav-number">4.1.1.</span> <span class="nav-text">NSArray & NSMutableArray</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#NSDictionary-amp-NSMutableDictionary"><span class="nav-number">4.1.2.</span> <span class="nav-text">NSDictionary & NSMutableDictionary</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-文本和字符串"><span class="nav-number">4.2.</span> <span class="nav-text">2.文本和字符串</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-日期和时间"><span class="nav-number">4.3.</span> <span class="nav-text">3.日期和时间</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#异常处理"><span class="nav-number">4.4.</span> <span class="nav-text">异常处理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#文件处理"><span class="nav-number">4.5.</span> <span class="nav-text">文件处理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#访问网络的URL加载"><span class="nav-number">4.6.</span> <span class="nav-text">访问网络的URL加载</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#内存管理"><span class="nav-number">4.7.</span> <span class="nav-text">内存管理</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#tools-layout-editor-absoluteX"><span class="nav-number">1.</span> <span class="nav-text">tools:layout_editor_absoluteX</span></a></li></ol></div>
             
 
           </div>
@@ -805,9 +814,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2017/05/25/oc语法学习(三)(与java对比)/';
-          this.page.identifier = '2017/05/25/oc语法学习(三)(与java对比)/';
-          this.page.title = 'oc语法学习(三)(与java对比)';
+          this.page.url = 'http://yoursite.com/2017/07/25/constraintLayout简单但强大的约束布局/';
+          this.page.identifier = '2017/07/25/constraintLayout简单但强大的约束布局/';
+          this.page.title = 'constraintLayout简单但强大的约束布局';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://shinx.disqus.com/embed.js';

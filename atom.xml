@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-07-24T16:17:41.000Z</updated>
+  <updated>2017-07-25T08:07:27.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,63 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>constraintLayout简单但强大的约束布局</title>
+    <link href="http://yoursite.com/2017/07/25/constraintLayout%E7%AE%80%E5%8D%95%E4%BD%86%E5%BC%BA%E5%A4%A7%E7%9A%84%E7%BA%A6%E6%9D%9F%E5%B8%83%E5%B1%80/"/>
+    <id>http://yoursite.com/2017/07/25/constraintLayout简单但强大的约束布局/</id>
+    <published>2017-07-25T03:38:13.000Z</published>
+    <updated>2017-07-25T08:07:27.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>###前言<br>哇，习惯了使用LinearLayout，RelateLayout，FrameLayout,很早就听说constraintLayout约束布局出来了，但是一直没使用过，今天试了一下，确实非常强大，绝对是RelateLayout的加强升级版，对于复杂的界面，绝对能减少布局的层级嵌套，大大提高app性能，但使用起来还是非常简单的。</p>
+<a id="more"></a>
+<p>###基本属性</p>
+<p>#####app:layout_constraintLeft_toLeftOf<br>表示此控件的左边框与指定控件的左边框对齐<br>app:layout_constraintLeft_toLeftOf = “parent”表示贴在布局的左边框，其实就是与左边框产生约束，类似于layout_alignParentLeft=”true”</p>
+<p>#####app:layout_constraintLeft_toRightOf<br>表示此控件的左边框在指定控件的右边(整体在右)</p>
+<p>#####app:layout_constraintRight_toLeftOf<br>表示此控件的右边框在指定控件的左边（整体在左）</p>
+<p>#####app:layout_constraintRight_toRightOf<br>表示此控件的右边框与指定控件的右边框对齐<br>app:layout_constraintRight_toRightOf = “parent”表示贴在布局的右边框，其实就是与右边框产生约束，类似于layout_alignParentRight=”true”</p>
+<p>#####app:layout_constraintTop_toTopOf<br>表示此控件的上边框和指定控件的上边框对齐<br>app:layout_constraintTop_toTopOf = “parent”表示贴在布局的上边框，其实就是与上边框产生约束，类似于layout_alignParentTop=”true”</p>
+<p>#####app:layout_constraintTop_toBottomOf<br>表示此控件的上边框在指定控件的下边（整体在下）</p>
+<p>#####app:layout_constraintBottom_toBottomOf<br>表示此控件的下边框和指定控件的下边框对齐<br>app:layout_constraintBottom_toBottomOf = “parent”表示贴在布局的下边框，其实就是与下边框产生约束，类似于layout_alignParentBottom=”true”</p>
+<p>#####app:layout_constraintBottom_toTopOf<br>表示此控件的下边框在指定控件的上边（整体在上）</p>
+<p>#####app:layout_constraintBaseline_toBaselineOf<br>表示此控件与指定控件水平对齐<br>实现:点击该button按钮，下方会出现 x,ab两个图标，x表示去掉所有约束，ab表示切换显示横条还是四个点，点击ab在button中间会出现一根横条，然后把该控件和指定控件的横条相连就行了。</p>
+<h5 id="tools-layout-editor-absoluteX"><a href="#tools-layout-editor-absoluteX" class="headerlink" title="tools:layout_editor_absoluteX"></a>tools:layout_editor_absoluteX</h5><p>表示此控件在布局中X轴的绝对坐标点</p>
+<p>#####tools:layout_editor_absoluteY<br>表示此控件在布局中Y轴的绝对坐标点</p>
+<p>#####app:layout_constraintGuide_begin<br>表示布局中引导线距离左边框的距离（dp）<br>实现：先通过Add Vertical Guideline 或者 Add Horizontal Guideline添加一条竖直方向的或者水平方向的引导线，然后移动这根线，默认就是设置其距左边框的距离，点击这条引导线，上面有一个小圆，点击小圆有三种类型（&lt;,&gt;,%）左箭头对应的就是这个属性</p>
+<p>#####app:layout_constraintGuide_end<br>表示布局中引导线距离右边框的距离（dp）<br>实现：点击这条引导线，上面有一个小圆，点击小圆有三种类型（&lt;,&gt;,%）右箭头对应的就是这个属性</p>
+<p>#####app:layout_constraintGuide_percent<br>表示在整个布局中引导线距离左边框的百分百（如：app:layout_constraintGuide_percent=”0.5”表示距离左边框50%的位置）<br>实现：点击这条引导线，上面有一个小圆，点击小圆有三种类型（&lt;,&gt;,%）%对应的就是这个属性</p>
+<p>#####app:layout_constraintStart_toEndOf（不怎么用）<br>表示此控件的左边界在某个控件右边界的右边，及表示此控件在某个控件的右边,这个和app:layout_constraintLeft_toRightOf类似啊，所以感觉用不到</p>
+<p>#####app:layout_constraintStart_toStartOf（不怎么用）<br>表示此控件的左边界与某个控件的左边界在同一垂直线上，这个和app:layout_constraintLeft_toLeftOf类似啊，所以感觉用不到</p>
+<p>#####app:layout_constraintEnd_toStartOf（不怎么用）<br>同理</p>
+<p>#####app:layout_constraintEnd_toEndOf（不怎么用）<br>同理</p>
+<p>#####app:layout_constraintHorizontal_bias<br>当该控件的左右边都设置了约束，才能使用该属性，表示此控件在布局中的水平方向上的偏移百分量</p>
+<p>#####app:layout_constraintVertical_bias<br>当该控件的左右边都设置了约束，才能使用该属性，表示此控件在布局中的竖直方向上的偏移百分量</p>
+<p>#####app:layout_constraintDimensionRatio<br>表示两个控件的纵横比，而使用则需要把宽（layout_width）或者高（layout_height）设置为0dp，根据另一个属性和比例, 计算当前属性, 如        app:layout_constraintDimensionRatio=”6:3” 表示宽比高为6：3</p>
+<p>#####goneMargin属性<br>一共支持的属性如下：<br>layout_goneMarginStart<br>layout_goneMarginEnd<br>layout_goneMarginLeft<br>layout_goneMarginTop<br>layout_goneMarginRight<br>layout_goneMarginBottom</p>
+<p>比如A,B两个view,B在A的右边，这时候如果A消失了，但是你想让B在父布局的右边多少距离，就可以使用这个属性，很神奇。</p>
+<p>#####creator迷之属性<br>app:layout_constraintBaseline_creator=”12”<br>app:layout_constraintTop_creator=”12”<br>app:layout_constraintBottom_creator=”12”<br>app:layout_constraintLeft_creator=”12”<br>app:layout_constraintRight_creator=”12”<br>这几个属性在当前版本并没有任何作用</p>
+<p>#####自动添加约束<br>自动添加约束的方式主要有两种，一种叫Autoconnect，一种叫Inference，其实就是两个按钮<br>Autoconnect默认关闭，需要手动打开<br>Inference系统会帮你将布局的view都添加约束，但是并不一定是你想要的。</p>
+<p>差不多这样，基本这些属性就够用了，也试着拖拽着使用了一下，大致都了解了，想要使用这个布局，光看是不行的，还是要写个Demo自己用用这些属性，用了就知道，什么效果了。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;###前言&lt;br&gt;哇，习惯了使用LinearLayout，RelateLayout，FrameLayout,很早就听说constraintLayout约束布局出来了，但是一直没使用过，今天试了一下，确实非常强大，绝对是RelateLayout的加强升级版，对于复杂的界面，绝对能减少布局的层级嵌套，大大提高app性能，但使用起来还是非常简单的。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="android" scheme="http://yoursite.com/categories/android/"/>
+    
+    
+      <category term="工作学习" scheme="http://yoursite.com/tags/%E5%B7%A5%E4%BD%9C%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="constraintLayout" scheme="http://yoursite.com/tags/constraintLayout/"/>
+    
+      <category term="界面" scheme="http://yoursite.com/tags/%E7%95%8C%E9%9D%A2/"/>
+    
+      <category term="可视化" scheme="http://yoursite.com/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
+    
+  </entry>
   
   <entry>
     <title>webview无法弹出select选择框</title>
@@ -158,10 +215,12 @@
     <link href="http://yoursite.com/2017/06/07/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8E%A7%E4%BB%B6-%E4%BA%8C/"/>
     <id>http://yoursite.com/2017/06/07/自定义控件-二/</id>
     <published>2017-06-06T16:23:37.000Z</published>
-    <updated>2017-06-06T16:45:37.000Z</updated>
+    <updated>2017-07-25T01:10:16.000Z</updated>
     
     <content type="html"><![CDATA[<p>实现如下的一个自定义控件，<br><img src="http://opn79542e.bkt.clouddn.com/stepview.png" alt="stepview"><br>有点类似于stepView,像物流订单信息的那种一样,如下所示<br><img src="http://opn79542e.bkt.clouddn.com/wuliu.png" alt=""><br>所以也参考了<a href="https://github.com/baoyachi/StepView/blob/master/app/src/main/res/layout/fragment_horizontal_stepview.xml" target="_blank" rel="external">StepView</a>,实现了该效果。</p>
 <a id="more"></a>
+<p>上下的节点个数都可以自定义，红色或者绿色的节点代表这个产品的范围，直接通过代码详细看思路。</p>
+<h4 id="一、初始化"><a href="#一、初始化" class="headerlink" title="一、初始化"></a>一、初始化</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">    <span class="keyword">private</span> List&lt;StepViewBean&gt; mStepViewBeanList;</div><div class="line">    <span class="keyword">private</span> List&lt;Float&gt; mCircleCenterPointPositionList;</div><div class="line">    <span class="keyword">private</span> Paint       mUnCompletedPaint;</div><div class="line">    <span class="keyword">private</span> Paint       mCompletedPaint;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> mUnCompletedLineColor = ContextCompat.getColor(getContext(), R.color.textColor_E0E0E0);</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> mCompletedLineColor   = ContextCompat.getColor(getContext(), R.color.colorPrimary);</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * init</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;</div><div class="line">        mStepViewBeanList = <span class="keyword">new</span> ArrayList&lt;&gt;();<span class="comment">//当前有几个这样的流程，栗子中为上下红绿两个，一个StepViewBean对象代表一个流程</span></div><div class="line">        mCircleCenterPointPositionList = <span class="keyword">new</span> ArrayList&lt;&gt;();<span class="comment">//定义所有圆的圆心点位置的集合</span></div><div class="line">        mUnCompletedPaint = <span class="keyword">new</span> Paint();    <span class="comment">//创建画笔 （未完成）</span></div><div class="line">        mUnCompletedPaint.setAntiAlias(<span class="keyword">true</span>);<span class="comment">//设置抗锯齿</span></div><div class="line">        mUnCompletedPaint.setColor(mUnCompletedLineColor);  <span class="comment">//未完成的画笔颜色 e0e0e0</span></div><div class="line">        mUnCompletedPaint.setStyle(Paint.Style.FILL);   <span class="comment">//设置类型为填充</span></div><div class="line">mUnCompletedPaint.setStrokeWidth(FontDisplayUtil.dip2px(getContext(), <span class="number">2</span>));  <span class="comment">//设置画笔粗细</span></div><div class="line"></div><div class="line">        mCompletedPaint = <span class="keyword">new</span> Paint();      <span class="comment">//创建画笔 （完成）</span></div><div class="line">        mCompletedPaint.setAntiAlias(<span class="keyword">true</span>); <span class="comment">//设置抗锯齿</span></div><div class="line">        mCompletedPaint.setColor(mCompletedLineColor);   <span class="comment">//完成的画笔颜色</span></div><div class="line">        mCompletedPaint.setStyle(Paint.Style.FILL); <span class="comment">//设置类型为填充</span></div><div class="line">    mCompletedPaint.setStrokeWidth(FontDisplayUtil.dip2px(getContext(), <span class="number">2</span>));    <span class="comment">//设置画笔粗细</span></div><div class="line"></div><div class="line">        <span class="comment">//已经完成线的宽高</span></div><div class="line">        mCompletedLineHeight = <span class="number">0.1f</span> * defaultStepIndicatorNum;</div><div class="line">        <span class="comment">//圆的半径</span></div><div class="line">        mCircleRadius = <span class="number">0.28f</span> * defaultStepIndicatorNum;</div><div class="line">        <span class="comment">//线与线之间的间距</span></div><div class="line">        mLinePadding = <span class="number">2f</span> * defaultStepIndicatorNum;</div><div class="line"></div><div class="line">        mCompleteIcon = ContextCompat.getDrawable(getContext(), R.mipmap.ic_step_red_choose);<span class="comment">//已经完成的icon</span></div><div class="line">        mDefaultIcon = ContextCompat.getDrawable(getContext(), R.mipmap.ic_step_no_choose);<span class="comment">//未完成的icon</span></div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 ]]></content>
     
     <summary type="html">
