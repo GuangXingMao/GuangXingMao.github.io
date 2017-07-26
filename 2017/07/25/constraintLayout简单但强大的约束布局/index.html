@@ -110,17 +110,17 @@
 
 
 
-<meta name="description" content="###前言哇，习惯了使用LinearLayout，RelateLayout，FrameLayout,很早就听说constraintLayout约束布局出来了，但是一直没使用过，今天试了一下，确实非常强大，绝对是RelateLayout的加强升级版，对于复杂的界面，绝对能减少布局的层级嵌套，大大提高app性能，但使用起来还是非常简单的。">
+<meta name="description" content="前言哇，习惯了使用LinearLayout，RelateLayout，FrameLayout,很早就听说constraintLayout约束布局出来了，但是一直没使用过，今天试了一下，确实非常强大，绝对是RelateLayout的加强升级版，对于复杂的界面，绝对能减少布局的层级嵌套，大大提高app性能，但使用起来还是非常简单的。">
 <meta name="keywords" content="工作学习,constraintLayout,界面,可视化">
 <meta property="og:type" content="article">
 <meta property="og:title" content="constraintLayout简单但强大的约束布局">
 <meta property="og:url" content="http://yoursite.com/2017/07/25/constraintLayout简单但强大的约束布局/index.html">
 <meta property="og:site_name" content="Shinx&#39;blog">
-<meta property="og:description" content="###前言哇，习惯了使用LinearLayout，RelateLayout，FrameLayout,很早就听说constraintLayout约束布局出来了，但是一直没使用过，今天试了一下，确实非常强大，绝对是RelateLayout的加强升级版，对于复杂的界面，绝对能减少布局的层级嵌套，大大提高app性能，但使用起来还是非常简单的。">
-<meta property="og:updated_time" content="2017-07-25T08:07:27.000Z">
+<meta property="og:description" content="前言哇，习惯了使用LinearLayout，RelateLayout，FrameLayout,很早就听说constraintLayout约束布局出来了，但是一直没使用过，今天试了一下，确实非常强大，绝对是RelateLayout的加强升级版，对于复杂的界面，绝对能减少布局的层级嵌套，大大提高app性能，但使用起来还是非常简单的。">
+<meta property="og:updated_time" content="2017-07-26T15:30:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="constraintLayout简单但强大的约束布局">
-<meta name="twitter:description" content="###前言哇，习惯了使用LinearLayout，RelateLayout，FrameLayout,很早就听说constraintLayout约束布局出来了，但是一直没使用过，今天试了一下，确实非常强大，绝对是RelateLayout的加强升级版，对于复杂的界面，绝对能减少布局的层级嵌套，大大提高app性能，但使用起来还是非常简单的。">
+<meta name="twitter:description" content="前言哇，习惯了使用LinearLayout，RelateLayout，FrameLayout,很早就听说constraintLayout约束布局出来了，但是一直没使用过，今天试了一下，确实非常强大，绝对是RelateLayout的加强升级版，对于复杂的界面，绝对能减少布局的层级嵌套，大大提高app性能，但使用起来还是非常简单的。">
 
 
 
@@ -391,34 +391,33 @@
       
 
       
-        <p>###前言<br>哇，习惯了使用LinearLayout，RelateLayout，FrameLayout,很早就听说constraintLayout约束布局出来了，但是一直没使用过，今天试了一下，确实非常强大，绝对是RelateLayout的加强升级版，对于复杂的界面，绝对能减少布局的层级嵌套，大大提高app性能，但使用起来还是非常简单的。</p>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>哇，习惯了使用LinearLayout，RelateLayout，FrameLayout,很早就听说constraintLayout约束布局出来了，但是一直没使用过，今天试了一下，确实非常强大，绝对是RelateLayout的加强升级版，对于复杂的界面，绝对能减少布局的层级嵌套，大大提高app性能，但使用起来还是非常简单的。</p>
 <a id="more"></a>
-<p>###基本属性</p>
-<p>#####app:layout_constraintLeft_toLeftOf<br>表示此控件的左边框与指定控件的左边框对齐<br>app:layout_constraintLeft_toLeftOf = “parent”表示贴在布局的左边框，其实就是与左边框产生约束，类似于layout_alignParentLeft=”true”</p>
-<p>#####app:layout_constraintLeft_toRightOf<br>表示此控件的左边框在指定控件的右边(整体在右)</p>
-<p>#####app:layout_constraintRight_toLeftOf<br>表示此控件的右边框在指定控件的左边（整体在左）</p>
-<p>#####app:layout_constraintRight_toRightOf<br>表示此控件的右边框与指定控件的右边框对齐<br>app:layout_constraintRight_toRightOf = “parent”表示贴在布局的右边框，其实就是与右边框产生约束，类似于layout_alignParentRight=”true”</p>
-<p>#####app:layout_constraintTop_toTopOf<br>表示此控件的上边框和指定控件的上边框对齐<br>app:layout_constraintTop_toTopOf = “parent”表示贴在布局的上边框，其实就是与上边框产生约束，类似于layout_alignParentTop=”true”</p>
-<p>#####app:layout_constraintTop_toBottomOf<br>表示此控件的上边框在指定控件的下边（整体在下）</p>
-<p>#####app:layout_constraintBottom_toBottomOf<br>表示此控件的下边框和指定控件的下边框对齐<br>app:layout_constraintBottom_toBottomOf = “parent”表示贴在布局的下边框，其实就是与下边框产生约束，类似于layout_alignParentBottom=”true”</p>
-<p>#####app:layout_constraintBottom_toTopOf<br>表示此控件的下边框在指定控件的上边（整体在上）</p>
-<p>#####app:layout_constraintBaseline_toBaselineOf<br>表示此控件与指定控件水平对齐<br>实现:点击该button按钮，下方会出现 x,ab两个图标，x表示去掉所有约束，ab表示切换显示横条还是四个点，点击ab在button中间会出现一根横条，然后把该控件和指定控件的横条相连就行了。</p>
+<h3 id="基本属性"><a href="#基本属性" class="headerlink" title="基本属性"></a>基本属性</h3><h5 id="app-layout-constraintLeft-toLeftOf"><a href="#app-layout-constraintLeft-toLeftOf" class="headerlink" title="app:layout_constraintLeft_toLeftOf"></a>app:layout_constraintLeft_toLeftOf</h5><p>表示此控件的左边框与指定控件的左边框对齐<br>app:layout_constraintLeft_toLeftOf = “parent”表示贴在布局的左边框，其实就是与左边框产生约束，类似于layout_alignParentLeft=”true”</p>
+<h5 id="app-layout-constraintLeft-toRightOf"><a href="#app-layout-constraintLeft-toRightOf" class="headerlink" title="app:layout_constraintLeft_toRightOf"></a>app:layout_constraintLeft_toRightOf</h5><p>表示此控件的左边框在指定控件的右边(整体在右)</p>
+<h5 id="app-layout-constraintRight-toLeftOf"><a href="#app-layout-constraintRight-toLeftOf" class="headerlink" title="#####app:layout_constraintRight_toLeftOf"></a>#####app:layout_constraintRight_toLeftOf</h5><p>表示此控件的右边框在指定控件的左边（整体在左）</p>
+<h5 id="app-layout-constraintRight-toRightOf"><a href="#app-layout-constraintRight-toRightOf" class="headerlink" title="#####app:layout_constraintRight_toRightOf"></a>#####app:layout_constraintRight_toRightOf</h5><p>表示此控件的右边框与指定控件的右边框对齐<br>app:layout_constraintRight_toRightOf = “parent”表示贴在布局的右边框，其实就是与右边框产生约束，类似于layout_alignParentRight=”true”</p>
+<h5 id="app-layout-constraintTop-toTopOf"><a href="#app-layout-constraintTop-toTopOf" class="headerlink" title="app:layout_constraintTop_toTopOf"></a>app:layout_constraintTop_toTopOf</h5><p>表示此控件的上边框和指定控件的上边框对齐<br>app:layout_constraintTop_toTopOf = “parent”表示贴在布局的上边框，其实就是与上边框产生约束，类似于layout_alignParentTop=”true”</p>
+<h5 id="app-layout-constraintTop-toBottomOf"><a href="#app-layout-constraintTop-toBottomOf" class="headerlink" title="app:layout_constraintTop_toBottomOf"></a>app:layout_constraintTop_toBottomOf</h5><p>表示此控件的上边框在指定控件的下边（整体在下）</p>
+<h5 id="app-layout-constraintBottom-toBottomOf"><a href="#app-layout-constraintBottom-toBottomOf" class="headerlink" title="app:layout_constraintBottom_toBottomOf"></a>app:layout_constraintBottom_toBottomOf</h5><p>表示此控件的下边框和指定控件的下边框对齐<br>app:layout_constraintBottom_toBottomOf = “parent”表示贴在布局的下边框，其实就是与下边框产生约束，类似于layout_alignParentBottom=”true”</p>
+<h5 id="app-layout-constraintBottom-toTopOf"><a href="#app-layout-constraintBottom-toTopOf" class="headerlink" title="app:layout_constraintBottom_toTopOf"></a>app:layout_constraintBottom_toTopOf</h5><p>表示此控件的下边框在指定控件的上边（整体在上）</p>
+<h5 id="app-layout-constraintBaseline-toBaselineOf"><a href="#app-layout-constraintBaseline-toBaselineOf" class="headerlink" title="app:layout_constraintBaseline_toBaselineOf"></a>app:layout_constraintBaseline_toBaselineOf</h5><p>表示此控件与指定控件水平对齐<br>实现:点击该button按钮，下方会出现 x,ab两个图标，x表示去掉所有约束，ab表示切换显示横条还是四个点，点击ab在button中间会出现一根横条，然后把该控件和指定控件的横条相连就行了。</p>
 <h5 id="tools-layout-editor-absoluteX"><a href="#tools-layout-editor-absoluteX" class="headerlink" title="tools:layout_editor_absoluteX"></a>tools:layout_editor_absoluteX</h5><p>表示此控件在布局中X轴的绝对坐标点</p>
-<p>#####tools:layout_editor_absoluteY<br>表示此控件在布局中Y轴的绝对坐标点</p>
-<p>#####app:layout_constraintGuide_begin<br>表示布局中引导线距离左边框的距离（dp）<br>实现：先通过Add Vertical Guideline 或者 Add Horizontal Guideline添加一条竖直方向的或者水平方向的引导线，然后移动这根线，默认就是设置其距左边框的距离，点击这条引导线，上面有一个小圆，点击小圆有三种类型（&lt;,&gt;,%）左箭头对应的就是这个属性</p>
-<p>#####app:layout_constraintGuide_end<br>表示布局中引导线距离右边框的距离（dp）<br>实现：点击这条引导线，上面有一个小圆，点击小圆有三种类型（&lt;,&gt;,%）右箭头对应的就是这个属性</p>
-<p>#####app:layout_constraintGuide_percent<br>表示在整个布局中引导线距离左边框的百分百（如：app:layout_constraintGuide_percent=”0.5”表示距离左边框50%的位置）<br>实现：点击这条引导线，上面有一个小圆，点击小圆有三种类型（&lt;,&gt;,%）%对应的就是这个属性</p>
-<p>#####app:layout_constraintStart_toEndOf（不怎么用）<br>表示此控件的左边界在某个控件右边界的右边，及表示此控件在某个控件的右边,这个和app:layout_constraintLeft_toRightOf类似啊，所以感觉用不到</p>
-<p>#####app:layout_constraintStart_toStartOf（不怎么用）<br>表示此控件的左边界与某个控件的左边界在同一垂直线上，这个和app:layout_constraintLeft_toLeftOf类似啊，所以感觉用不到</p>
-<p>#####app:layout_constraintEnd_toStartOf（不怎么用）<br>同理</p>
-<p>#####app:layout_constraintEnd_toEndOf（不怎么用）<br>同理</p>
-<p>#####app:layout_constraintHorizontal_bias<br>当该控件的左右边都设置了约束，才能使用该属性，表示此控件在布局中的水平方向上的偏移百分量</p>
-<p>#####app:layout_constraintVertical_bias<br>当该控件的左右边都设置了约束，才能使用该属性，表示此控件在布局中的竖直方向上的偏移百分量</p>
-<p>#####app:layout_constraintDimensionRatio<br>表示两个控件的纵横比，而使用则需要把宽（layout_width）或者高（layout_height）设置为0dp，根据另一个属性和比例, 计算当前属性, 如        app:layout_constraintDimensionRatio=”6:3” 表示宽比高为6：3</p>
-<p>#####goneMargin属性<br>一共支持的属性如下：<br>layout_goneMarginStart<br>layout_goneMarginEnd<br>layout_goneMarginLeft<br>layout_goneMarginTop<br>layout_goneMarginRight<br>layout_goneMarginBottom</p>
+<h5 id="tools-layout-editor-absoluteY"><a href="#tools-layout-editor-absoluteY" class="headerlink" title="tools:layout_editor_absoluteY"></a>tools:layout_editor_absoluteY</h5><p>表示此控件在布局中Y轴的绝对坐标点</p>
+<h5 id="app-layout-constraintGuide-begin"><a href="#app-layout-constraintGuide-begin" class="headerlink" title="app:layout_constraintGuide_begin"></a>app:layout_constraintGuide_begin</h5><p>表示布局中引导线距离左边框的距离（dp）<br>实现：先通过Add Vertical Guideline 或者 Add Horizontal Guideline添加一条竖直方向的或者水平方向的引导线，然后移动这根线，默认就是设置其距左边框的距离，点击这条引导线，上面有一个小圆，点击小圆有三种类型（&lt;,&gt;,%）左箭头对应的就是这个属性</p>
+<h5 id="app-layout-constraintGuide-end"><a href="#app-layout-constraintGuide-end" class="headerlink" title="app:layout_constraintGuide_end"></a>app:layout_constraintGuide_end</h5><p>表示布局中引导线距离右边框的距离（dp）<br>实现：点击这条引导线，上面有一个小圆，点击小圆有三种类型（&lt;,&gt;,%）右箭头对应的就是这个属性</p>
+<h5 id="app-layout-constraintGuide-percent"><a href="#app-layout-constraintGuide-percent" class="headerlink" title="app:layout_constraintGuide_percent"></a>app:layout_constraintGuide_percent</h5><p>表示在整个布局中引导线距离左边框的百分百（如：app:layout_constraintGuide_percent=”0.5”表示距离左边框50%的位置）<br>实现：点击这条引导线，上面有一个小圆，点击小圆有三种类型（&lt;,&gt;,%）%对应的就是这个属性</p>
+<h5 id="app-layout-constraintStart-toEndOf（不怎么用）"><a href="#app-layout-constraintStart-toEndOf（不怎么用）" class="headerlink" title="app:layout_constraintStart_toEndOf（不怎么用）"></a>app:layout_constraintStart_toEndOf（不怎么用）</h5><p>表示此控件的左边界在某个控件右边界的右边，及表示此控件在某个控件的右边,这个和app:layout_constraintLeft_toRightOf类似啊，所以感觉用不到</p>
+<h5 id="app-layout-constraintStart-toStartOf（不怎么用）"><a href="#app-layout-constraintStart-toStartOf（不怎么用）" class="headerlink" title="app:layout_constraintStart_toStartOf（不怎么用）"></a>app:layout_constraintStart_toStartOf（不怎么用）</h5><p>表示此控件的左边界与某个控件的左边界在同一垂直线上，这个和app:layout_constraintLeft_toLeftOf类似啊，所以感觉用不到</p>
+<h5 id="app-layout-constraintEnd-toStartOf（不怎么用）"><a href="#app-layout-constraintEnd-toStartOf（不怎么用）" class="headerlink" title="app:layout_constraintEnd_toStartOf（不怎么用）"></a>app:layout_constraintEnd_toStartOf（不怎么用）</h5><p>同理</p>
+<h5 id="app-layout-constraintEnd-toEndOf（不怎么用）"><a href="#app-layout-constraintEnd-toEndOf（不怎么用）" class="headerlink" title="app:layout_constraintEnd_toEndOf（不怎么用）"></a>app:layout_constraintEnd_toEndOf（不怎么用）</h5><p>同理</p>
+<h5 id="app-layout-constraintHorizontal-bias"><a href="#app-layout-constraintHorizontal-bias" class="headerlink" title="app:layout_constraintHorizontal_bias"></a>app:layout_constraintHorizontal_bias</h5><p>当该控件的左右边都设置了约束，才能使用该属性，表示此控件在布局中的水平方向上的偏移百分量</p>
+<h5 id="app-layout-constraintVertical-bias"><a href="#app-layout-constraintVertical-bias" class="headerlink" title="app:layout_constraintVertical_bias"></a>app:layout_constraintVertical_bias</h5><p>当该控件的左右边都设置了约束，才能使用该属性，表示此控件在布局中的竖直方向上的偏移百分量</p>
+<h5 id="app-layout-constraintDimensionRatio"><a href="#app-layout-constraintDimensionRatio" class="headerlink" title="app:layout_constraintDimensionRatio"></a>app:layout_constraintDimensionRatio</h5><p>表示两个控件的纵横比，而使用则需要把宽（layout_width）或者高（layout_height）设置为0dp，根据另一个属性和比例, 计算当前属性, 如        app:layout_constraintDimensionRatio=”6:3” 表示宽比高为6：3</p>
+<h5 id="goneMargin属性"><a href="#goneMargin属性" class="headerlink" title="goneMargin属性"></a>goneMargin属性</h5><p>一共支持的属性如下：<br>layout_goneMarginStart<br>layout_goneMarginEnd<br>layout_goneMarginLeft<br>layout_goneMarginTop<br>layout_goneMarginRight<br>layout_goneMarginBottom</p>
 <p>比如A,B两个view,B在A的右边，这时候如果A消失了，但是你想让B在父布局的右边多少距离，就可以使用这个属性，很神奇。</p>
-<p>#####creator迷之属性<br>app:layout_constraintBaseline_creator=”12”<br>app:layout_constraintTop_creator=”12”<br>app:layout_constraintBottom_creator=”12”<br>app:layout_constraintLeft_creator=”12”<br>app:layout_constraintRight_creator=”12”<br>这几个属性在当前版本并没有任何作用</p>
-<p>#####自动添加约束<br>自动添加约束的方式主要有两种，一种叫Autoconnect，一种叫Inference，其实就是两个按钮<br>Autoconnect默认关闭，需要手动打开<br>Inference系统会帮你将布局的view都添加约束，但是并不一定是你想要的。</p>
+<h5 id="creator迷之属性"><a href="#creator迷之属性" class="headerlink" title="creator迷之属性"></a>creator迷之属性</h5><p>app:layout_constraintBaseline_creator=”12”<br>app:layout_constraintTop_creator=”12”<br>app:layout_constraintBottom_creator=”12”<br>app:layout_constraintLeft_creator=”12”<br>app:layout_constraintRight_creator=”12”<br>这几个属性在当前版本并没有任何作用</p>
+<h5 id="自动添加约束"><a href="#自动添加约束" class="headerlink" title="自动添加约束"></a>自动添加约束</h5><p>自动添加约束的方式主要有两种，一种叫Autoconnect，一种叫Inference，其实就是两个按钮<br>Autoconnect默认关闭，需要手动打开<br>Inference系统会帮你将布局的view都添加约束，但是并不一定是你想要的。</p>
 <p>差不多这样，基本这些属性就够用了，也试着拖拽着使用了一下，大致都了解了，想要使用这个布局，光看是不行的，还是要写个Demo自己用用这些属性，用了就知道，什么效果了。</p>
 
       
@@ -477,6 +476,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/26/webview兼容性总结/" rel="prev" title="webview兼容性总结">
+                webview兼容性总结 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -578,7 +581,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">21</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -671,7 +674,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#tools-layout-editor-absoluteX"><span class="nav-number">1.</span> <span class="nav-text">tools:layout_editor_absoluteX</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本属性"><span class="nav-number">2.</span> <span class="nav-text">基本属性</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#app-layout-constraintLeft-toLeftOf"><span class="nav-number">2.0.1.</span> <span class="nav-text">app:layout_constraintLeft_toLeftOf</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#app-layout-constraintLeft-toRightOf"><span class="nav-number">2.0.2.</span> <span class="nav-text">app:layout_constraintLeft_toRightOf</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#app-layout-constraintRight-toLeftOf"><span class="nav-number">2.0.3.</span> <span class="nav-text">#####app:layout_constraintRight_toLeftOf</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#app-layout-constraintRight-toRightOf"><span class="nav-number">2.0.4.</span> <span class="nav-text">#####app:layout_constraintRight_toRightOf</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#app-layout-constraintTop-toTopOf"><span class="nav-number">2.0.5.</span> <span class="nav-text">app:layout_constraintTop_toTopOf</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#app-layout-constraintTop-toBottomOf"><span class="nav-number">2.0.6.</span> <span class="nav-text">app:layout_constraintTop_toBottomOf</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#app-layout-constraintBottom-toBottomOf"><span class="nav-number">2.0.7.</span> <span class="nav-text">app:layout_constraintBottom_toBottomOf</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#app-layout-constraintBottom-toTopOf"><span class="nav-number">2.0.8.</span> <span class="nav-text">app:layout_constraintBottom_toTopOf</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#app-layout-constraintBaseline-toBaselineOf"><span class="nav-number">2.0.9.</span> <span class="nav-text">app:layout_constraintBaseline_toBaselineOf</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tools-layout-editor-absoluteX"><span class="nav-number">2.0.10.</span> <span class="nav-text">tools:layout_editor_absoluteX</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tools-layout-editor-absoluteY"><span class="nav-number">2.0.11.</span> <span class="nav-text">tools:layout_editor_absoluteY</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#app-layout-constraintGuide-begin"><span class="nav-number">2.0.12.</span> <span class="nav-text">app:layout_constraintGuide_begin</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#app-layout-constraintGuide-end"><span class="nav-number">2.0.13.</span> <span class="nav-text">app:layout_constraintGuide_end</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#app-layout-constraintGuide-percent"><span class="nav-number">2.0.14.</span> <span class="nav-text">app:layout_constraintGuide_percent</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#app-layout-constraintStart-toEndOf（不怎么用）"><span class="nav-number">2.0.15.</span> <span class="nav-text">app:layout_constraintStart_toEndOf（不怎么用）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#app-layout-constraintStart-toStartOf（不怎么用）"><span class="nav-number">2.0.16.</span> <span class="nav-text">app:layout_constraintStart_toStartOf（不怎么用）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#app-layout-constraintEnd-toStartOf（不怎么用）"><span class="nav-number">2.0.17.</span> <span class="nav-text">app:layout_constraintEnd_toStartOf（不怎么用）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#app-layout-constraintEnd-toEndOf（不怎么用）"><span class="nav-number">2.0.18.</span> <span class="nav-text">app:layout_constraintEnd_toEndOf（不怎么用）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#app-layout-constraintHorizontal-bias"><span class="nav-number">2.0.19.</span> <span class="nav-text">app:layout_constraintHorizontal_bias</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#app-layout-constraintVertical-bias"><span class="nav-number">2.0.20.</span> <span class="nav-text">app:layout_constraintVertical_bias</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#app-layout-constraintDimensionRatio"><span class="nav-number">2.0.21.</span> <span class="nav-text">app:layout_constraintDimensionRatio</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#goneMargin属性"><span class="nav-number">2.0.22.</span> <span class="nav-text">goneMargin属性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#creator迷之属性"><span class="nav-number">2.0.23.</span> <span class="nav-text">creator迷之属性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#自动添加约束"><span class="nav-number">2.0.24.</span> <span class="nav-text">自动添加约束</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
